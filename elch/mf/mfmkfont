@@ -1,0 +1,54 @@
+#!/bin/ksh
+set -x
+
+# display "usage" when no parms are given
+if [ $# = 1 ]
+then
+  echo "usage: mfmkfont optionen font font ..."
+  echo "            -m <nr>    -- magstep <nr>; Voreinstellung: 0"
+  echo "            -a <mag>   -- magnification <mag>; Voreinstellung: 1"
+  echo "            -x <mode>  -- Mode <mode>; Voreinst.: agfa"
+  echo "	    -y <smode> -- special mode: smode"
+  echo "            -s -- small: Magnification mit 0.707 multiplizieren"
+  exit
+fi
+
+# initialize shell vars
+
+mode="\mode=agfa"
+mag=1
+small=1
+
+# read and interprete Options
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+	-m)	mag="magstep $2";	shift ;;
+	-a)	mag="$2" 	;	shift ;;
+	-x)	mode="\mode=$2";	shift ;;
+	-y)	mode="\smode:=\"$2\"";	shift ;;
+	-s)	small="0.707"		;;
+	-*)	echo "Unknown Option: $opt"
+		exit;;
+	*)	break;;
+  esac
+  shift
+done
+
+mag="$small "'*'" $mag"
+
+while [ $# -gt 0 ]
+do
+  font="${1%.mf}"
+
+  echo mf "$mode;" "\mag:=$mag;" "batchmode;" input "$font"
+  mf "$mode;" "\mag:=$mag;" "batchmode;" input "$font"
+
+  gftopk ./$font.[0-9]*gf
+
+  rm ${font}.[0-9]*gf
+  rm ${font}.log
+
+  shift
+done

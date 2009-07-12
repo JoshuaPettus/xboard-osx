@@ -1,0 +1,3660 @@
+This is GFtype, Version 3.1 (C version 6.1)
+Options selected: Mnemonic output = false; pixel output = true.
+' METAFONT output 1995.11.20:1657'
+
+35: beginning of char 144
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+468: beginning of char 0
+.<--This pixel's lower left corner is at (4,17) in METAFONT coordinates
+    *****
+    *   *
+    *   *
+    ** **
+   **   **
+   *     *
+   *     *
+   **   **
+  ***   ***
+ **       **
+ *         *
+**         **
+*           *
+*           *
+*************
+.<--This pixel's upper left corner is at (4,2) in METAFONT coordinates
+
+531: beginning of char 36
+.<--This pixel's lower left corner is at (4,18) in METAFONT coordinates
+           ****
+         ***  *
+        **    *
+    *****     *
+*****  **     *
+*  *          *
+*             *
+*  *          *
+*****  **     *
+    *****     *
+        **    *
+         ***  *
+           ****
+.<--This pixel's upper left corner is at (4,5) in METAFONT coordinates
+
+594: beginning of char 72
+.<--This pixel's lower left corner is at (3,17) in METAFONT coordinates
+****
+*  ***
+*    **
+*     *****
+*     **  *****
+*          *  *
+*             *
+*          *  *
+*     **  *****
+*     *****
+*    **
+*  ***
+****
+.<--This pixel's upper left corner is at (3,4) in METAFONT coordinates
+
+657: beginning of char 108
+.<--This pixel's lower left corner is at (4,19) in METAFONT coordinates
+*************
+*           *
+*           *
+**         **
+ *         *
+ **       **
+  ***   ***
+   **   **
+   *     *
+   *     *
+   **   **
+    ** **
+    *   *
+    *   *
+    *****
+.<--This pixel's upper left corner is at (4,4) in METAFONT coordinates
+
+720: beginning of char 12
+.<--This pixel's lower left corner is at (4,17) in METAFONT coordinates
+    *****
+    *****
+    *****
+    *****
+   *******
+   *******
+   *******
+   *******
+  *********
+ ***********
+ ***********
+*************
+*************
+*************
+*************
+.<--This pixel's upper left corner is at (4,2) in METAFONT coordinates
+
+757: beginning of char 48
+.<--This pixel's lower left corner is at (4,18) in METAFONT coordinates
+           ****
+         ******
+        *******
+    ***********
+***************
+***************
+***************
+***************
+***************
+    ***********
+        *******
+         ******
+           ****
+.<--This pixel's upper left corner is at (4,5) in METAFONT coordinates
+
+790: beginning of char 84
+.<--This pixel's lower left corner is at (3,17) in METAFONT coordinates
+****
+******
+*******
+***********
+***************
+***************
+***************
+***************
+***************
+***********
+*******
+******
+****
+.<--This pixel's upper left corner is at (3,4) in METAFONT coordinates
+
+823: beginning of char 120
+.<--This pixel's lower left corner is at (4,19) in METAFONT coordinates
+*************
+*************
+*************
+*************
+ ***********
+ ***********
+  *********
+   *******
+   *******
+   *******
+   *******
+    *****
+    *****
+    *****
+    *****
+.<--This pixel's upper left corner is at (4,4) in METAFONT coordinates
+
+860: beginning of char 6
+.<--This pixel's lower left corner is at (4,17) in METAFONT coordinates
+    *****
+    *** *
+    *** *
+    *****
+   **** **
+   ****  *
+   ****  *
+   **** **
+  ***** ***
+ ******   **
+ ******    *
+*******    **
+*******     *
+*******     *
+*************
+.<--This pixel's upper left corner is at (4,2) in METAFONT coordinates
+
+921: beginning of char 42
+.<--This pixel's lower left corner is at (4,18) in METAFONT coordinates
+           ****
+         ***  *
+        **    *
+    *****     *
+*****  **     *
+*  *          *
+***************
+***************
+***************
+    ***********
+        *******
+         ******
+           ****
+.<--This pixel's upper left corner is at (4,5) in METAFONT coordinates
+
+968: beginning of char 78
+.<--This pixel's lower left corner is at (3,17) in METAFONT coordinates
+****
+******
+*******
+***********
+***************
+***************
+***************
+*          *  *
+*     **  *****
+*     *****
+*    **
+*  ***
+****
+.<--This pixel's upper left corner is at (3,4) in METAFONT coordinates
+
+1015: beginning of char 114
+.<--This pixel's lower left corner is at (4,19) in METAFONT coordinates
+*************
+*     *******
+*     *******
+**    *******
+ *    ******
+ **   ******
+  *** *****
+   ** ****
+   *  ****
+   *  ****
+   ** ****
+    *****
+    * ***
+    * ***
+    *****
+.<--This pixel's upper left corner is at (4,4) in METAFONT coordinates
+
+1076: beginning of char 18
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * *     * * * *
+* * * * ***** * * * *
+ * * * **   ** * * *
+* * * * *   * * * * *
+ * * *  ** **  * * *
+* * *  **   **  * * *
+ * * * *     * * * *
+* * *  *     *  * * *
+ * * * **   ** * * *
+* * * ***   *** * * *
+ * * **       ** * *
+* *  *         *  * *
+ * ***         *** *
+* * *           * * *
+ * **           ** *
+* * ************* *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+1401: beginning of char 54
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * *****
+* * * * * *  ***  * *
+ * * *      **    **
+* * *   *****     * *
+ * ******  **     **
+* * *  *          * *
+ *  *             **
+* * *  *          * *
+ * ******  **     **
+* * *   *****     * *
+ * * *      **    **
+* * * * * *  ***  * *
+ * * * * * * * *****
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+1720: beginning of char 90
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * * * *
+* ***** * * * * * * *
+ * *  ***  * * * * *
+* **    **      * * *
+ * *     *****   * *
+* **     **  ****** *
+ * *          *  * *
+* **             *  *
+ * *          *  * *
+* **     **  ****** *
+ * *     *****   * *
+* **    **      * * *
+ * *  ***  * * * * *
+* ***** * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+2039: beginning of char 126
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * ************* * *
+ * **           ** *
+* * *           * * *
+ * ***         *** *
+* *  *         *  * *
+ * * **       ** * *
+* * * ***   *** * * *
+ * * * **   ** * * *
+* * *  *     *  * * *
+ * * * *     * * * *
+* * *  **   **  * * *
+ * * *  ** **  * * *
+* * * * *   * * * * *
+ * * * **   ** * * *
+* * * * ***** * * * *
+ * * * *     * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+2364: beginning of char 24
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * *     * * * *
+* * * * ***** * * * *
+ * * * **** ** * * *
+* * * * *** * * * * *
+ * * *  *****  * * *
+* * *  **** **  * * *
+ * * * ****  * * * *
+* * *  ****  *  * * *
+ * * * **** ** * * *
+* * * ***** *** * * *
+ * * ******   ** * *
+* *  ******    *  * *
+ * ********    *** *
+* * *******     * * *
+ * ********     ** *
+* * ************* *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+2687: beginning of char 60
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * *****
+* * * * * *  ***  * *
+ * * *      **    **
+* * *   *****     * *
+ * ******  **     **
+* * *  *          * *
+ *  ****************
+* * *************** *
+ * *****************
+* * *   *********** *
+ * * *      ********
+* * * * * *  ****** *
+ * * * * * * * *****
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+2990: beginning of char 96
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * * * *
+* ***** * * * * * * *
+ * ******  * * * * *
+* ********      * * *
+ * ***********   * *
+* ***************** *
+ * *************** *
+* ****************  *
+ * *          *  * *
+* **     **  ****** *
+ * *     *****   * *
+* **    **      * * *
+ * *  ***  * * * * *
+* ***** * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+3293: beginning of char 132
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * ************* * *
+ * **     ******** *
+* * *     ******* * *
+ * ***    ******** *
+* *  *    ******  * *
+ * * **   ****** * *
+* * * *** ***** * * *
+ * * * ** **** * * *
+* * *  *  ****  * * *
+ * * * *  **** * * *
+* * *  ** ****  * * *
+ * * *  *****  * * *
+* * * * * *** * * * *
+ * * * ** **** * * *
+* * * * ***** * * * *
+ * * * *     * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+3616: beginning of char 30
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * *     * * * *
+* * * * ***** * * * *
+ * * * ******* * * *
+* * * * ***** * * * *
+ * * *  *****  * * *
+* * *  *******  * * *
+ * * * ******* * * *
+* * *  *******  * * *
+ * * * ******* * * *
+* * * ********* * * *
+ * * *********** * *
+* *  ***********  * *
+ * *************** *
+* * ************* * *
+ * *************** *
+* * ************* *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+3915: beginning of char 66
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * *****
+* * * * * *  ****** *
+ * * *      ********
+* * *   *********** *
+ * *****************
+* * *************** *
+ *  ****************
+* * *************** *
+ * *****************
+* * *   *********** *
+ * * *      ********
+* * * * * *  ****** *
+ * * * * * * * *****
+* * * * * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+4204: beginning of char 102
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * * * * * * * * * *
+* ***** * * * * * * *
+ * ******  * * * * *
+* ********      * * *
+ * ***********   * *
+* ***************** *
+ * *************** *
+* ****************  *
+ * *************** *
+* ***************** *
+ * ***********   * *
+* ********      * * *
+ * ******  * * * * *
+* ***** * * * * * * *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+4493: beginning of char 138
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * ************* * *
+ * *************** *
+* * ************* * *
+ * *************** *
+* *  ***********  * *
+ * * *********** * *
+* * * ********* * * *
+ * * * ******* * * *
+* * *  *******  * * *
+ * * * ******* * * *
+* * *  *******  * * *
+ * * *  *****  * * *
+* * * * ***** * * * *
+ * * * ******* * * *
+* * * * ***** * * * *
+ * * * *     * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+4792: beginning of char 1
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+   **  *
+   ******
+   **** ****
+   ***  *  ***
+   ***      ***
+  **         ***
+  **     *    **
+ **      *    ***
+ *      **     **
+**     ***     **
+**   *****     **
+******  *      ***
+* ***  **       **
+****  **        **
+     **         **
+    **          **
+    *           **
+    **************
+.<--This pixel's upper left corner is at (2,2) in METAFONT coordinates
+
+4887: beginning of char 37
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+           *******
+       ***********
+     *******     *
+    ****         *
+   ***           *
+   **            *
+  **             *
+  *              *
+  *   *****      *
+ ***    *****    *
+**       ** **   *
+ **       *  **  *
+ ****     **  ** *
+*****      **  ***
+*******    ***
+     ***   ***
+       ***** *
+         *****
+.<--This pixel's upper left corner is at (1,3) in METAFONT coordinates
+
+4978: beginning of char 73
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+    *****
+    * *****
+    ***   ***
+    ***    *******
+***  **      *****
+* **  **     ****
+*  **  *       **
+*   ** **       **
+*    *****    ***
+*      *****   *
+*              *
+*             **
+*            **
+*           ***
+*         ****
+*     *******
+***********
+*******
+.<--This pixel's upper left corner is at (3,1) in METAFONT coordinates
+
+5069: beginning of char 109
+.<--This pixel's lower left corner is at (1,19) in METAFONT coordinates
+**************
+**           *
+**          **
+**         **
+**        **  ****
+**       **  *** *
+***      *  ******
+ **     *****   **
+ **     ***     **
+ **     **      *
+ ***    *      **
+  **    *     **
+  ***         **
+   ***      ***
+    ***  *  ***
+      **** ****
+         ******
+          *  **
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+5164: beginning of char 19
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *** * * * * * *
+  * ******* * * * * *
+ * * **** **** * * *
+* *  ***  *  **** * *
+ * * ***      **** *
+* * **         **** *
+ *  **     *    ** *
+* ***      *    *** *
+ * *      **     ***
+* **     ***     ** *
+  **   *****     ***
+* ******  *      ****
+  * **** **       **
+* ****  **        ***
+ * * * **         **
+* * * **          ***
+ * * **           **
+* * * **************
+ * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+5395: beginning of char 55
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * ******* *
+   * * ************
+  * * *******     * *
+ * * ****         *
+* * ***           * *
+ *  **            *
+* ***             * *
+ * *              *
+*  *   *****      * *
+  ***    *****    *
+***       ** **   * *
+ ***       * ***  *
+* ****     ** *** * *
+ *****      ** ****
+********    *** * * *
+ * *  ***   **** * *
+* * * * ***** * * * *
+ * * * *  ****** * *
+* * * * *     * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+5626: beginning of char 91
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * *     * * * *
+  * * ******  * * * *
+ * * * * ***** * * *
+* * * ****   ***  * *
+ * * * ***    *******
+*  **** **      *****
+ * * *** **     ****
+*  *  *** *       ***
+ * *   ** **       **
+*  *    *****    ***
+ * *      *****   *
+*  *              * *
+ * *             ***
+*  *            **  *
+ * *           *** *
+*  *         **** * *
+ * *     ******* * *
+*  ************ * *
+ * ******* * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+5861: beginning of char 127
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+               * * *
+ ************** * * *
+ **           ** * *
+***          ** * * *
+ **         ** * * *
+***        **  **** *
+ **       ** **** *
+****      *  ****** *
+ ***     *****   **
+* **     ***     ** *
+ ***     **      * *
+* ***    *      *** *
+ * **    *     **  *
+* ****         ** * *
+ * ****      *** * *
+* * ****  *  ***  * *
+ * * * **** **** * *
+* * * * * ******* *
+ * * * * * * *** *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+6092: beginning of char 7
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+   **  *
+   ******
+   *********
+   **  **  ***
+   *  ***   ***
+  * *****    ***
+  * ******    **
+ *********    ***
+ *********     **
+**********     **
+* ****** *     **
+* ****  *      ***
+** **  **       **
+****  ***       **
+     ****       **
+    *****       **
+    *****       **
+    **************
+.<--This pixel's upper left corner is at (2,2) in METAFONT coordinates
+
+6187: beginning of char 43
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+           *******
+       ***********
+     *******     *
+    ****         *
+   ***           *
+   **            *
+  **             *
+  *              *
+  *   *****      *
+ ********* *******
+*********** ******
+ ** *******  *****
+ **  *******  ****
+**** ********  ***
+*****  *******
+     ******* *
+       ***  **
+         *****
+.<--This pixel's upper left corner is at (1,3) in METAFONT coordinates
+
+6268: beginning of char 79
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+    *****
+    **  ***
+    * *******
+    *******  *****
+***  ******** ****
+****  *******  **
+*****  ******* **
+****** ***********
+******* *********
+*      *****   *
+*              *
+*             **
+*            **
+*           ***
+*         ****
+*     *******
+***********
+*******
+.<--This pixel's upper left corner is at (3,1) in METAFONT coordinates
+
+6349: beginning of char 115
+.<--This pixel's lower left corner is at (1,19) in METAFONT coordinates
+**************
+**       *****
+**       *****
+**       ****
+**       ***  ****
+**       **  ** **
+***      *  **** *
+ **     * ****** *
+ **     **********
+ **     *********
+ ***    *********
+  **    ****** *
+  ***    ***** *
+   ***   ***  *
+    ***  **  **
+      *********
+         ******
+          *  **
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+6444: beginning of char 25
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *** * * * * * *
+  * ******* * * * * *
+ * * ********* * * *
+* *  **  **  **** * *
+ * * *  ***   **** *
+* * * *****    **** *
+ *  * ******    ** *
+* **********    *** *
+ * *********     ***
+* **********     ** *
+  * ****** *     ***
+* * ****  *      ****
+  ** *** **       **
+* ****  ***       ***
+ * * * ****       **
+* * * *****       ***
+ * * ******       **
+* * * **************
+ * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+6675: beginning of char 61
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * ******* *
+   * * ************
+  * * *******     * *
+ * * ****         *
+* * ***           * *
+ *  **            *
+* ***             * *
+ * *              *
+*  *   *****      * *
+  ********* *******
+************ ****** *
+ *** ******* ******
+* **  ******* ***** *
+ **** ******** ****
+******  ******* * * *
+ * *  ******* ** * *
+* * * * ***  ** * * *
+ * * * *  ****** * *
+* * * * *     * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+6896: beginning of char 97
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * *     * * * *
+  * * ******  * * * *
+ * * * **  *** * * *
+* * * ** *******  * *
+ * * * *******  *****
+*  **** ******** ****
+ * ***** *******  **
+*  ****** ******* ***
+ * ****** ***********
+*  ******* *********
+ * *      *****   *
+*  *              * *
+ * *             ***
+*  *            **  *
+ * *           *** *
+*  *         **** * *
+ * *     ******* * *
+*  ************ * *
+ * ******* * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+7121: beginning of char 133
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+               * * *
+ ************** * * *
+ **       ****** * *
+***       ***** * * *
+ **       **** * * *
+***       ***  **** *
+ **       ** *** **
+****      *  **** * *
+ ***     * ****** *
+* **     ********** *
+ ***     ********* *
+* ***    ********** *
+ * **    ****** *  *
+* ****    ***** * * *
+ * ****   ***  * * *
+* * ****  **  **  * *
+ * * * ********* * *
+* * * * * ******* *
+ * * * * * * *** *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+7352: beginning of char 13
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+   **  *
+   ******
+   ********
+   **  ** ***
+   *  ****  **
+  * *******  **
+  * ********  *
+ ******** **   *
+ ******** ***  *
+*************  *
+* ****** ****
+* ****  ******  *
+** **  *******  *
+****  ********  *
+     *********  *
+    **********  *
+    **********  *
+    *************
+.<--This pixel's upper left corner is at (2,2) in METAFONT coordinates
+
+7449: beginning of char 49
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+           *******
+       ***       *
+     **          *
+    **     *******
+   **   **********
+   *  ************
+  ** *************
+  * ***  *********
+ ********* *******
+*********** ******
+ ** *******  *****
+ **  *******  ****
+**** ********  ***
+*****  *******
+     ******* *
+       ***  **
+         *****
+.<--This pixel's upper left corner is at (1,3) in METAFONT coordinates
+
+7528: beginning of char 85
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+    *****
+    **  ***
+    * *******
+    *******  *****
+***  ******** ****
+****  *******  **
+*****  ******* **
+****** ***********
+******* *********
+*********  *** *
+************* **
+************  *
+**********   **
+*******     **
+*          **
+*       ***
+*******
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+7607: beginning of char 121
+.<--This pixel's lower left corner is at (2,19) in METAFONT coordinates
+*************
+*  **********
+*  **********
+*  *********
+*  ********  ****
+*  *******  ** **
+*  ******  **** *
+    **** ****** *
+ *  *************
+ *  *** ********
+ *   ** ********
+  *  ******** *
+  **  ******* *
+   **  ****  *
+    *** **  **
+      ********
+        ******
+         *  **
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+7704: beginning of char 31
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *** * * * * * *
+  * ******* * * * * *
+ * * ********  * * *
+* *  **  ** *** * * *
+ * * *  ****  ** * *
+* * * *******  ** * *
+ *  * ********  *  *
+* ********* **   *  *
+ * ******** ***  * *
+* *************  *  *
+  * ****** ****    *
+* * ****  ******  * *
+  ** *** *******  *
+* ****  ********  * *
+ * * * *********  *
+* * * **********  * *
+ * * ***********  *
+* * * *************
+ * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+7953: beginning of char 67
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * *         *
+   * * *    *******
+  * *   ***       * *
+ * *  **          *
+* *  **     ******* *
+ *  **   **********
+* * *  ************ *
+ * ** *************
+*  * ***  ********* *
+  ********* *******
+************ ****** *
+ *** ******* ******
+* **  ******* ***** *
+ **** ******** ****
+******  ******* * * *
+ * *  ******* ** * *
+* * * * ***  ** * * *
+ * * * *  ****** * *
+* * * * *     * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+8176: beginning of char 103
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * *     * * * *
+  * * ******  * * * *
+ * * * **  *** * * *
+* * * ** *******  * *
+ * * * *******  *****
+*  **** ******** ****
+ * ***** *******  **
+*  ****** ******* ***
+ * ****** ***********
+*  ******* *********
+ * *********  *** *
+*  ************* ** *
+ * ************  * *
+*  **********   **  *
+ * *******     **  *
+*  *          **  * *
+ * *       ***   * *
+*  *******    * * *
+ *         * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+8403: beginning of char 139
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+               * * *
+  ************* * * *
+  *  *********** * *
+* *  ********** * * *
+  *  ********* * * *
+* *  ********  **** *
+  *  ******* *** **
+* *  ******  **** * *
+ *    **** ****** *
+*  *  ************* *
+ * *  *** ******** *
+*  *   ** ********* *
+ *  *  ******** *  *
+* * **  ******* * * *
+ * * **  ****  * * *
+* * * *** **  **  * *
+ * * *  ******** * *
+* * * * * ******* *
+ * * * * * * *** *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+8652: beginning of char 4
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+        ***
+    *** * * ***
+    *** *** ***
+***  **  *  **  ***
+***  *  ***  *  ***
+ **  ** * * **  **
+ ** *** * * **  **
+ ** * * * * *** **
+  *** *** *** ***
+  *** **   ** ***
+  ***************
+  ***  *   *  ***
+   * ********* *
+   ***       ***
+   *************
+   *************
+   **         **
+   **         **
+    ***********
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+8783: beginning of char 40
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+   **
+   *****
+   *********
+        **********
+ **    ***** ******
+ *******  * ****  *
+ *** ****** * **  *
+        ***** **  *
+*** ***** * * **  *
+* ***     * * **  *
+*** ***** * * **  *
+        ***** **  *
+ *** ****** * **  *
+ ******   * ****  *
+ **   ****** ******
+        **********
+   *********
+   *****
+   **
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+8902: beginning of char 76
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+              **
+           *****
+       *********
+ **********
+****** ******   **
+*  **** *   ******
+*  ** * ****** ***
+*  ** *****
+*  ** * * ***** ***
+*  ** * *     *** *
+*  ** * * ***** ***
+*  ** *****
+*  ** * ****** ***
+*  **** *  *******
+****** *****    **
+ **********
+       *********
+           *****
+              **
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+9021: beginning of char 112
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+    ***********
+   **         **
+   **         **
+   *************
+   *************
+   ***       ***
+   * ********* *
+  ***  *   *  ***
+  ***************
+  *** **   ** ***
+  *** *** *** ***
+ ** *** * * * * **
+ **  ** * * *** **
+ **  ** * * **  **
+***  *  ***  *  ***
+***  **  *  **  ***
+    *** *** ***
+    *** * * ***
+        ***
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+9152: beginning of char 16
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+        ***
+    *** *** ***
+    *** *** ***
+***  **  *  **  ***
+***  *  ***  *  ***
+***  ** *** **  ***
+ ** *** *** *** **
+ ** *** *** *** **
+  ***************
+  ***************
+  ***************
+  ***************
+   **         **
+   *  *******  *
+   **         **
+    * ******* *
+   *** *********
+   *************
+    ***********
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+9259: beginning of char 52
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+   ***
+   *****
+   *********
+        ******* **
+ **   ******* *****
+ ***********    ***
+ *** ******* * ****
+        **** * ****
+*** ******** * ****
+************ * ****
+*** ******** * ****
+        **** * ****
+ *** ******* * * **
+ ***********    ***
+ **   ******* *****
+        ******* **
+   *********
+   *****
+   ***
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+9358: beginning of char 88
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+             ***
+           *****
+       *********
+ ** *******
+***** *******   **
+***    ***********
+** * * ******* ***
+**** * ****
+**** * ******** ***
+**** * ************
+**** * ******** ***
+**** * ****
+**** * ******* ***
+***    ***********
+***** *******   **
+ ** *******
+       *********
+           *****
+             ***
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+9457: beginning of char 124
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+    ***********
+   *************
+   ********* ***
+    * ******* *
+   **         **
+   *  *******  *
+   **         **
+  ***************
+  ***************
+  ***************
+  ***************
+ ** *** *** *** **
+ ** *** *** *** **
+***  ** *** **  ***
+***  *  ***  *  ***
+***  **  *  **  ***
+    *** *** ***
+    *** *** ***
+        ***
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+9564: beginning of char 10
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+        ***
+    *** *** ***
+    *** *** ***
+***  **  *  **  ***
+***  *  ***  *  ***
+***  ** *** **  **
+ ** *** *** **  **
+ ** *** *** *** **
+  *********** ***
+  ******** ** ***
+  ***************
+  ******** *  ***
+   **     **** *
+   *  ****   ***
+   **     ******
+    * **********
+   *** ***    **
+   *******    **
+    ***********
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+9685: beginning of char 46
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+   **
+   *****
+   *********
+        **********
+ **    ***** ******
+ *******  * ****  *
+ *** ****** * **  *
+        ***** **  *
+*** ***** * * **  *
+************ * ****
+*** ******** * ****
+        **** * ****
+ *** ******* * * **
+ ***********    ***
+ **   ******* *****
+        ******* **
+   *********
+   *****
+   ***
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+9792: beginning of char 82
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+             ***
+           *****
+       *********
+ ** *******
+***** *******   **
+***    ***********
+** * * ******* ***
+**** * ****
+**** * ******** ***
+**** * ************
+*  ** * * ***** ***
+*  ** *****
+*  ** * ****** ***
+*  **** *  *******
+****** *****    **
+ **********
+       *********
+           *****
+              **
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+9899: beginning of char 118
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+    ***********
+   **    *******
+   **    *** ***
+   ********** *
+   ******     **
+   ***   ****  *
+   * ****     **
+  ***  * ********
+  ***************
+  *** ** ********
+  *** ***********
+ ** *** *** *** **
+ **  ** *** *** **
+ **  ** *** **  ***
+***  *  ***  *  ***
+***  **  *  **  ***
+    *** *** ***
+    *** *** ***
+        ***
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+10020: beginning of char 22
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   *   * *** *   * *
+  *  ***** *****  * *
+   * *** *** *** *
+ **** *** * *** ****
+ ***  *  ***  *  ***
+* *** **** **** *** *
+ *** *** * * **  ***
+* ** * * * * *** ** *
+ * *** *** *** *** *
+*  *** **   ** ***  *
+ * *************** *
+* ****  *   *  **** *
+ *  * ********* *  *
+* * ***       *** * *
+ * *************** *
+* * ************* * *
+ * ***         *** *
+* * **         ** *
+ * * *********** *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+10263: beginning of char 58
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    **  * * * * * * *
+    *****    * * * *
+  * ********* * * * *
+ *   *   ***********
+* **    ***** *******
+  *******  * ****  *
+* *** ****** * **  **
+ * * *   ***** **  *
+**** ***** * * **  **
+ * ***     * * **  *
+**** ***** * * **  **
+ * * *   ***** **  *
+* *** ****** * **  **
+  ******   * ****  *
+* **   ****** *******
+ *   *   ***********
+* * ********* * * * *
+ *  *****    * * * *
+* * **  * * * * * *
+ * *   * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+10514: beginning of char 94
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * *   * *
+   * * * * * *  ** *
+  * * * *    *****  *
+ * * * * ********* *
+* ***********   *   *
+ ******* ******   **
+* *  **** *   ******
+ **  ** * ****** ***
+* *  ** *****   * * *
+ **  ** * * ***** ***
+* *  ** * *     *** *
+ **  ** * * ***** ***
+* *  ** *****   * * *
+ **  ** * ****** ***
+* *  **** *  *******
+ ******* *****    **
+* ***********   *   *
+ * * * * ********* *
+* * * * *    *****
+ * * * * * * *  **
+* * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+10767: beginning of char 130
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *********** * *
+  * **         ** * *
+ * ***         *** *
+* * ************* * *
+ * *************** *
+* * ***       *** * *
+ *  * ********* *  *
+* ****  *   *  **** *
+ * *************** *
+*  *** **   ** ***  *
+ * *** *** *** *** *
+* ** *** * * * * ** *
+ ***  ** * * *** ***
+* *** **** **** *** *
+ ***  *  ***  *  ***
+ **** *** * *** ****
+   * *** *** *** *
+* *  ***** *****  *
+ * *   * *** *   *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+11010: beginning of char 28
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   *   * *** *   * *
+  *  ***********  * *
+   * *** *** *** *
+ **** *** * *** ****
+ ***  *  ***  *  ***
+***** ********* *** *
+ *** *** *** **  ***
+* ** *** *** *** ** *
+ * *********** *** *
+*  ******** ** ***  *
+ * *************** *
+* ********* *  **** *
+ *  **     **** *  *
+* * *  ****   *** * *
+ * ***     ******* *
+* *  * ********** * *
+ * **** ***    *** *
+* * *******    ** *
+ * * *********** *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+11241: beginning of char 64
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    **  * * * * * * *
+    *****    * * * *
+  * ********* * * * *
+ *   *   ***********
+* **    ***** *******
+  *******  * ****  *
+* *** ****** * **  **
+ * * *   ***** **  *
+**** ***** * * **  **
+ ************ * ****
+**** ******** * *****
+ * * *   **** * ****
+* *** ******* * * ***
+  ***********    ***
+* **   ******* ******
+ *   *   ******* ***
+* * ********* * * * *
+ *  *****    * * * *
+* * *** * * * * * *
+ * *   * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+11480: beginning of char 100
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * *   * *
+   * * * * * * *** *
+  * * * *    *****  *
+ * * * * ********* *
+* *** *******   *   *
+ ****** *******   **
+* ***    ***********
+ *** * * ******* ***
+* **** * ****   * * *
+ ***** * ******** ***
+* **** * ************
+ **  ** * * ***** ***
+* *  ** *****   * * *
+ **  ** * ****** ***
+* *  **** *  *******
+ ******* *****    **
+* ***********   *   *
+ * * * * ********* *
+* * * * *    *****
+ * * * * * * *  **
+* * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+11721: beginning of char 136
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *********** * *
+  * **    ******* * *
+ * ***    *** **** *
+* * ********** *  * *
+ * *******     *** *
+* * ***   ****  * * *
+ *  * ****     **  *
+* ****  * ********* *
+ * *************** *
+*  *** ** ********  *
+ * *** *********** *
+* ** *** *** *** ** *
+ ***  ** *** *** ***
+* *** ********* *****
+ ***  *  ***  *  ***
+ **** *** * *** ****
+   * *** *** *** *
+* *  ***********  *
+ * *   * *** *   *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+11952: beginning of char 34
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   *   * *** *   * *
+  *  ***********  * *
+   * *** *** *** *
+ **** *** * *** ****
+ ***  *  ***  *  ***
+***** ********* *****
+ *** *** *** *** ***
+* ** *** *** *** ** *
+ * *************** *
+*  ***************  *
+ * *************** *
+* ***************** *
+ *  **         **  *
+* * *  *******  * * *
+ * ***         *** *
+* *  * ******* *  * *
+ * **** ********** *
+* * ************* *
+ * * *********** *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+12167: beginning of char 70
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    *** * * * * * * *
+    *****    * * * *
+  * ********* * * * *
+ *   *   ******* ***
+* **   ******* ******
+  ***********    ***
+* *** ******* * *****
+ * * *   **** * ****
+**** ******** * *****
+ ************ * ****
+**** ******** * *****
+ * * *   **** * ****
+* *** ******* * * ***
+  ***********    ***
+* **   ******* ******
+ *   *   ******* ***
+* * ********* * * * *
+ *  *****    * * * *
+* * *** * * * * * *
+ * *   * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+12398: beginning of char 106
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * *   * *
+   * * * * * * *** *
+  * * * *    *****  *
+ * * * * ********* *
+* *** *******   *   *
+ ****** *******   **
+* ***    ***********
+ *** * * ******* ***
+* **** * ****   * * *
+ ***** * ******** ***
+* **** * ************
+ ***** * ******** ***
+* **** * ****   * * *
+ ***** * ******* ***
+* ***    ***********
+ ****** *******   **
+* *** *******   *   *
+ * * * * ********* *
+* * * * *    *****
+ * * * * * * * ***
+* * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+12631: beginning of char 142
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *********** * *
+  * ************* * *
+ * ********** **** *
+* *  * ******* *  * *
+ * ***         *** *
+* * *  *******  * * *
+ *  **         **  *
+* ***************** *
+ * *************** *
+*  ***************  *
+ * *************** *
+* ** *** *** *** ** *
+ *** *** *** *** ***
+***** ********* *****
+ ***  *  ***  *  ***
+ **** *** * *** ****
+   * *** *** *** *
+* *  ***********  *
+ * *   * *** *   *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+12846: beginning of char 5
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+         *
+        ***
+         *
+        ***
+       ** **
+ *******   *******
+**    **   **    **
+*      ** **      *
+*       * *       *
+*       ***       *
+**       *       **
+ **  *********  **
+  ****       ****
+   *  *******  *
+   ****     ****
+   * ********* *
+   ***       ***
+     *********
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+12937: beginning of char 41
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+      *****
+     **   **
+     *     **
+     *      *****
+     *      * * *
+     *     ** ****
+     **    * *** *
+    ****   * * * *
+ * **  *** * * * *
+****     *** * * *
+ * **  *** * * * *
+    ****   * * * *
+     **    * *** *
+     *     ** ****
+     *      * * *
+     *      *****
+     *     **
+     **   **
+      *****
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+13074: beginning of char 77
+.<--This pixel's lower left corner is at (3,20) in METAFONT coordinates
+       *****
+      **   **
+     **     *
+ *****      *
+ * * *      *
+**** **     *
+* *** *    **
+* * * *   ****
+* * * * ***  ** *
+* * * ***     ****
+* * * * ***  ** *
+* * * *   ****
+* *** *    **
+**** **     *
+ * * *      *
+ *****      *
+     **     *
+      **   **
+       *****
+.<--This pixel's upper left corner is at (3,1) in METAFONT coordinates
+
+13211: beginning of char 113
+.<--This pixel's lower left corner is at (1,19) in METAFONT coordinates
+     *********
+   ***       ***
+   * ********* *
+   ****     ****
+   *  *******  *
+  ****       ****
+ **  *********  **
+**       *       **
+*       ***       *
+*       * *       *
+*      ** **      *
+**    **   **    **
+ *******   *******
+       ** **
+        ***
+         *
+        ***
+         *
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+13302: beginning of char 23
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * *   * * * * *
+   * * *  *  * * * *
+  * * *  ***  * * * *
+ * * * * **  * * * *
+* * * * ***** * * * *
+ * * * *** *** * * *
+* *******   ******* *
+ **    **   **    **
+**      ** **      **
+ *       * *       *
+**       ***       **
+ **       *       **
+* **  *********  ** *
+ * ****       **** *
+* * *  *******  * * *
+ * *****     ***** *
+* * * ********* * * *
+ * ****       **** *
+* *   *********   *
+ * * *         * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+13551: beginning of char 59
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * ******* * * * *
+   * ***   *** * * *
+  * * *     *** * * *
+ * * **      ***** *
+* * * *      * * *  *
+ * * **     ** ****
+* * * **    * *** * *
+   * ****   * * * *
+  * **  *** * * * * *
+ ****     *** * * *
+* * **  *** * * * * *
+   * ****   * * * *
+* * * **    * *** * *
+ * * **     ** ****
+* * * *      * * *  *
+ * * **      ***** *
+* * * *     *** * * *
+ * * ***   *** * * *
+* * * ******* * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+13848: beginning of char 95
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * ******* * *
+  * * * ***   *** * *
+ * * * ***     * * *
+* * *****      ** * *
+ *  * * *      * * *
+*  **** **     ** * *
+ * * *** *    ** * *
+*  * * * *   **** *
+ * * * * * ***  ** *
+*  * * * ***     ****
+ * * * * * ***  ** *
+*  * * * *   **** *
+ * * *** *    ** * *
+*  **** **     ** * *
+ *  * * *      * * *
+* * *****      ** * *
+ * * * ***     * * *
+* * * * ***   *** *
+ * * * * ******* *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+14147: beginning of char 131
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *         * * *
+  *   *********   * *
+ * ****       **** *
+* * * ********* * * *
+ * *****     ***** *
+* * *  *******  * * *
+ * ****       **** *
+* **  *********  ** *
+ **       *       **
+**       ***       **
+ *       * *       *
+**      ** **      **
+ **    **   **    **
+* *******   ******* *
+ * * * *** *** * * *
+* * * * ***** * * * *
+ * * * *  ** * * * *
+* * * *  ***  * * *
+ * * * *  *  * * *
+* * * * *   * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+14396: beginning of char 11
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+         *
+        ***
+         *
+        ***
+       *  **
+ ******* * *******
+**     * * **    **
+*  ***  * **      *
+* *****   *       *
+*  ****  **       *
+**  **** *       **
+ **       ****  **
+  **   ***   ****
+   ***    ***  *
+   **  ***  ****
+   **     **** *
+   *******   ***
+     *********
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+14501: beginning of char 47
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+      *****
+     **   **
+     *     **
+     *      *****
+     *      * * *
+     *     ** ****
+     **    * *** *
+    ****   * * * *
+ * **  *** * * * *
+**** **  ** * * **
+ * *   *    * * **
+    ***   * * * **
+     *  ***     **
+     * ****  *  **
+     * ****  ****
+     * ***  *****
+     *  *  **
+     **   **
+      *****
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+14640: beginning of char 83
+.<--This pixel's lower left corner is at (3,20) in METAFONT coordinates
+       *****
+      **   **
+     **  *  *
+ *****  *** *
+ ****  **** *
+**  *  **** *
+**     ***  *
+** * * *   ***
+** * *    *   * *
+** * * **  ** ****
+* * * * ***  ** *
+* * * *   ****
+* *** *    **
+**** **     *
+ * * *      *
+ *****      *
+     **     *
+      **   **
+       *****
+.<--This pixel's upper left corner is at (3,1) in METAFONT coordinates
+
+14779: beginning of char 119
+.<--This pixel's lower left corner is at (1,19) in METAFONT coordinates
+     *********
+   ***   *******
+   * ****     **
+   ****  ***  **
+   *  ***    ***
+  ****   ***   **
+ **  ****       **
+**       * ****  **
+*       **  ****  *
+*       *   ***** *
+*      ** *  ***  *
+**    ** * *     **
+ ******* * *******
+       **  *
+        ***
+         *
+        ***
+         *
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+14884: beginning of char 29
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * *   * * * * *
+   * * *  *  * * * *
+  * * *  ***  * * * *
+ * * * * **  * * * *
+* * * * ***** * * * *
+ * * * **  *** * * *
+* ******* * ******* *
+ **     * * **    **
+**  ***  * **      **
+ * *****   *       *
+**  ****  **       **
+ **  **** *       **
+* **       ****  ** *
+ * **   ***   **** *
+* * ***    ***  * * *
+ * ***  ***  ***** *
+* * **     **** * * *
+ * ********   **** *
+* *   *********   *
+ * * *         * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+15147: beginning of char 65
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * ******* * * * *
+   * ***   *** * * *
+  * * *     *** * * *
+ * * **      ***** *
+* * * *      * * *  *
+ * * **     ** ****
+* * * **    * *** * *
+   * ****   * * * *
+  * **  *** * * * * *
+ **** **  ** * * **
+* * *   *    * * ** *
+   * ***   * * * **
+* * * *  ***     ** *
+ * * ** ****  *  **
+* * * * ****  ****  *
+ * * ** ***  ***** *
+* * * *  *  *** * * *
+ * * ***   *** * * *
+* * * ******* * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+15446: beginning of char 101
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * ******* * *
+  * * * ***   *** * *
+ * * * ***  *  * * *
+* * *****  *** ** * *
+ *  ****  **** * * *
+*  **  *  **** ** * *
+ * **     ***  * * *
+*  ** * * *   *** *
+ * ** * *    *   * *
+*  ** * * **  ** ****
+ * * * * * ***  ** *
+*  * * * *   **** *
+ * * *** *    ** * *
+*  **** **     ** * *
+ *  * * *      * * *
+* * *****      ** * *
+ * * * ***     * * *
+* * * * ***   *** *
+ * * * * ******* *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+15747: beginning of char 137
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *         * * *
+  *   *********   * *
+ * ****   ******** *
+* * * ****     ** * *
+ * *****  ***  *** *
+* * *  ***    *** * *
+ * ****   ***   ** *
+* **  ****       ** *
+ **       * ****  **
+**       **  ****  **
+ *       *   ***** *
+**      ** *  ***  **
+ **    ** * *     **
+* ******* * ******* *
+ * * * ***  ** * * *
+* * * * ***** * * * *
+ * * * *  ** * * * *
+* * * *  ***  * * *
+ * * * *  *  * * *
+* * * * *   * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+16010: beginning of char 17
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+         *
+        ***
+         *
+        ***
+       *   *
+ ******* * *******
+**     * * *     **
+*  ***  * *  ***  *
+* *****     ***** *
+*  ****  *  ****  *
+**  **** * ****  **
+ **             **
+  **   *****   **
+   ***       ***
+   **  *****  **
+   **         **
+   *************
+     *********
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+16113: beginning of char 53
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+      *****
+     **   **
+     *  *  **
+     * ***  *****
+     * ****  ****
+     * ****  *  **
+     *  ***     **
+    ***   * * * **
+ * *   *    * * **
+**** **  ** * * **
+ * *   *    * * **
+    ***   * * * **
+     *  ***     **
+     * ****  *  **
+     * ****  ****
+     * ***  *****
+     *  *  **
+     **   **
+      *****
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+16252: beginning of char 89
+.<--This pixel's lower left corner is at (3,20) in METAFONT coordinates
+       *****
+      **   **
+     **  *  *
+ *****  *** *
+ ****  **** *
+**  *  **** *
+**     ***  *
+** * * *   ***
+** * *    *   * *
+** * * **  ** ****
+** * *    *   * *
+** * * *   ***
+**     ***  *
+**  *  **** *
+ ****  **** *
+ *****  *** *
+     **  *  *
+      **   **
+       *****
+.<--This pixel's upper left corner is at (3,1) in METAFONT coordinates
+
+16391: beginning of char 125
+.<--This pixel's lower left corner is at (1,19) in METAFONT coordinates
+     *********
+   *************
+   **         **
+   **  *****  **
+   ***       ***
+  **   *****   **
+ **             **
+**  **** * ****  **
+*  ****  *  ****  *
+* *****     ***** *
+*  ***  * *  ***  *
+**     * * *     **
+ ******* * *******
+       *   *
+        ***
+         *
+        ***
+         *
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+16494: beginning of char 35
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * *   * * * * *
+   * * *  *  * * * *
+  * * *  ***  * * * *
+ * * * * **  * * * *
+* * * * ***** * * * *
+ * * * **   ** * * *
+* ******* * ******* *
+ **     * * *     **
+**  ***  * *  ***  **
+ * *****     ***** *
+**  ****  *  ****  **
+ **  **** * ****  **
+* **             ** *
+ * **   *****   ** *
+* * ***       *** * *
+ * ***  *****  *** *
+* * **         ** * *
+ * *************** *
+* *   *********   *
+ * * *         * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+16755: beginning of char 71
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * ******* * * * *
+   * ***   *** * * *
+  * * *  *  *** * * *
+ * * ** ***  ***** *
+* * * * ****  ****  *
+ * * ** ****  *  **
+* * * *  ***     ** *
+   * ***   * * * **
+  * *   *    * * ** *
+ **** **  ** * * **
+* * *   *    * * ** *
+   * ***   * * * **
+* * * *  ***     ** *
+ * * ** ****  *  **
+* * * * ****  ****  *
+ * * ** ***  ***** *
+* * * *  *  *** * * *
+ * * ***   *** * * *
+* * * ******* * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+17054: beginning of char 107
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * ******* * *
+  * * * ***   *** * *
+ * * * ***  *  * * *
+* * *****  *** ** * *
+ *  ****  **** * * *
+*  **  *  **** ** * *
+ * **     ***  * * *
+*  ** * * *   *** *
+ * ** * *    *   * *
+*  ** * * **  ** ****
+ * ** * *    *   * *
+*  ** * * *   *** *
+ * **     ***  * * *
+*  **  *  **** ** * *
+ *  ****  **** * * *
+* * *****  *** ** * *
+ * * * ***  *  * * *
+* * * * ***   *** *
+ * * * * ******* *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+17355: beginning of char 143
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * *         * * *
+  *   *********   * *
+ * *************** *
+* * **         ** * *
+ * ***  *****  *** *
+* * ***       *** * *
+ * **   *****   ** *
+* **             ** *
+ **  **** * ****  **
+**  ****  *  ****  **
+ * *****     ***** *
+**  ***  * *  ***  **
+ **     * * *     **
+* ******* * ******* *
+ * * * **   ** * * *
+* * * * ***** * * * *
+ * * * *  ** * * * *
+* * * *  ***  * * *
+ * * * *  *  * * *
+* * * * *   * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+17616: beginning of char 2
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+        ***
+        * *
+        ***
+       *****
+      **   **
+     **     **
+    **   *   **
+    *  *****  *
+    *    *    *
+    **   *   **
+     **     **
+      *******
+     **  *  **
+     *********
+     *********
+ ****  *****  ****
+**  ****   ****  **
+**      ***      **
+ ******** ********
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+17705: beginning of char 38
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+                **
+               ****
+               *  *
+               *  *
+      ****     ** *
+     **  ** *** * *
+    **    ***** * *
+   **  *   * **** *
+****   *   * *** **
+* **  **** ***** *
+****   *   * *** **
+   **  *   * **** *
+    **    ***** * *
+     **  ** *** * *
+      ****     ** *
+               *  *
+               *  *
+               ****
+                **
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+17834: beginning of char 74
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+ **
+****
+*  *
+*  *
+* **     ****
+* * *** **  **
+* * *****    **
+* **** *   *  **
+** *** *   *   ****
+ * ***** ****  ** *
+** *** *   *   ****
+* **** *   *  **
+* * *****    **
+* * *** **  **
+* **     ****
+*  *
+*  *
+****
+ **
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+17963: beginning of char 110
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+ ******** ********
+**      ***      **
+**  ****   ****  **
+ ****  *****  ****
+     *********
+     *********
+     **  *  **
+      *******
+     **     **
+    **   *   **
+    *    *    *
+    *  *****  *
+    **   *   **
+     **     **
+      **   **
+       *****
+        ***
+        * *
+        ***
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+18052: beginning of char 14
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+        ***
+        ***
+        ***
+       *****
+     *********
+    ***** *****
+    ***** *****
+    ***     ***
+    ***** *****
+    ***** *****
+     *********
+      *     *
+     ***   ***
+     *       *
+     *********
+ ****  *****  ****
+*******************
+ *****************
+ ******** ********
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+18119: beginning of char 50
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+                *
+               ****
+               ****
+               ****
+     *****     ****
+    ******* *** ***
+    ********* * ***
+   **** *** * *****
+******* ***   *****
+*****     *   ****
+******* ***   *****
+   **** *** * *****
+    ********* * ***
+    ******* *** ***
+     *****     ****
+               ****
+               ****
+               ****
+                *
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+18208: beginning of char 86
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+  *
+****
+****
+****
+****     *****
+*** *** *******
+*** * *********
+***** * *** ****
+*****   *** *******
+ ****   *     *****
+*****   *** *******
+***** * *** ****
+*** * *********
+*** *** *******
+****     *****
+****
+****
+****
+  *
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+18297: beginning of char 122
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+ ******** ********
+ *****************
+*******************
+ ****  *****  ****
+     *********
+     *       *
+     ***   ***
+      *     *
+     *********
+    ***** *****
+    ***** *****
+    ***     ***
+    ***** *****
+    ***** *****
+     *********
+       *****
+        ***
+        ***
+        ***
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+18364: beginning of char 8
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+        ***
+        ***
+        ***
+       *****
+     ***** **
+    *****   **
+    *****    **
+    ***   **  *
+    *****     *
+    *****    **
+     *****  **
+      *   ***
+     ***    **
+     *    ****
+     *********
+ ****  *****  ****
+********** ****  **
+ **********      **
+ ******** ********
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+18443: beginning of char 44
+.<--This pixel's lower left corner is at (1,21) in METAFONT coordinates
+                **
+               ****
+               *  *
+               *  *
+      ****     ** *
+     **  ** *** * *
+    **    ***** * *
+   **  *   * **** *
+****   *   * *** **
+*****     *   ****
+******* ***   *****
+   **** *** * *****
+    ********* * ***
+    ******* *** ***
+     *****     ****
+               ****
+               ****
+               ****
+                *
+.<--This pixel's upper left corner is at (1,2) in METAFONT coordinates
+
+18550: beginning of char 80
+.<--This pixel's lower left corner is at (2,20) in METAFONT coordinates
+  *
+****
+****
+****
+****     *****
+*** *** *******
+*** * *********
+***** * *** ****
+*****   *** *******
+ ****   *     *****
+** *** *   *   ****
+* **** *   *  **
+* * *****    **
+* * *** **  **
+* **     ****
+*  *
+*  *
+****
+ **
+.<--This pixel's upper left corner is at (2,1) in METAFONT coordinates
+
+18657: beginning of char 116
+.<--This pixel's lower left corner is at (1,20) in METAFONT coordinates
+ ******** ********
+**      **********
+**  **** **********
+ ****  *****  ****
+     *********
+     ****    *
+     **    ***
+      ***   *
+     **  *****
+    **    *****
+    *     *****
+    *  **   ***
+    **    *****
+     **   *****
+      ** *****
+       *****
+        ***
+        ***
+        ***
+.<--This pixel's upper left corner is at (1,1) in METAFONT coordinates
+
+18736: beginning of char 20
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * *** * * * *
+  * * *  * *  * * * *
+ * * * * *** * * * *
+* * * * ***** * * * *
+ * * * **   ** * * *
+* * * **     ** * * *
+ * * **   *   ** * *
+* * **  *****  ** * *
+ * * *    *    * * *
+* * ***   *   *** * *
+ * *  **     **  * *
+* * *  *******  * * *
+ * * ***  *  *** * *
+* * * ********* * * *
+ * *  *********  * *
+* ****  *****  **** *
+ **  ****   ****  **
+***      ***      **
+ ********* ********
+*   *     *     *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+19019: beginning of char 56
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * *  ** *
+   * * * * * * *****
+  * * * * * * * *  *
+ * * * * * * * **  *
+* * *  **** * * ** *
+ * *  **  ** *** * *
+* *  **    ***** * *
+ *  **  *   * **** *
+*****   *   * *** **
+ * **  **** ***** *
+*****   *   * *** **
+ *  **  *   * **** *
+* *  **    ***** * *
+ * *  **  ** *** * *
+* * *  **** * * ** *
+ * * * * * * * **  *
+* * * * * * * * *  *
+ * * * * * * * *****
+* * * * * * * *  **
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+19338: beginning of char 92
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   **  * * * * * * *
+  ***** * * * * * * *
+  *  * * * * * * * *
+* *  ** * * * * * * *
+  * ** * * ****  * *
+* * * *** **  **  * *
+  * * *****    **  *
+* * **** *   *  **  *
+  ** *** *   *   ****
+*  * ***** ****  ** *
+  ** *** *   *   ****
+* * **** *   *  **  *
+  * * *****    **  *
+* * * *** **  **  * *
+  * ** * * ****  * *
+* *  ** * * * * * * *
+  *  * * * * * * * *
+* ***** * * * * * *
+ * **  * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+19661: beginning of char 128
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    *     *     *   *
+  ******** *********
+ **      ***      ***
+ **  ****   ****  **
+* ****  *****  **** *
+ * *  *********  * *
+* * * ********* * * *
+ * * ***  *  *** * *
+* * *  *******  * * *
+ * *  **     **  * *
+* * ***   *   *** * *
+ * * *    *    * * *
+* * **  *****  ** * *
+ * * **   *   ** * *
+* * * **     ** * * *
+ * * * **   ** * * *
+* * * * ***** * * * *
+ * * * * *** * * * *
+* * * *  * *  * * *
+ * * * * *** * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+19944: beginning of char 26
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * *** * * * *
+  * * *  ***  * * * *
+ * * * * *** * * * *
+* * * * ***** * * * *
+ * * ****** ** * * *
+* * ******   ** * * *
+ * * *****    ** * *
+* * ****   **  ** * *
+ * * *****     * * *
+* * ******    *** * *
+ * *  *****  **  * *
+* * *  *   ***  * * *
+ * * ****    *** * *
+* * * *    **** * * *
+ * *  *********  * *
+* ****  *****  **** *
+ ********** ****  **
+* **********      **
+ ********* ********
+*   *     *     *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+20215: beginning of char 62
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * *  ** *
+   * * * * * * *****
+  * * * * * * * *  *
+ * * * * * * * **  *
+* * *  **** * * ** *
+ * *  **  ** *** * *
+* *  **    ***** * *
+ *  **  *   * **** *
+*****   *   * *** **
+ *****     *   ****
+******** ***   *****
+ *  **** *** * *****
+* *  ********* * ***
+ * * ******* *** ***
+* * * ***** * * ****
+ * * * * * * * *****
+* * * * * * * * ****
+ * * * * * * * *****
+* * * * * * * *  *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+20512: beginning of char 98
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+    *  * * * * * * *
+  ***** * * * * * * *
+  **** * * * * * * *
+* ***** * * * * * * *
+  **** * * ***** * *
+* *** *** ******* * *
+  *** * *********  *
+* ***** * *** ****  *
+  *****   *** *******
+*  ****   *     *****
+  ** *** *   *   ****
+* * **** *   *  **  *
+  * * *****    **  *
+* * * *** **  **  * *
+  * ** * * ****  * *
+* *  ** * * * * * * *
+  *  * * * * * * * *
+* ***** * * * * * *
+ * **  * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+20813: beginning of char 134
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    *     *     *   *
+  ******** *********
+ **      ********** *
+ **  **** **********
+* ****  *****  **** *
+ * *  *********  * *
+* * * ****    * * * *
+ * * ***    **** * *
+* * *  ***   *  * * *
+ * *  **  *****  * *
+* * ***    ****** * *
+ * * *     ***** * *
+* * **  **   **** * *
+ * * **    ***** * *
+* * * **   ****** * *
+ * * * ** ****** * *
+* * * * ***** * * * *
+ * * * * *** * * * *
+* * * *  ***  * * *
+ * * * * *** * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+21084: beginning of char 32
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * *** * * * *
+  * * *  ***  * * * *
+ * * * * *** * * * *
+* * * * ***** * * * *
+ * * *********** * *
+* * ****** ****** * *
+ * * ***** ***** * *
+* * ****     **** * *
+ * * ***** ***** * *
+* * ****** ****** * *
+ * *  *********  * *
+* * *  *     *  * * *
+ * * ****   **** * *
+* * * *       * * * *
+ * *  *********  * *
+* ****  *****  **** *
+ *******************
+* *****************
+ ********* ********
+*   *     *     *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+21339: beginning of char 68
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * *  *  *
+   * * * * * * *****
+  * * * * * * * ****
+ * * * * * * * *****
+* * * ***** * * ****
+ * * ******* *** ***
+* *  ********* * ***
+ *  **** *** * *****
+******** ***   *****
+ *****     *   ****
+******** ***   *****
+ *  **** *** * *****
+* *  ********* * ***
+ * * ******* *** ***
+* * * ***** * * ****
+ * * * * * * * *****
+* * * * * * * * ****
+ * * * * * * * *****
+* * * * * * * *  *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+21618: beginning of char 104
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+    *  * * * * * * *
+  ***** * * * * * * *
+  **** * * * * * * *
+* ***** * * * * * * *
+  **** * * ***** * *
+* *** *** ******* * *
+  *** * *********  *
+* ***** * *** ****  *
+  *****   *** *******
+*  ****   *     *****
+  *****   *** *******
+* ***** * *** ****  *
+  *** * *********  *
+* *** *** ******* * *
+  **** * * ***** * *
+* ***** * * * * * * *
+  **** * * * * * * *
+* ***** * * * * * *
+ *  *  * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+21901: beginning of char 140
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    *     *     *   *
+  ******** *********
+  ***************** *
+ *******************
+* ****  *****  **** *
+ * *  *********  * *
+* * * *       * * * *
+ * * ****   **** * *
+* * *  *     *  * * *
+ * *  *********  * *
+* * ****** ****** * *
+ * * ***** ***** * *
+* * ****     **** * *
+ * * ***** ***** * *
+* * ****** ****** * *
+ * * *********** * *
+* * * * ***** * * * *
+ * * * * *** * * * *
+* * * *  ***  * * *
+ * * * * *** * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+22156: beginning of char 3
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+ ***  ***  ***
+ * **** **** *
+ *           *
+ *************
+   *********
+   *       *
+   *       *
+   *       *
+   *       *
+   *       *
+   *       *
+   *       *
+   *********
+  ***********
+  *         *
+***************
+***************
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+22225: beginning of char 39
+.<--This pixel's lower left corner is at (2,19) in METAFONT coordinates
+               **
+****           **
+*  *         ****
+** *********** **
+ * **       ** **
+ * **       ** **
+** **       ** **
+*  **       ** **
+** **       ** **
+ * **       ** **
+ * **       ** **
+** *********** **
+*  *         ****
+****           **
+               **
+.<--This pixel's upper left corner is at (2,4) in METAFONT coordinates
+
+22324: beginning of char 75
+.<--This pixel's lower left corner is at (3,18) in METAFONT coordinates
+**
+**           ****
+****         *  *
+** *********** **
+** **       ** *
+** **       ** *
+** **       ** **
+** **       **  *
+** **       ** **
+** **       ** *
+** **       ** *
+** *********** **
+****         *  *
+**           ****
+**
+.<--This pixel's upper left corner is at (3,3) in METAFONT coordinates
+
+22423: beginning of char 111
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+***************
+***************
+  *         *
+  ***********
+   *********
+   *       *
+   *       *
+   *       *
+   *       *
+   *       *
+   *       *
+   *       *
+   *********
+ *************
+ *           *
+ * **** **** *
+ ***  ***  ***
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+22492: beginning of char 15
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+ ***  ***  ***
+ *************
+ *************
+ **         **
+   *       *
+   *********
+   *********
+   *********
+   *********
+   *********
+   *********
+   *********
+   *       *
+  *         *
+  ***********
+**           **
+***************
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+22547: beginning of char 51
+.<--This pixel's lower left corner is at (2,19) in METAFONT coordinates
+               **
+****           **
+****         ** *
+*** ********* * *
+ **  *******  * *
+ **  *******  * *
+***  *******  * *
+***  *******  * *
+***  *******  * *
+ **  *******  * *
+ **  *******  * *
+*** ********* * *
+****         ** *
+****           **
+               **
+.<--This pixel's upper left corner is at (2,4) in METAFONT coordinates
+
+22650: beginning of char 87
+.<--This pixel's lower left corner is at (3,18) in METAFONT coordinates
+**
+**           ****
+* **         ****
+* * ********* ***
+* *  *******  **
+* *  *******  **
+* *  *******  ***
+* *  *******  ***
+* *  *******  ***
+* *  *******  **
+* *  *******  **
+* * ********* ***
+* **         ****
+**           ****
+**
+.<--This pixel's upper left corner is at (3,3) in METAFONT coordinates
+
+22753: beginning of char 123
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+***************
+**           **
+  ***********
+  *         *
+   *       *
+   *********
+   *********
+   *********
+   *********
+   *********
+   *********
+   *********
+   *       *
+ **         **
+ *************
+ *************
+ ***  ***  ***
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+22808: beginning of char 9
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+ ***  ***  ***
+ *********** *
+ *******     *
+ **     ******
+   *    ****
+   *****   *
+   *****   *
+   *****   *
+   *****   *
+   *****   *
+   *****   *
+   *****   *
+   *    ****
+  *     *****
+  ******    *
+**      *******
+***************
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+22883: beginning of char 45
+.<--This pixel's lower left corner is at (2,19) in METAFONT coordinates
+               **
+****           **
+*  *         ****
+** *********** **
+ * **       ** **
+ * **       ** **
+** **       ** **
+***  *******  * *
+***  *******  * *
+ **  *******  * *
+ **  *******  * *
+*** ********* * *
+****         ** *
+****           **
+               **
+.<--This pixel's upper left corner is at (2,4) in METAFONT coordinates
+
+22984: beginning of char 81
+.<--This pixel's lower left corner is at (3,18) in METAFONT coordinates
+**
+**           ****
+* **         ****
+* * ********* ***
+* *  *******  **
+* *  *******  **
+* *  *******  ***
+* *  *******  ***
+** **       ** **
+** **       ** *
+** **       ** *
+** *********** **
+****         *  *
+**           ****
+**
+.<--This pixel's upper left corner is at (3,3) in METAFONT coordinates
+
+23085: beginning of char 117
+.<--This pixel's lower left corner is at (3,19) in METAFONT coordinates
+***************
+*******      **
+  *    ******
+  *****     *
+   ****    *
+   *   *****
+   *   *****
+   *   *****
+   *   *****
+   *   *****
+   *   *****
+   *   *****
+   ****    *
+ ******     **
+ *     *******
+ * ***********
+ ***  ***  ***
+.<--This pixel's upper left corner is at (3,2) in METAFONT coordinates
+
+23160: beginning of char 21
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * *** ****  *** * *
+ * ** **** **** ** *
+* * *           * * *
+ * *************** *
+* * * ********* * * *
+ * *  *       *  * *
+* * * *       * * * *
+ * *  *       *  * *
+* * * *       * * * *
+ * *  *       *  * *
+* * * *       * * * *
+ * *  *       *  * *
+* * * *********   * *
+ * * *********** * *
+* *  *         *  * *
+ * *************** *
+* *****************
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+23435: beginning of char 57
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * *  ** *
+ ***** * * * *   ***
+* *  *         **** *
+ *** *********** ***
+*  * **       ** ** *
+ * * **       ** ***
+* ** **       ** ** *
+ **  **       ** ***
+* ** **       ** ** *
+ * * **       ** ***
+*  * **       ** ** *
+ *** *********** ***
+* *  *         **** *
+ ***** * * * *   ***
+* * * * * * * *  ** *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+23724: beginning of char 93
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * **  * * * * * * *
+* ***   * * * * *****
+ * ****         *  *
+* *** *********** ***
+ * ** **       ** *
+* *** **       ** * *
+ * ** **       ** **
+* *** **       **  **
+ * ** **       ** **
+* *** **       ** * *
+ * ** **       ** *
+* *** *********** ***
+ * ****         *  *
+* ***   * * * * *****
+ * **  * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+24013: beginning of char 129
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  ***************** *
+ * *************** *
+* *  *         *  * *
+ * * *********** * *
+* *   ********* * * *
+ * *  *       *  * *
+* * * *       * * * *
+ * *  *       *  * *
+* * * *       * * * *
+ * *  *       *  * *
+* * * *       * * * *
+ * *  *       *  * *
+* * * ********* * * *
+ * *************** *
+* * *           * * *
+ * ** **** **** ** *
+* * ***  **** *** *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+24288: beginning of char 27
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * *** ****  *** * *
+ * ************ ** *
+* * *******     * * *
+ * ***     ******* *
+* * * *    **** * * *
+ * *  *****   *  * *
+* * * *****   * * * *
+ * *  *****   *  * *
+* * * *****   * * * *
+ * *  *****   *  * *
+* * * *****   * * * *
+ * *  *****   *  * *
+* * * *    ****   * *
+ * * *     ***** * *
+* *  ******    *  * *
+ * **      ******* *
+* *****************
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+24569: beginning of char 63
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * *  ** *
+ ***** * * * *   ***
+* *  *         **** *
+ *** *********** ***
+*  * **       ** ** *
+ * * **       ** ***
+* ** **       ** ** *
+ ****  *******  * **
+* ***  *******  * * *
+ * **  *******  * **
+*  **  *******  * * *
+ **** ********* * **
+* ****         ** * *
+ ***** * * * *   ***
+* * * * * * * *  ** *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+24860: beginning of char 99
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * **  * * * * * * *
+* ***   * * * * *****
+ * * **         ****
+* ** * ********* ****
+ * * *  *******  **
+* ** *  *******  ** *
+ * * *  *******  ***
+* ** *  *******  ****
+ * ** **       ** **
+* *** **       ** * *
+ * ** **       ** *
+* *** *********** ***
+ * ****         *  *
+* ***   * * * * *****
+ * **  * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+25151: beginning of char 135
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  ***************** *
+ * *******      ** *
+* *  *    ******  * *
+ * * *****     * * *
+* *   ****    * * * *
+ * *  *   *****  * *
+* * * *   ***** * * *
+ * *  *   *****  * *
+* * * *   ***** * * *
+ * *  *   *****  * *
+* * * *   ***** * * *
+ * *  *   *****  * *
+* * * ****    * * * *
+ * *******     *** *
+* * *     ******* * *
+ * ** ************ *
+* * ***  **** *** *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+25432: beginning of char 33
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * *** ****  *** * *
+ * *************** *
+* * ************* * *
+ * ***         *** *
+* * * *       * * * *
+ * *  *********  * *
+* * * ********* * * *
+ * *  *********  * *
+* * * ********* * * *
+ * *  *********  * *
+* * * ********* * * *
+ * *  *********  * *
+* * * *       *   * *
+ * * *         * * *
+* *  ***********  * *
+ * **           ** *
+* *****************
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+25693: beginning of char 69
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * *  ** *
+ ***** * * * *   ***
+* ****         ** * *
+ **** ********* * **
+*  **  *******  * * *
+ * **  *******  * **
+* ***  *******  * * *
+ ****  *******  * **
+* ***  *******  * * *
+ * **  *******  * **
+*  **  *******  * * *
+ **** ********* * **
+* ****         ** * *
+ ***** * * * *   ***
+* * * * * * * *  ** *
+ * * * * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+25986: beginning of char 105
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * * * * * * * * *
+ * **  * * * * * * *
+* ***   * * * * *****
+ * * **         ****
+* ** * ********* ****
+ * * *  *******  **
+* ** *  *******  ** *
+ * * *  *******  ***
+* ** *  *******  ****
+ * * *  *******  ***
+* ** *  *******  ** *
+ * * *  *******  **
+* ** * ********* ****
+ * * **         ****
+* ***   * * * * *****
+ * **  * * * * * * *
+* * * * * * * * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+26279: beginning of char 141
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  ***************** *
+ * **           ** *
+* *  ***********  * *
+ * * *         * * *
+* *   *       * * * *
+ * *  *********  * *
+* * * ********* * * *
+ * *  *********  * *
+* * * ********* * * *
+ * *  *********  * *
+* * * ********* * * *
+ * *  *********  * *
+* * * *       * * * *
+ * ***         *** *
+* * ************* * *
+ * *************** *
+* * ***  **** *** *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+26540: beginning of char 145
+.<--This pixel's lower left corner is at (3,18) in METAFONT coordinates
+     *****
+   ***   ***
+  **       **
+ **         **
+ *           *
+**           **
+*             *
+*             *
+*             *
+**           **
+ *           *
+ **         **
+  **       **
+   ***   ***
+     *****
+.<--This pixel's upper left corner is at (3,3) in METAFONT coordinates
+
+26603: beginning of char 157
+.<--This pixel's lower left corner is at (3,18) in METAFONT coordinates
+     *****
+   *********
+  ***********
+ *************
+ *************
+***************
+***************
+***************
+***************
+***************
+ *************
+ *************
+  ***********
+   *********
+     *****
+.<--This pixel's upper left corner is at (3,3) in METAFONT coordinates
+
+26640: beginning of char 151
+.<--This pixel's lower left corner is at (3,18) in METAFONT coordinates
+     *****
+   ***** ***
+  ******   **
+ *******    **
+ *******     *
+********     **
+********      *
+********      *
+********      *
+********     **
+ *******     *
+ *******    **
+  ******   **
+   ***** ***
+     *****
+.<--This pixel's upper left corner is at (3,3) in METAFONT coordinates
+
+26703: beginning of char 163
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * *       * * * *
+ * *    *****    * *
+* *   ***   ***   * *
+ *   **       **   *
+* * **         ** * *
+ *  *           *  *
+*  **           **  *
+ * *             * *
+*  *             *  *
+ * *             * *
+*  **           **  *
+ *  *           *  *
+* * **         ** * *
+ *   **       **   *
+* *   ***   ***   * *
+ * *    *****    * *
+* * * *       * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+26950: beginning of char 169
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * *       * * * *
+ * *    *****    * *
+* *   ***** ***   * *
+ *   ******   **   *
+* * *******    ** * *
+ *  *******     *  *
+*  ********     **  *
+ * ********      * *
+*  ********      *  *
+ * ********      * *
+*  ********     **  *
+ *  *******     *  *
+* * *******    ** * *
+ *   ******   **   *
+* *   ***** ***   * *
+ * *    *****    * *
+* * * *       * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+27197: beginning of char 175
+.<--This pixel's lower left corner is at (0,21) in METAFONT coordinates
+    * * * * * * * * *
+   * * * * * * * * *
+  * * *       * * * *
+ * *    *****    * *
+* *   *********   * *
+ *   ***********   *
+* * ************* * *
+ *  *************  *
+*  ***************  *
+ * *************** *
+*  ***************  *
+ * *************** *
+*  ***************  *
+ *  *************  *
+* * ************* * *
+ *   ***********   *
+* *   *********   * *
+ * *    *****    * *
+* * * *       * * *
+ * * * * * * * * *
+* * * * * * * * *
+.<--This pixel's upper left corner is at (0,0) in METAFONT coordinates
+
+Postamble starts at byte 27601, after special info at byte 27418.
+design size = 134217728 (128pt)
+check sum = -1336394310
+hppp = 272046 (4.1511)
+vppp = 272046 (4.1511)
+min m = 0, max m = 21
+min n = 0, max n = 20
+Character 0: dx 1376256 (21), width 40960 (20.75546), loc 468
+Character 1: dx 1376256 (21), width 40960 (20.75546), loc 4792
+Character 2: dx 1376256 (21), width 40960 (20.75546), loc 17616
+Character 3: dx 1376256 (21), width 40960 (20.75546), loc 22156
+Character 4: dx 1376256 (21), width 40960 (20.75546), loc 8652
+Character 5: dx 1376256 (21), width 40960 (20.75546), loc 12846
+Character 6: dx 1376256 (21), width 40960 (20.75546), loc 860
+Character 7: dx 1376256 (21), width 40960 (20.75546), loc 6092
+Character 8: dx 1376256 (21), width 40960 (20.75546), loc 18364
+Character 9: dx 1376256 (21), width 40960 (20.75546), loc 22808
+Character 10: dx 1376256 (21), width 40960 (20.75546), loc 9564
+Character 11: dx 1376256 (21), width 40960 (20.75546), loc 14396
+Character 12: dx 1376256 (21), width 40960 (20.75546), loc 720
+Character 13: dx 1376256 (21), width 40960 (20.75546), loc 7352
+Character 14: dx 1376256 (21), width 40960 (20.75546), loc 18052
+Character 15: dx 1376256 (21), width 40960 (20.75546), loc 22492
+Character 16: dx 1376256 (21), width 40960 (20.75546), loc 9152
+Character 17: dx 1376256 (21), width 40960 (20.75546), loc 16010
+Character 18: dx 1376256 (21), width 40960 (20.75546), loc 1076
+Character 19: dx 1376256 (21), width 40960 (20.75546), loc 5164
+Character 20: dx 1376256 (21), width 40960 (20.75546), loc 18736
+Character 21: dx 1376256 (21), width 40960 (20.75546), loc 23160
+Character 22: dx 1376256 (21), width 40960 (20.75546), loc 10020
+Character 23: dx 1376256 (21), width 40960 (20.75546), loc 13302
+Character 24: dx 1376256 (21), width 40960 (20.75546), loc 2364
+Character 25: dx 1376256 (21), width 40960 (20.75546), loc 6444
+Character 26: dx 1376256 (21), width 40960 (20.75546), loc 19944
+Character 27: dx 1376256 (21), width 40960 (20.75546), loc 24288
+Character 28: dx 1376256 (21), width 40960 (20.75546), loc 11010
+Character 29: dx 1376256 (21), width 40960 (20.75546), loc 14884
+Character 30: dx 1376256 (21), width 40960 (20.75546), loc 3616
+Character 31: dx 1376256 (21), width 40960 (20.75546), loc 7704
+Character 32: dx 1376256 (21), width 40960 (20.75546), loc 21084
+Character 33: dx 1376256 (21), width 40960 (20.75546), loc 25432
+Character 34: dx 1376256 (21), width 40960 (20.75546), loc 11952
+Character 35: dx 1376256 (21), width 40960 (20.75546), loc 16494
+Character 36: dx 1376256 (21), width 40960 (20.75546), loc 531
+Character 37: dx 1376256 (21), width 40960 (20.75546), loc 4887
+Character 38: dx 1376256 (21), width 40960 (20.75546), loc 17705
+Character 39: dx 1376256 (21), width 40960 (20.75546), loc 22225
+Character 40: dx 1376256 (21), width 40960 (20.75546), loc 8783
+Character 41: dx 1376256 (21), width 40960 (20.75546), loc 12937
+Character 42: dx 1376256 (21), width 40960 (20.75546), loc 921
+Character 43: dx 1376256 (21), width 40960 (20.75546), loc 6187
+Character 44: dx 1376256 (21), width 40960 (20.75546), loc 18443
+Character 45: dx 1376256 (21), width 40960 (20.75546), loc 22883
+Character 46: dx 1376256 (21), width 40960 (20.75546), loc 9685
+Character 47: dx 1376256 (21), width 40960 (20.75546), loc 14501
+Character 48: dx 1376256 (21), width 40960 (20.75546), loc 757
+Character 49: dx 1376256 (21), width 40960 (20.75546), loc 7449
+Character 50: dx 1376256 (21), width 40960 (20.75546), loc 18119
+Character 51: dx 1376256 (21), width 40960 (20.75546), loc 22547
+Character 52: dx 1376256 (21), width 40960 (20.75546), loc 9259
+Character 53: dx 1376256 (21), width 40960 (20.75546), loc 16113
+Character 54: dx 1376256 (21), width 40960 (20.75546), loc 1401
+Character 55: dx 1376256 (21), width 40960 (20.75546), loc 5395
+Character 56: dx 1376256 (21), width 40960 (20.75546), loc 19019
+Character 57: dx 1376256 (21), width 40960 (20.75546), loc 23435
+Character 58: dx 1376256 (21), width 40960 (20.75546), loc 10263
+Character 59: dx 1376256 (21), width 40960 (20.75546), loc 13551
+Character 60: dx 1376256 (21), width 40960 (20.75546), loc 2687
+Character 61: dx 1376256 (21), width 40960 (20.75546), loc 6675
+Character 62: dx 1376256 (21), width 40960 (20.75546), loc 20215
+Character 63: dx 1376256 (21), width 40960 (20.75546), loc 24569
+Character 64: dx 1376256 (21), width 40960 (20.75546), loc 11241
+Character 65: dx 1376256 (21), width 40960 (20.75546), loc 15147
+Character 66: dx 1376256 (21), width 40960 (20.75546), loc 3915
+Character 67: dx 1376256 (21), width 40960 (20.75546), loc 7953
+Character 68: dx 1376256 (21), width 40960 (20.75546), loc 21339
+Character 69: dx 1376256 (21), width 40960 (20.75546), loc 25693
+Character 70: dx 1376256 (21), width 40960 (20.75546), loc 12167
+Character 71: dx 1376256 (21), width 40960 (20.75546), loc 16755
+Character 72: dx 1376256 (21), width 40960 (20.75546), loc 594
+Character 73: dx 1376256 (21), width 40960 (20.75546), loc 4978
+Character 74: dx 1376256 (21), width 40960 (20.75546), loc 17834
+Character 75: dx 1376256 (21), width 40960 (20.75546), loc 22324
+Character 76: dx 1376256 (21), width 40960 (20.75546), loc 8902
+Character 77: dx 1376256 (21), width 40960 (20.75546), loc 13074
+Character 78: dx 1376256 (21), width 40960 (20.75546), loc 968
+Character 79: dx 1376256 (21), width 40960 (20.75546), loc 6268
+Character 80: dx 1376256 (21), width 40960 (20.75546), loc 18550
+Character 81: dx 1376256 (21), width 40960 (20.75546), loc 22984
+Character 82: dx 1376256 (21), width 40960 (20.75546), loc 9792
+Character 83: dx 1376256 (21), width 40960 (20.75546), loc 14640
+Character 84: dx 1376256 (21), width 40960 (20.75546), loc 790
+Character 85: dx 1376256 (21), width 40960 (20.75546), loc 7528
+Character 86: dx 1376256 (21), width 40960 (20.75546), loc 18208
+Character 87: dx 1376256 (21), width 40960 (20.75546), loc 22650
+Character 88: dx 1376256 (21), width 40960 (20.75546), loc 9358
+Character 89: dx 1376256 (21), width 40960 (20.75546), loc 16252
+Character 90: dx 1376256 (21), width 40960 (20.75546), loc 1720
+Character 91: dx 1376256 (21), width 40960 (20.75546), loc 5626
+Character 92: dx 1376256 (21), width 40960 (20.75546), loc 19338
+Character 93: dx 1376256 (21), width 40960 (20.75546), loc 23724
+Character 94: dx 1376256 (21), width 40960 (20.75546), loc 10514
+Character 95: dx 1376256 (21), width 40960 (20.75546), loc 13848
+Character 96: dx 1376256 (21), width 40960 (20.75546), loc 2990
+Character 97: dx 1376256 (21), width 40960 (20.75546), loc 6896
+Character 98: dx 1376256 (21), width 40960 (20.75546), loc 20512
+Character 99: dx 1376256 (21), width 40960 (20.75546), loc 24860
+Character 100: dx 1376256 (21), width 40960 (20.75546), loc 11480
+Character 101: dx 1376256 (21), width 40960 (20.75546), loc 15446
+Character 102: dx 1376256 (21), width 40960 (20.75546), loc 4204
+Character 103: dx 1376256 (21), width 40960 (20.75546), loc 8176
+Character 104: dx 1376256 (21), width 40960 (20.75546), loc 21618
+Character 105: dx 1376256 (21), width 40960 (20.75546), loc 25986
+Character 106: dx 1376256 (21), width 40960 (20.75546), loc 12398
+Character 107: dx 1376256 (21), width 40960 (20.75546), loc 17054
+Character 108: dx 1376256 (21), width 40960 (20.75546), loc 657
+Character 109: dx 1376256 (21), width 40960 (20.75546), loc 5069
+Character 110: dx 1376256 (21), width 40960 (20.75546), loc 17963
+Character 111: dx 1376256 (21), width 40960 (20.75546), loc 22423
+Character 112: dx 1376256 (21), width 40960 (20.75546), loc 9021
+Character 113: dx 1376256 (21), width 40960 (20.75546), loc 13211
+Character 114: dx 1376256 (21), width 40960 (20.75546), loc 1015
+Character 115: dx 1376256 (21), width 40960 (20.75546), loc 6349
+Character 116: dx 1376256 (21), width 40960 (20.75546), loc 18657
+Character 117: dx 1376256 (21), width 40960 (20.75546), loc 23085
+Character 118: dx 1376256 (21), width 40960 (20.75546), loc 9899
+Character 119: dx 1376256 (21), width 40960 (20.75546), loc 14779
+Character 120: dx 1376256 (21), width 40960 (20.75546), loc 823
+Character 121: dx 1376256 (21), width 40960 (20.75546), loc 7607
+Character 122: dx 1376256 (21), width 40960 (20.75546), loc 18297
+Character 123: dx 1376256 (21), width 40960 (20.75546), loc 22753
+Character 124: dx 1376256 (21), width 40960 (20.75546), loc 9457
+Character 125: dx 1376256 (21), width 40960 (20.75546), loc 16391
+Character 126: dx 1376256 (21), width 40960 (20.75546), loc 2039
+Character 127: dx 1376256 (21), width 40960 (20.75546), loc 5861
+Character 128: dx 1376256 (21), width 40960 (20.75546), loc 19661
+Character 129: dx 1376256 (21), width 40960 (20.75546), loc 24013
+Character 130: dx 1376256 (21), width 40960 (20.75546), loc 10767
+Character 131: dx 1376256 (21), width 40960 (20.75546), loc 14147
+Character 132: dx 1376256 (21), width 40960 (20.75546), loc 3293
+Character 133: dx 1376256 (21), width 40960 (20.75546), loc 7121
+Character 134: dx 1376256 (21), width 40960 (20.75546), loc 20813
+Character 135: dx 1376256 (21), width 40960 (20.75546), loc 25151
+Character 136: dx 1376256 (21), width 40960 (20.75546), loc 11721
+Character 137: dx 1376256 (21), width 40960 (20.75546), loc 15747
+Character 138: dx 1376256 (21), width 40960 (20.75546), loc 4493
+Character 139: dx 1376256 (21), width 40960 (20.75546), loc 8403
+Character 140: dx 1376256 (21), width 40960 (20.75546), loc 21901
+Character 141: dx 1376256 (21), width 40960 (20.75546), loc 26279
+Character 142: dx 1376256 (21), width 40960 (20.75546), loc 12631
+Character 143: dx 1376256 (21), width 40960 (20.75546), loc 17355
+Character 144: dx 1376256 (21), width 40960 (20.75546), loc 35
+Character 145: dx 1376256 (21), width 40960 (20.75546), loc 26540
+Character 151: dx 1376256 (21), width 40960 (20.75546), loc 26640
+Character 157: dx 1376256 (21), width 40960 (20.75546), loc 26603
+Character 163: dx 1376256 (21), width 40960 (20.75546), loc 26703
+Character 169: dx 1376256 (21), width 40960 (20.75546), loc 26950
+Character 175: dx 1376256 (21), width 40960 (20.75546), loc 27197
+The file had 151 characters altogether.

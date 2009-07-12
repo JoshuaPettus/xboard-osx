@@ -1,0 +1,157 @@
+% This is
+%		diag.engl.tex
+% Following is a short demonstration of the features of the elch-
+% macros. This is not a complete documentation, but a commented
+% plainTeX sources.
+%
+% Copyright (C) 1989-92  by Elmar Bartel.
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 1, or (at your option)
+% any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+%
+\input elch
+% Set the size of the board
+\twelvechess
+% Every board is enclosed by two commands:
+\beginboard
+\endboard
+%
+% These two instructions will produce a empty board
+% without figures, author or stipulation.
+%
+% Between these two commands, you can put further commands,
+% to specify authors, origin, which will be set above the
+% board.
+%
+\beginboard
+\author Erich Bartel;
+\orig Jugendschach 45;
+\endboard
+% 
+% Its important, that the argument to these commands are terminated
+% with a semicolon. This semicolon has to be followed by a newline
+% or blank character.
+% There a further commands to specify more:
+%
+% \bnum Nummer;
+%		It's possible to supply your own number for the
+%		board, if you do not want consecutive numbering
+%		of the boards.
+%		If you want automatic numbering, but starting with
+%		another number than 1, use \boardnumber=27 for example
+%		to start with number 27.
+%
+% \dedic Widmung;
+%		Here you can put you dedications, or other informations
+%		This text appears below the origin and authors.
+%
+% All other commands place information below the board.
+% There are stipulation, condition and remarks.
+%
+% \stip Forderung;
+%		You put your stipulation here.
+%
+% \cond Bedingung;
+%		If there are addtional conditions, put them here.
+%		Should not be longer than the width of the board.
+%
+% All commands mentions up to now, accept more than one argument.
+% They are seperated by comma: ', ' (comma blank).
+% To specify more authors, you use for example:
+% \author Erich Bartel, Elmar Bartel;
+%
+% When you need to put larger remarks or illings below the board,
+% you can do it with the \rem command.
+% Every argument (seperated by ', ' (comma blank) consists of two
+% parts, seperated by '/' (slash). All remarks, will be lined up
+% at the '/' which will not be printed.
+%
+% For example:
+%
+% \rem a)/Diagramm, b) wK\ra f4;
+%
+%
+% to illustrate the use of these commands look at the following
+% example, especially at the output produced.
+%
+\beginboard
+\author Erich Bartel;
+\orig Original;
+\stip \#5;
+\rem a)/Diagramm, bb)/wBa6 nach c7;
+\endboard
+%
+% Now comes the heart of all this, the figures.
+%
+% Every figure get a uniqe abbreviation, consisting of the capital
+% first character of the german name of the figure. (These have
+% the advantage to be unique).
+% 	B = Bauer,    Pawn
+%	S = Springer, Knight
+%	L = L"aufer,  Bishop
+%	T = Turm,     Tower
+%	D = Dame,     Queen
+%	K = K"onig,   King
+% These letter are preceded by the color-indicatiors:
+%	w = weiss,    white
+%	s = schwarz,  black
+%	n = neutral,  neutral
+% These resulting two-letter combinations may be followed by
+% an orientation specification:
+%       l = links,    left rotated by 90 degree
+%	r = rechts,   right rotated by 90 degree
+%       u = unten     turned upside down (180 degree)
+% So for example a neutral king is named nK
+% These figure specifications are followed by a list of field
+% where this figure is to appear.
+% White King on d4 look like this: wKd4
+% Or a couple of black pawns: sBa3b6c7
+% The secification of a whole position is a list of such figure
+% specifications seperated by ', ' (comma blank) and terminated
+% by '; ' (semicolon, blank or newline)
+% The specification for the starting position looks like this:
+%
+\beginboard
+\author Unkown;;
+\orig Unkown;;
+\pieces wBa2b2c2d2e2f2g2h2, wTa1h1, wSb1g1,
+        wLc1f1, wDd1, wKe1, sBa7b7c7d7e7f7g7h7,
+        sTa8h8, sSb8g8, sLc8f8, sDd8, sKe8;
+\stip stipulation ?;
+\cond No condition;
+\rem a)/1.remark, b)/2.remark;
+\endboard
+\bigskip
+%
+% There are a few further commands:
+% \gridtrue		The board will be printed with grid-lines
+% \centeredtrue		The material above the board will be centered
+% \figcntfalse		The figure count below will not be printed.
+%
+% Here come two brand new features:
+%
+% solutions:
+% The solution of the problem is enclosed by  \beginsol \endsol.
+% Everything put between these two commands will be gathered and
+% later put out via the command \putsol
+%
+% The size of the board can be controlled by the commands
+% 
+% \twelvechess
+% \elevenchess
+% \tenchess
+%
+%
+\bye

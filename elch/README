@@ -1,0 +1,67 @@
+Hello TeXnicans,
+
+  Here comes my version of a chess-font (elch), and TeX-Macros for use
+with TeX and LaTeX. This file is not the documentation, on how to use
+the macros, or the fonts, but gives a litte history and some remarks on
+this package. Unfortunatly I haven't found the time yet to do a fairly
+good documentation, but since some friends asked me to provide these
+things - here I do so. You can look at the file diag.ger.tex (for
+germans like me :-), or at diag.engl.tex (for the rest of the world),
+to get a small feeling on how to use it.
+
+  Included in this package are all the MF-sources, the neccessary TeX
+macros, and also tfm-files and pk-files for 300dpi printer. If need
+other resolutions, get MF2.00 or a later release running and generate
+them. If you have trouble, you can drop me a e-mail, but no guaranty 
+to get help immediatly or later. To use the TeX macros you will need
+TeX3.00 or later.
+
+  This is a special package for setting chess-diagrams, especially to set
+diagrams for fairy-chess boards. I did this font, to help my father in
+producing a small magazine named PROBLEMKISTE. In former times, he had
+to set the diagramms with scissors and glue resulting in nice diagrams,
+but also consuming a huge amount of time. Since PROBLEMKISTE is a fairy
+chess magazine, you can set all figures roted by 90 degrees (left,
+right and upsidedown), and in white, black and neutral.
+
+  I designed this font with an eye to traditional chess fonts appearing
+in a lot of magazines. But also personal taste influenced the forms of
+the figures.
+
+  This font is the first font i designed, and therefore the first font
+done by me with METAFONT. And this shows. Experienced users of METAFONT
+will have a lot of recomendations on how to do it better, or how to do
+it the right way.  Suggestions are welcome, but I doubt whether I will
+have enough time to do it. METAFONT is fun - as long as you have a fast
+machine.  I started on a microvax II in 1989, and did the last changes
+to the fonts on a HP9000/720 (this is REAL fun!!!), but nevertheless,
+METAFONTing is VERY timeconsuming.
+
+  The TeXmacros going with this font are undergoing steady changes. 
+Since with every new feature needed to make a better look of
+PROBLEMKISTE i do some hacking as far as neccessary.  All macros needed
+to do the PROBLEMKISTE are based on plainTeX, therefore also the
+elch-macros are based on plainTeX. I'am not an user of LaTeX. Despite
+this fact, i hacked the tex-source to be usable under LaTeX, but it
+follows in no way the conventions of LaTeX (as far as I can judge it),
+and it well may be that there are problems in using it with LaTeX.
+I only tried the diag*.tex with LaTeX.
+
+
+
+All this stuff is put in the public domain under the
+GNU GENERAL PUBLIC LICENSE. A copy of this is enclosed
+in this package.
+
+You can reach me via e-mail:
+
+	bartel@informatik.tu-muenchen.de
+
+Or via snail:
+	Elmar Bartel 
+	Institut fuer Informatik der
+	Technischen Universitaet Muenchen
+	Arcisstrasse 21
+	8000 Muenchen 2
+	Germany
+

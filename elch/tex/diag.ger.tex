@@ -1,0 +1,153 @@
+% This is
+%		diag.ger.mf
+% Es folgt eine kurze Darstellung der Moeglichkeiten der elch-macros.
+% Dies ist keine komplette Dokumentation, sondern eine kommentierte
+% plainTeX Quelle.
+%
+% Copyright (C) 1989-92  by Elmar Bartel.
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 1, or (at your option)
+% any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+\input german
+\input elch
+% Groesse des Diagramms angeben:
+\twelvechess
+% Jedes Diagramm besteht aus zwei Kuerzeln:
+\beginboard
+\endboard
+%
+% Diese beiden Anweisungen erzeugen in der Ausgabe ein leeres
+% Diagramm, ohne Figuren, Autoren, Forderungen etc
+%
+% Innerhalb dieser beiden Kuerzel kann man weitere Kuerzel angeben,
+% die Autoren, und die Quellen ueber das Diagramm setzen.
+%
+\beginboard
+\author Erich Bartel;
+\orig Jugendschach 45;
+\endboard
+% 
+% Wichtig ist, dass nach dem Kuerzel ein Leerzeichen steht, sonst
+% wird das Kuerzel nicht verstanden. Hinter dem Argument fuer das
+% Kuerzel muss ein `;'Strickpunkt folgen, und dieser wiederum
+% von mindestens einem Leerzeichen oder Zeilenwechsel gefolgt sein.
+% Es gibt noch weitere solche Kuerzel die bekannt sind:
+%
+% \bnum Nummer;
+%		Man kann dem Diagramm seine eigene Nummer geben,
+%		wenn man nicht fortlaufende Numerierung der Diagramme
+%		haben will. Wenn man bei einer anderen Nummer als 1
+%		beginnen will, muss man mit \boardnumber=27 eine
+%		andere Nummer (hier jetzt 27) angeben (kein `;' am
+%		Ende.
+%
+% \dedic Widmung;
+%		Hier koennen Widmungen oder etwas anderes angegeben
+%		werden. Der Text erscheint unter der Quellen- und Autor-
+%		angabe.
+%
+% Dies sind alle Kuerzel die Text oberhalb des Diagramms erscheinen
+% lassen.
+% Unter das Diagramm lassen sich Forderung, Bedingung und Bemerkungen
+% platzieren. Dazu sind folgende Kuerzel gedacht:
+%
+% \stip Forderung;
+%		Hier wird die Forderung angegeben.
+%
+% \cond Bedingung;
+%		Hier wirden Bedingungen angegeben. Sie sollte nicht
+%		laenger sein als das Brett breit ist.
+%
+% Alle bisher erwaehnten Kuerzel lassen auch mehrere Argumente zu.
+% Sie sind durch ',' zu trennen. Also f"ur mehrere Autoren:
+% \author Erich Bartel, Elmar Bartel;
+%
+% Wenn groessere Erlaeuterungen, oder Mehrlinge unter dem Diagramm
+% unter dem Diagramm anzugeben sind, dann geschieht das mit dem
+% Kuerzel \rem (=Remark=Bemerkung).
+% Dieses Kuerzel erhaelt zwei Parameter, zum Beispiel so:
+%
+% \rem a)/Diagramm, b) wK\ra f4;
+%		Der erste Parameter wird von dem folgenden durch
+%		einen '/' getrennt. Weitere koennen durch Komma
+%		getrennt folgen. Diese Bemerkungen werden unter dem
+%		Diagramm gesetzt. Das geschieht so, dass alle
+%		Bemerkungen in der gleichen Spalte beginnen, und die
+%		groesste erste Teil einer Bemerkung die
+%		Einrueckung bestimmt. 
+% Ein Beispiel:
+%
+\beginboard
+\author Erich Bartel;
+\orig Original;
+\stip \#5;
+\rem a)/Diagramm, bb)/wBa6 nach c7;
+\endboard
+%
+% Nun zum wichtigsten, den Figuren.
+% Fuer jede Figur gibt es ein eigenes Kuerzel, das aus den ueblichen
+% Abkuerzungen gebildet wird. Jeweils der Anfangsbuchstabe von
+% Bauer, Springer, Laeufer, Turm, Dame, Koenig. Dieser Buchstabe
+% ist gross zu schreiben. Vorangestellt wird die Farbe der Figur
+% entweder w (=weiss) s (=schwarz) n (=neutral). Nachgestellt werden
+% kann ein Buchstabe wenn die Figur andere Orientierung haben soll:
+% l (= 90 Grad nach links gedreht), r (= 90 Grad nach rechts gedreht)
+% und u (= nach unten gedreht).
+% Somit wird ein neutraler Koenig mit nK bezeichnet.
+% Ein solches Kuerzel wird direkt gefolgt von der Liste der Felder,
+% wo diese Figur gedruckt werden soll.
+% Weisser Koenig auf d4 sieht dann so aus: wKd4
+% Oder mehrere schwarze Bauern: sBa3b6c7
+% Die Liste der Felder hinter dem Figuren-Kuerzel wird durch ein Komma
+% gefolgt von Leerzeichen abgeschlossen oder falls es die letzte
+% Figur war wird das Kommando durch einen Strichpunkt abgeschlossen
+% Somit sieht ein Diagramm fuer die Grundstellung folgendermassen aus:
+%
+\beginboard
+\author Unbekannt;
+\orig Unbekannt;
+\pieces wBa2b2c2d2e2f2g2h2, wTa1h1, wSb1g1,
+        wLc1f1, wDd1, wKe1, sBa7b7c7d7e7f7g7h7,
+        sTa8h8, sSb8g8, sLc8f8, sDd8, sKe8;
+\stip Forderung ?;
+\cond Keine Bedingung;
+\rem a)/1.Bemerkung, b)/2.Bemerkung;
+\endboard
+\bigskip
+%
+% Daneben gibt es noch drei weitere Sachen, um das Aussehen
+% \gridtrue		Versieht das Diagramm mit einem Normalgitter
+% \centeredtrue		Die Angaben ueber dem Diagramm werden zentriert
+% \figcntfalse		Es werden keine Figurenanzahlen unter dem
+%			Diagramm gedruckt.
+%
+%
+% Hier kommen noch zwei ganz neue Sachen:
+%
+% Loesungen:
+% Die Loesung des Problems wird eingeschlossen durch die beiden
+% Kuerzel \beginsol \endsol.
+% Alles was zwischen diesen beiden Kuerzeln steht wird in einer
+% Datei aufgesammelt, und kann spaeter mit dem Kommando \putsol
+% wieder eingelesen werden.
+%
+% Groesse der Diagramme kann eingestellt werden:
+% 
+% \twelvechess
+% \elevenchess
+% \tenchess
+%
+%
+\bye

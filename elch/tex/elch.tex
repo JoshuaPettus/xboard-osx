@@ -1,0 +1,527 @@
+% This is
+%		elch.tex
+% a plainTeX macro package to set fairy chess boards, with the
+% elch-fonts.
+%
+% Copyright (C) 1989-92  by Elmar Bartel.
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 1, or (at your option)
+% any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+\font\chessfont=elch10
+%
+% this is for standalone applications
+\font\numberfont=cmr10 scaled \magstep1
+\font\authorfont=cmr9 scaled \magstep1
+\font\origfont=cmsl8 scaled \magstep1
+\font\dedicfont=cmsl8 scaled \magstep1
+\font\stipfont=cmr9 scaled \magstep1
+\font\remfont=cmr8 scaled \magstep1
+
+%\def\numberfont{\tenpoint}%
+%\def\authorfont{\ninepoint}%
+%\def\origfont{\eightpoint\sl}%
+%\def\dedicfont{\eightpoint\sl}%
+%\def\stipfont{\ninepoint}%
+%\def\remfont{\eightpoint}%
+%
+% Global counters
+\newcount\boardnumber\boardnumber=1%
+\newcount\solnumber\solnumber=1%
+\newcount\whitecnt
+\newcount\blackcnt
+\newcount\neutrcnt
+
+%
+% BoardLocal registers
+%\newcount\remcnt
+%\newcount\rmc
+%\newcount\bnumber
+%
+\countdef\remcnt=105
+\countdef\rmc=106
+\countdef\bnumber=107
+%
+%\dimendef\remwidth=10
+\newdimen\remwidth
+%\dimendef\itmwidth=11
+\newdimen\itmwidth
+%\dimendef\itmspace=12
+\newdimen\itmspace
+%\dimendef\remspace=13
+\newdimen\remspace
+%\dimendef\scratch=14
+\newdimen\scratch
+\newdimen\bdwidth
+\newdimen\authorskip
+\newdimen\remskip
+%
+%
+\toksdef\numbertk=100
+\toksdef\authortk=101
+\toksdef\origtk=102
+\toksdef\stiptk=104
+\toksdef\remtk=105
+\toksdef\dedictk=106
+\toksdef\condtk=107
+\toksdef\soltk=108
+%
+%\chardef\sqbx=10
+%\chardef\stipbx=11
+%\chardef\rembox=12
+%\chardef\condbx=13
+%\chardef\figcntbx=14
+%
+\def\setbdwidth{{\chessfont\global\bdwidth=8\fontdimen2\chessfont
+\global\advance\bdwidth by.6pt}}%
+\setbdwidth
+%
+\def\twelvechess{\font\chessfont=elch12 scaled \magstep1
+\font\numberfont=cmr10 scaled \magstep1
+\font\authorfont=cmr9 scaled \magstep1
+\font\origfont=cmsl8 scaled \magstep1
+\font\dedicfont=cmsl8 scaled \magstep1
+\font\stipfont=cmr9 scaled \magstep1
+\font\remfont=cmr8 scaled \magstep1
+\authorskip=12pt
+\remskip=11pt
+\setbdwidth
+}%
+\def\elevenchess{\font\chessfont=elch11 scaled \magstep1
+\font\numberfont=cmr10 scaled \magstep1
+\font\authorfont=cmr9 scaled \magstep1
+\font\origfont=cmsl8 scaled \magstep1
+\font\dedicfont=cmsl8 scaled \magstep1
+\font\stipfont=cmr9 scaled \magstep1
+\font\remfont=cmr8 scaled \magstep1
+\authorskip=11pt
+\remskip=10pt
+\setbdwidth
+}%
+\def\tenchess{\font\chessfont=elch10 scaled \magstep1
+\font\numberfont=cmr9 scaled \magstep1
+\font\authorfont=cmr8 scaled \magstep1
+\font\origfont=cmsl8
+\font\dedicfont=cmsl8
+\font\stipfont=cmr8 scaled \magstep1
+\font\remfont=cmr7 scaled \magstep1
+\authorskip=9pt
+\remskip=8pt
+\setbdwidth
+}%
+%
+\newbox\sqbx
+\newbox\stipbx
+\newbox\rembox
+\newbox\condbx
+\newbox\figcntbx
+\newbox\authorbox
+\newbox\origbox
+\newbox\dedicbox
+\newbox\tmpbx
+%
+\newif\ifnumber
+\newif\ifauthor
+\newif\ifpieces
+\newif\iforig
+\newif\ifstip
+\newif\ifdedic
+\newif\iffigcnt
+\newif\ifgrid
+\newif\ifcentered
+\newif\ifcond
+\newif\ifsolution
+% Global ifs
+\newif\ifalphanum\alphanumfalse
+\newif\ifromannum\romannumfalse
+\newif\iflowcasenum\lowcasenumfalse
+%
+\newwrite\solfd
+\newwrite\etocfd
+\def\clearsol{\immediate\openout\solfd=sol\the\solnumber.tex}\clearsol
+\immediate\openout\etocfd=etoc.data
+%
+%\tracingmacros=1
+%\tracingcommands=1
+%
+\def\bnum #1; {\numbertk={#1}\numbertrue}%
+\def\ucnumber#1{\count0=#1\advance\count0 by `A\advance\count0 by -1\char\count0}%
+\def\lcnumber#1{\count0=#1\advance\count0 by `a\advance\count0 by -1\char\count0}%
+%
+\def\eolist{\relax}%
+\def\parse#1{\futurelet\next\checkit#1}%
+\def\checkit{\ifx\next\eolist\let\todo=\relax\else\let\todo=\action\fi\todo}%
+%
+\def\setcentered#1, {\break\centerline{#1}\parse}%
+\def\leftset{\par\hang\textindent}%
+\def\setleftadj#1, {\leftset{\box0}#1\kern-5pt\parse}%
+\def\author #1; {\authortrue
+  \authortk={#1}%
+  \ifcentered
+    \let\action=\setcentered
+    \setbox\authorbox=\vbox{\hsize=\bdwidth\noindent
+      \authorfont\baselineskip=\authorskip\lineskip=1pt\lineskiplimit=.5pt\parskip=0pt
+      \ifnumber\centerline{\numberfont\the\numbertk
+      }\fi
+      \authorfont
+      \parse#1, \eolist}%
+  \else
+    \let\action=\setleftadj
+    \setbox0=\hbox{\ifnumber\numberfont\ \the\numbertk)\fi}%
+    \setbox\authorbox=\vbox{\hsize=\bdwidth\parindent=\wd0
+      \authorfont\baselineskip=\authorskip\lineskip=1pt\lineskiplimit=.5pt\parskip=0pt
+      \noindent\parse#1, \eolist}%
+  \fi
+}%
+%
+\def\orig #1; {\origtrue
+  \ifcentered\let\action=\setcentered
+  \else\let\action=\setleftadj\fi
+  \setbox\origbox=\vbox{\vskip1pt\hsize=\bdwidth\parindent=0pt
+    \origfont{\lineskip=1pt\baselineskip=0pt}%
+    \parse#1, \eolist\vskip1pt}}%
+%
+\def\dedic #1; {\dedictrue
+  \ifcentered\let\action=\setcentered
+  \else\let\action=\setleftadj\fi
+  \setbox\dedicbox=\vbox{\hsize=\bdwidth\parindent=0pt
+    \dedicfont\lineskip=1pt\baselineskip=2pt%
+    \parse#1, \eolist\vskip1pt}}%
+%
+\def\stip #1; {\stiptk={#1}\stiptrue}%
+\def\cond #1; {\condtk={#1}\condtrue}%
+\def\etoc #1; {\immediate\write\etocfd{\the\pknumber:\the\pageno:\the\boardnumber:#1}}%
+%
+\def\getmax#1/#2, {\setbox0=\hbox{#1}\ifdim\wd0>\parindent\parindent=\wd0\fi\parse}%
+\def\setrem#1/#2, {\leftset{#1}#2\parse}%
+\def\rem #1; {%
+  \let\action=\getmax\parindent=0pt
+  \parse#1, \eolist
+  \ifdim\parindent>0pt\advance\parindent by .5em\fi
+  \setbox\rembox=\vbox{\hsize=\bdwidth
+    \tolerance=5000\emergencystretch=10pt
+    \remfont\parskip=.5pt{\lineskip=1pt\baselineskip=\remskip\lineskiplimit=.5pt}
+    \let\action=\setrem
+    \parse#1, \eolist}}%
+%
+\def\initvars{%
+	\soltk={}%
+	\remcnt=20\global\whitecnt=0\global\blackcnt=0\global\neutrcnt=0
+	\remwidth=0pt\itmwidth=0pt
+	\bnumber=\boardnumber
+}%
+%
+\def\venbox#1{\vbox{\hrule\hbox{\vrule{#1}\vrule}\hrule}}%
+\def\henbox#1{\hbox{\vrule\vbox{\hrule{#1}\hrule}\vrule}}%
+%
+\def\solution{\readsol}%
+\def\SolBeg{\relax}
+\def\SolEnd{\relax}
+\let\sol=\solution
+\def\readsol#1\endsol{\soltk={#1}}%
+%
+\def\eightxeightpieces #1; {\piecestrue\setbox\sqbx=\vbox{\makeboard 8x8: #1; }}%
+\def\fivexfivepieces #1; {\piecestrue\setbox\sqbx=\vbox{\makeboard 5x5: #1; }}%
+\def\fourxfourpieces #1; {\piecestrue\setbox\sqbx=\vbox{\makeboard 4x4: #1; }}%
+%
+\def\beginboard{%
+\numbertrue\authorfalse\origfalse\dedicfalse\stipfalse\solutiontrue\piecesfalse
+\figcnttrue\condfalse
+\begingroup
+\initvars
+\ifalphanum
+	\edef\enumtok{\numbertk={\ifcase
+	    \bnumber\or A\or B\or C\or D\or E\or F\or G\or H\or
+		 	I\or J\or K\or L\or M\or N\or O\or P\or
+			Q\or R\or S\or T\or U\or V\or W\or X\or
+			Y\or Z\fi
+	    }}%
+\else\ifromannum
+	\edef\enumtok{\numbertk={\romannumeral\bnumber}}%
+\else
+	\edef\enumtok{\numbertk={\number\bnumber}}%
+\fi\fi
+	\enumtok
+\iflowcasenum
+		\relax
+	\else
+	\edef\enumtok{\numbertk={\uppercase{\the\numbertk}}}%
+	\enumtok
+\fi
+\let\pieces=\eightxeightpieces
+}%
+\def\endboard{%
+  \ifpieces\relax\else\eightxeightpieces ;
+  \fi
+  \vtop{\parindent=0pt\baselineskip=2pt\lineskip=1pt
+    %\global\bdwidth=\wd\sqbx
+    \hbox{\vbox{\ifauthor
+	\hbox{\box\authorbox}\vskip\baselineskip
+      \else
+	\ifnumber
+	  \hbox to \wd\sqbx{\ifcentered\hfil\fi
+	    \numberfont\the\numbertk\hfil}\fi
+      \fi
+      \iforig\hbox{\box\origbox}\vskip\baselineskip\fi
+      \ifdedic\hbox{\box\dedicbox}\vskip\baselineskip\fi
+      \henbox{\hbox{\box\sqbx}}%
+    }}%
+    \hbox{\vbox{%
+      \vskip1pt
+      \tolerance=5000\emergencystretch=10pt
+      \hsize=\bdwidth
+      \baselineskip=11pt
+      % now set the box with stipulation, condition, and gifcnt
+      \noindent
+      \iffigcnt
+	 %\message{we set figure counts}%
+	 \setbox\figcntbx=\hbox{\remfont\hskip.7em(\the\whitecnt
+	    +\the\blackcnt\ifnum\neutrcnt>0 +\the\neutrcnt n\fi)\kern-.2em}%
+	 \hangindent=-\wd\figcntbx
+	 \hangafter=-1
+	 \rlap{\hbox to \hsize{\hfil{\box\figcntbx}}}%
+      \fi
+      \raggedright
+      \ifstip\stipfont\the\stiptk\enspace\fi
+      \ifcond\remfont\penalty-500\the\condtk\fi
+    }}\vskip2pt\hbox{\box\rembox}}%
+    % Write the author, and the boardnumber
+    \ifsolution\immediate\write\solfd{\noexpand\ll \ifnumber\the\numbertk)\ \fi \the\authortk: \the\soltk\noexpand\eol}\fi
+    %{\edef\all{\the\numbertk) \the\authortk:}%
+    %  %\let\the=0\edef\iwrite{\write\solfd{\all \the\count0}}%
+    %  \edef\iwrite{\write\solfd{\all \the\soltk}}%
+    %  \iwrite}%
+  \endgroup
+  \global\advance\boardnumber by 1
+}%
+\def\ll #1: {\noindent\hangindent=5mm\hangafter=1 {\bf #1}:\ }%
+\def\putsol{%
+\immediate\closeout\solfd
+\input sol\the\solnumber.tex
+\global\advance\solnumber by 1
+\immediate\openout\solfd=sol\the\solnumber.tex
+}%
+%
+\def\wF{{\chessfont\ }}%
+\def\bF{{\chessfont\char144}}%
+\def\wwB{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char0}}}%
+\def\wwS{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char1}}}%
+\def\wwL{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char2}}}%
+\def\swL{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char20}}}%
+\def\wwT{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char3}}}%
+\def\wwD{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char4}}}%
+\def\wwK{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char5}}}%
+\def\wsB{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char12}}}%
+\def\wsS{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char13}}}%
+\def\wsL{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char14}}}%
+\def\ssL{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char32}}}%
+\def\wsT{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char15}}}%
+\def\wsD{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char16}}}%
+\def\wsK{{\chessfont\lower .11\fontdimen2\chessfont\hbox{\char17}}}%
+%-------------------------------------------------------------------
+%
+% Here comes a set of macros for parsing field-lists and generating boards
+%
+% We can generate board's up to at least 200 squares
+%
+% We use the count-registers 0 to 200 to store the type of piece going
+% onto this field
+%
+% At first a few counterdefinitions
+
+\countdef\xsz=200 	% Size in x(horizontal direction)
+\countdef\ysz=201 	% Size in y(vertical direction)
+\countdef\xysz=202	% Count of all squares
+\countdef\xyp=203	% running square-number
+\countdef\xp=204	% running x-number
+\countdef\yp=205	% running y-number
+\countdef\bn=206	% running boardnumber
+\countdef\ch=207	% this is the character to set
+\countdef\sum=208
+\countdef\wcnt=209
+\countdef\bcnt=210
+\countdef\ncnt=211
+%
+% 
+% Initialize all counters
+\def\emptyboard{% We expect xsz, ysz, xysz and bn to be set properly
+		% Don't use this macro in the top groups: It will overwrite
+		% a lot of neccesary registers.
+	\xp=0 \yp=0 \xyp=0 \sum=\bn
+	% initialize all count register, one for each field
+	\loop\ifnum\xyp<\xysz
+		\ifodd\sum
+			\count\xyp=100
+		\else
+			\count\xyp=144
+		\fi
+		\advance\xyp by 1
+		\advance\xp by 1
+		\advance\sum by 1
+		\ifnum\xp=\xsz
+			\advance\sum by -\xsz
+			\xp=0
+			\advance\yp by 1
+			\advance\sum by 1
+		\fi
+	\repeat
+}%
+%
+% now we need also routines to get the squares printed
+%
+\def\genrow#1{% We generate one line of the board as hbox
+	   % #1 contains the number of the line wanted
+	\chessfont
+	\xp=0
+	\xyp=#1 \multiply\xyp by \xsz
+	\hbox{%
+		\loop
+			\ifnum\count\xyp=100
+				\ 
+			\else
+				\char\count\xyp
+			\fi
+			\ifgrid\ifodd\xp\ifnum\xp<\xsz\vrule width.6pt\fi\fi\fi
+			\advance\xp by1
+			\advance\xyp by1
+		\ifnum\xp<\xsz \repeat
+	}%
+}%
+%
+\def\genboard{% We generate the board with lines
+	\vbox{
+		\chessfont
+		\baselineskip=0pt plus 0pt
+		\lineskip=0pt plus 0pt
+		\yp=\ysz
+		\loop
+			\advance\yp by -1
+			\genrow\yp
+			\ifgrid\ifodd\yp\relax\else\ifnum\yp>0\hrule height.6pt\fi\fi\fi
+		\ifnum\yp>0 \repeat
+	}%
+}%
+%
+\def\initcnts#1#2#3{%
+	\xsz=#1
+	\ysz=#2
+	\xysz=\xsz \multiply\xysz by \ysz
+	\if\xysz>199\message{++++Warning: board too big: \the\xysz squares}\fi
+	\bn=#3
+	\wcnt=\whitecnt\bcnt=\blackcnt\ncnt=\neutrcnt
+}%
+%-------------------------------------------------------------------
+%
+% Here come the routines to parse the fieldlists
+%-------------------------------------------------------------------
+\def\getcolor#1{\if#1w\ch=0\let\cnt=\wcnt\else
+  \if#1n\ch=6\let\cnt=\ncnt\else
+  \if#1s\ch=12\let\cnt=\bcnt\else
+  \error\fi\fi\fi\getpiece
+}%
+\def\getpiece#1{\if#1B\relax\else
+  \if#1S\advance\ch by1 \else
+  \if#1L\advance\ch by2 \else
+  \if#1T\advance\ch by3 \else
+  \if#1D\advance\ch by4 \else
+  \if#1K\advance\ch by5 \else
+  \if#1C\advance\ch by145 \else
+  \message{error in getpiece}\fi\fi\fi\fi\fi\fi\fi
+  \futurelet\rotate\checkrotate
+}%
+\def\checkrotate{\if\rotate u\advance\ch by 108\let\nextproc=\skipone\else
+  \if\rotate l\advance\ch by 36\let\nextproc=\skipone\else
+  \if\rotate r\advance\ch by 72\let\nextproc=\skipone\else
+  \let\nextproc\look\fi\fi\fi\nextproc
+}%
+\def\skipone#1{\futurelet\whatsnext\parsefields
+}%
+\def\look{\futurelet\whatsnext\parsefields
+}%
+\def\parsefields{\if\whatsnext\eoflist\let\nextproc=\relax \else
+  \let\nextproc=\sfig\fi\nextproc
+}%
+\def\sfig#1#2{%
+	\advance\cnt by 1
+	\yp=`#2\advance\yp by-`1
+	\xp=`#1\advance\xp by -`a
+	\xyp=\yp\multiply\xyp by \xsz\advance\xyp by \xp
+	\sum=\yp\advance\sum by \xp \advance\sum by \bn
+	\count\xyp=\ch
+	\ifodd\sum\relax\else\advance\count\xyp by 18\fi
+	\look
+}%
+\def\setpieces #1; {\if{#1}{}=\relax\else
+  \looklist#1, \eoflist\fi
+}%
+\def\looklist{\futurelet\nextlist\checklist
+}%
+\def\checklist{\ifx\nextlist\eoflist\let\nextproc=\relax\else
+  \let\nextproc=\parselist\fi\nextproc
+}%
+\def\parselist#1, {\getcolor#1\eoflist\looklist
+}%
+\def\eoflist{\relax}%
+%
+\def\makeboard #1x#2: #3; {%
+\begingroup
+\initcnts{#1}{#2}{0}\emptyboard
+\if#3\relax\relax\relax\else\setpieces #3; \fi
+\genboard
+\global\whitecnt=\wcnt
+\global\blackcnt=\bcnt
+\global\neutrcnt=\ncnt
+\endgroup
+}%
+%
+% this is the end of parsing-routines for field-lists
+%----------------------------------------------------------------------------
+
+% code for testing purposes of makeboard
+%\font\chessfont=chess
+%\newcount\whitecnt
+%\newcount\blackcnt
+%\newcount\neutrcnt
+%
+%
+%\makeboard 15x10: wBa4a6d9, wKua9;
+%
+%\bye
+%:map q :w:!tex genboard
+%----------------------------------------
+%
+%\parindent=0pt
+%\hrule
+%\venbox{%
+%\beginboard
+%\author Erich Bartel;
+%\orig Jugendschach;
+%\stip h\#3;
+%\pieces wBa2b2c2d2e2f2g2h2, sBa7b7c7d7e7f7g7h7, wTa1h1, sTa8h8,
+%	wSb1g1, sSb8g8, wLc1f1, sLc8f8, wDd1, sDd8, wKe1, sKe8;
+%\dedic Albert Kniest gewidmet;
+%\rem a)/d4=Gnu, /\ \ \ =4,1S;
+%\endboard
+%}%
+%\beginboard
+%\orig Original;
+%\stip =1;
+%\rem a)/c4=2,2-S,
+%	b-u)/{2,3 bis 6,7-S so, da\ss{} a2 vom Springer gedeckt ist.};
+%\endboard
+%\bye
+%:map q :w:!tex chess&&texx count&
+%:map q :w:!tex chess
+%----------------------------------------

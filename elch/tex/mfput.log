@@ -1,0 +1,140 @@
+This is METAFONT, Version 2.71 (C version 6.1) (base=plain 95.1.3)  26 MAY 1995 10:18
+**\help
+
+*\?
+>> 103
+! Isolated expression.
+<to be read again> 
+                   message
+<for(1)> message
+                .mode_name[(EXPR0)]; ENDFOR
+?->....number_of_modes:message.mode_name[i];endfor
+                                                  ;save?;
+<*> \?
+      
+? quit
+OK, entering batchmode...
+! Extra tokens will be flushed.
+<to be read again> 
+                   message
+<for(1)> message
+                .mode_name[(EXPR0)]; ENDFOR
+?->....number_of_modes:message.mode_name[i];endfor
+                                                  ;save?;
+<*> \?
+      
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+smoke_
+lowres_
+AgfaFourZeroZero_
+amiga_
+AtariNineFive_
+AtariNineSix_
+AtariSLMEightZeroFour_
+AtariSMOneTwoFour_
+aps_
+ApsSixHi_
+bitgraph_
+bjtenex_
+boise_
+CanonCX_
+CanonEX_
+CanonLBPTen_
+ChelgraphIBX_
+CItohThreeOneZero_
+CItohEightFiveOneZero_
+CompugraphicEightSixZeroZero_
+CompugraphicNineSixZeroZero_
+crs_
+DataDisc_
+DataDiscNew_
+DECsmall_
+DEClarge_
+dover_
+epsdraft_
+epsfast_
+epsonact_
+epsonlo_
+EpsonLQFiveZeroZeroMed_
+EpsonLQFiveZeroZeroLo_
+EpsonMXFX_
+GThreefax_
+gtfaxlo_
+HPDeskJet_
+HPLaserJetIIISi_
+HPrugged_
+ibm_a_
+IBMD_
+IBMFourZeroTwoNine_
+IBMFourTwoOneSix_
+IBMFourZeroOneNine_
+IBMProPrinter_
+IBMSixOneFiveFour_
+IBMSixSixSevenZero_
+IBMThreeOneSevenNine_
+IBMThreeOneNineThree_
+IBMThreeEightOneTwo_
+IBMThreeEightTwoZero_
+IBMEGA_
+IBMVGA_
+imagewriter_
+laserjetfour_
+laserjetlo_
+lasermaster_
+LASevenFive_
+LinotypeOneZeroZeroLo_
+LinotypeOneZeroZero_
+LinotypeThreeZeroZeroHi_
+LNZeroOne_
+LPSTwoZero_
+LPSFourZero_
+lview_
+MacMagnified_
+MacTrueSize_
+NCD_
+NEC_
+NEChi_
+Newgen_
+NeXTprinter_
+NeXTscreen_
+nullmode_
+OCESixSevenFiveZeroPS_
+okidata_
+OneTwoZero_
+phaser_
+PrintwareSevenTwoZeroIQ_
+qms_
+QMSOneSevenTwoFive_
+QMSOneSevenZeroZero_
+RicohFourZeroEightZero_
+RicohLP_
+SparcPrinter_
+StarNLOneZero_
+sun_
+supre_
+toshiba_
+ultre_
+VarityperFiveZeroSixZeroW_
+VarityperFourThreeZeroZeroLo_
+VarityperFourThreeZeroZeroHi_
+VarityperFourTwoZeroZero_
+VarityperSixZeroZero_
+VAXstation_
+XeroxDocutech_
+XeroxEightSevenNineZero_
+XeroxFourZeroFiveZero_
+XeroxNineSevenZeroZero_
+XeroxThreeSevenZeroZero_
+help_
+! Emergency stop.
+<*> \?
+      
+*** (job aborted, no legal end found)
+
+
