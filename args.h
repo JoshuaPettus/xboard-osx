@@ -799,7 +799,12 @@ ParseArgs(GetFunc get, void *cl)
 	if (strcmp(ad->argName, argName + 1) == 0) break;
 
       if (ad->argName == NULL)
-	ExitArgError("Unrecognized argument", argName);
+	// ExitArgError("Unrecognized argument", argName);
+	 {
+	    printf ("Ignoring unrecognized argument %s and rest of line\n", argName);
+	    while (ch != '\n' && ch != NULLCHAR) ch = get(cl);
+	    continue;
+	 }
 
     } else if (ch == '@') {
       /* Indirection file */
