@@ -1491,10 +1491,20 @@ FindFont (char *pattern, int targetPxlSize)
 void
 MarkMenuItem (char *menuRef, int state)
 {
+	guint  signal_id;
+	gulong handler_id;
+	
     MenuItem *item = MenuNameToItem(menuRef);
 
+    
     if(item && item->handle) {
-        ((GtkCheckMenuItem *) (item->handle))->active = state;
+	
+	
+	signal_id = g_signal_lookup( "activate", GTK_TYPE_MENU_ITEM );
+	handler_id = g_signal_handler_find(item->handle,G_SIGNAL_MATCH_ID,signal_id,0,NULL,NULL,NULL);
+	g_signal_handler_block(item->handle,handler_id);
+	gtk_check_menu_item_set_active(item->handle,state);
+	g_signal_handler_unblock(item->handle,handler_id);
     }
     SYNC_MENUBAR;
 }
@@ -2368,8 +2378,8 @@ void FileNamePopUpWrapper(label, def, filter, proc, pathFlag, openMode, name, fp
       dialog = gtk_file_chooser_dialog_new (label,
 					    NULL,
 					    GTK_FILE_CHOOSER_ACTION_OPEN,
-					    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-					    GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+					    _("_Cancel"), GTK_RESPONSE_CANCEL,
+					    _("_Open"), GTK_RESPONSE_ACCEPT,
 					    NULL);
     }
   else
@@ -2377,8 +2387,8 @@ void FileNamePopUpWrapper(label, def, filter, proc, pathFlag, openMode, name, fp
       dialog = gtk_file_chooser_dialog_new (label,
 					    NULL,
 					    GTK_FILE_CHOOSER_ACTION_SAVE,
-					    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-					    GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+					    _("_Cancel"), GTK_RESPONSE_CANCEL,
+					    _("_Save"), GTK_RESPONSE_ACCEPT,
 					    NULL);
       /* add filename suggestions */
       if (strlen(def) > 0 )

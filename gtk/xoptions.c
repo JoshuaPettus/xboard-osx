@@ -402,7 +402,7 @@ CreateMenuItem (Widget menu, char *msg, XtCallbackProc CB, int n)
 #endif
 
 static void
-MenuSelect (gpointer addr) // callback for all combo items
+MenuSelect (GtkWidget *entry, gpointer addr) // callback for all combo items
 {
     Option *opt = dialogOptions[((intptr_t)addr)>>24]; // applicable option list
     int i = ((intptr_t)addr)>>16 & 255; // option number
@@ -437,7 +437,7 @@ CreateMenuPopup (Option *opt, int n, int def)
 	    if(mb[i].handle == RADIO) gtk_check_menu_item_set_draw_as_radio(GTK_CHECK_MENU_ITEM(entry), True);
 	  } else
 	    entry = gtk_menu_item_new_with_label(msg);
-	  gtk_signal_connect_object (GTK_OBJECT (entry), "activate", GTK_SIGNAL_FUNC(MenuSelect), (gpointer) (intptr_t) ((n<<16)+i));
+	  g_signal_connect (GTK_WIDGET (entry), "activate", G_CALLBACK (MenuSelect), (gpointer) (intptr_t) ((n<<16)+i));
 	  if(mb[i].accel) {
 	    guint accelerator_key;
 	    GdkModifierType accelerator_mods;
@@ -454,7 +454,7 @@ CreateMenuPopup (Option *opt, int n, int def)
 	  }
 	} else entry = gtk_separator_menu_item_new();
 	gtk_widget_show(entry);
-	gtk_menu_append(GTK_MENU (menu), entry);
+	gtk_menu_attach(GTK_MENU(menu),GTK_WIDGET(entry),0,1,i,i+1);
 //CreateMenuItem(menu, opt->min & NO_GETTEXT ? msg : _(msg), (XtCallbackProc) ComboSelect, (n<<16)+i);
 	mb[i].handle = (void*) entry; // save item ID, for enabling / checkmarking
 //	if(i==def) {
@@ -477,9 +477,9 @@ static gboolean
 ICSKeyEvent (int keyval)
 {   // TODO_GTK: arrow-handling should really be integrated in type-in proc, and this should be a backe-end OK handler
     switch(keyval) {
-      case GDK_Return: IcsKey(0); return TRUE;
-      case GDK_Up:     IcsKey(1); return TRUE;
-      case GDK_Down:  IcsKey(-1); return TRUE;
+      case GDK_KEY_Return: IcsKey(0); return TRUE;
+      case GDK_KEY_Up:     IcsKey(1); return TRUE;
+      case GDK_KEY_Down:  IcsKey(-1); return TRUE;
       default: return FALSE;
     }
 }
@@ -506,13 +506,13 @@ TypeInProc (GtkWidget *widget, GdkEventKey *event, gpointer gdata)
       case 'h':       return (controlState && IcsHist( 8, opt, dlg));
       case 'n':       return (controlState && IcsHist(14, opt, dlg));
       case 'o':       return (controlState && IcsHist(15, opt, dlg));
-      case GDK_Tab:   IcsHist(10, opt, dlg); break;
-      case GDK_Up:     IcsHist(1, opt, dlg); break;
-      case GDK_Down:  IcsHist(-1, opt, dlg); break;
-      case GDK_Return:
+      case GDK_KEY_Tab:   IcsHist(10, opt, dlg); break;
+      case GDK_KEY_Up:     IcsHist(1, opt, dlg); break;
+      case GDK_KEY_Down:  IcsHist(-1, opt, dlg); break;
+      case GDK_KEY_Return:
 	if(GenericReadout(dialogOptions[dlg], -1)) PopDown(dlg);
 	break;
-      case GDK_Escape:
+      case GDK_KEY_Escape:
 	if(!IcsHist(33, opt, dlg)) PopDown(dlg);
 	break;
       default:
@@ -604,7 +604,7 @@ GameListEvent(GtkWidget *widget, GdkEvent *event, gpointer gdata)
     int n = (intptr_t) gdata;
 
     if(n == 4) {
-	if(((GdkEventKey *) event)->keyval != GDK_Return) return FALSE;
+	if(((GdkEventKey *) event)->keyval != GDK_KEY_Return) return FALSE;
 	SetFilter();
 	return TRUE;
     }
@@ -612,15 +612,15 @@ GameListEvent(GtkWidget *widget, GdkEvent *event, gpointer gdata)
     if(event->type == GDK_KEY_PRESS) {
 	int ctrl = (((GdkEventKey *) event)->state & GDK_CONTROL_MASK) != 0;
 	switch(((GdkEventKey *) event)->keyval) {
-	  case GDK_Up: GameListClicks(-1 - 2*ctrl); return TRUE;
-	  case GDK_Left: GameListClicks(-1); return TRUE;
-	  case GDK_Down: GameListClicks(1 + 2*ctrl); return TRUE;
-	  case GDK_Right: GameListClicks(1); return TRUE;
-	  case GDK_Prior: GameListClicks(-4); return TRUE;
-	  case GDK_Next: GameListClicks(4); return TRUE;
-	  case GDK_Home: GameListClicks(-2); return TRUE;
-	  case GDK_End: GameListClicks(2); return TRUE;
-	  case GDK_Return: GameListClicks(0); return TRUE;
+	  case GDK_KEY_Up: GameListClicks(-1 - 2*ctrl); return TRUE;
+	  case GDK_KEY_Left: GameListClicks(-1); return TRUE;
+	  case GDK_KEY_Down: GameListClicks(1 + 2*ctrl); return TRUE;
+	  case GDK_KEY_Right: GameListClicks(1); return TRUE;
+	  case GDK_KEY_Prior: GameListClicks(-4); return TRUE;
+	  case GDK_KEY_Next: GameListClicks(4); return TRUE;
+	  case GDK_KEY_Home: GameListClicks(-2); return TRUE;
+	  case GDK_KEY_End: GameListClicks(2); return TRUE;
+	  case GDK_KEY_Return: GameListClicks(0); return TRUE;
 	  default: return FALSE;
 	}
     }
@@ -868,64 +868,14 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
     int button=10, f=1, sizing=0;
     Option *opt, *graph = (Option *) gdata;
     PointerCallback *userHandler = graph->target;
-    GdkEventExpose *eevent = (GdkEventExpose *) event;
     GdkEventButton *bevent = (GdkEventButton *) event;
     GdkEventMotion *mevent = (GdkEventMotion *) event;
     GdkEventScroll *sevent = (GdkEventScroll *) event;
     GtkAllocation a;
-    cairo_t *cr;
-
+    
 //    if (!XtIsRealized(widget)) return;
 
     switch(event->type) {
-	case GDK_EXPOSE: // make handling of expose events generic, just copying from memory buffer (->choice) to display (->textValue)
-	    /* Get window size */
-	    gtk_widget_get_allocation(widget, &a);
-	    w = a.width; h = a.height;
-//printf("expose %dx%d @ (%d,%d): %dx%d @(%d,%d)\n", w, h, a.x, a.y, eevent->area.width, eevent->area.height, eevent->area.x, eevent->area.y);
-#ifdef TODO_GTK
-	    j = 0;
-	    XtSetArg(args[j], XtNwidth, &w); j++;
-	    XtSetArg(args[j], XtNheight, &h); j++;
-	    XtGetValues(widget, args, j);
-#endif
-	    if(w < graph->max || w > graph->max + 1 || h != graph->value) { // use width fudge of 1 pixel
-		if(eevent->count >= 0) { // suppress sizing on expose for ordered redraw in response to sizing.
-		    sizing = 1;
-		    graph->max = w; graph->value = h; // note: old values are kept if we we don't exceed width fudge
-		}
-	    } else w = graph->max;
-	    if(sizing && eevent->count > 0) { graph->max = 0; return; } // don't bother if further exposure is pending during resize
-#ifdef TODO_GTK
-	    if(!graph->textValue || sizing) { // create surfaces of new size for display widget
-		if(graph->textValue) cairo_surface_destroy((cairo_surface_t *)graph->textValue);
-		graph->textValue = (char*) cairo_xlib_surface_create(xDisplay, XtWindow(widget), DefaultVisual(xDisplay, 0), w, h);
-	    }
-#endif
-	    if(sizing) { // the memory buffer was already created in GenericPopup(),
-			 // to give drawing routines opportunity to use it before first expose event
-			 // (which are only processed when main gets to the event loop, so after all init!)
-			 // so only change when size is no longer good
-		cairo_t *cr;
-		if(graph->choice) cairo_surface_destroy((cairo_surface_t *) graph->choice);
-		graph->choice = (char**) cairo_image_surface_create (CAIRO_FORMAT_ARGB32, w, h);
-		// paint white, to prevent weirdness when people maximize window and drag pieces over space next to board
-		cr = cairo_create ((cairo_surface_t *) graph->choice);
-		cairo_rectangle (cr, 0, 0, w, h);
-		cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
-		cairo_fill(cr);
-		cairo_destroy (cr);
-		break;
-	    }
-	    w = eevent->area.width;
-	    if(eevent->area.x + w > graph->max) w--; // cut off fudge pixel
-	    cr = gdk_cairo_create(((GtkWidget *) (graph->handle))->window);
-	    cairo_set_source_surface(cr, (cairo_surface_t *) graph->choice, 0, 0);
-//cairo_set_source_rgb(cr, 1, 0, 0);
-	    cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
-	    cairo_rectangle(cr, eevent->area.x, eevent->area.y, w, eevent->area.height);
-	    cairo_fill(cr);
-	    cairo_destroy(cr);
 	default:
 	    return;
 	case GDK_SCROLL:
@@ -957,18 +907,43 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
 #endif
 }
 
+static void
+GraphDrawEventProc(GtkWidget *widget,cairo_t *cr, gpointer gdata)
+{   // handle expose events on Graph widget
+    int w, h;
+    int button=10;
+    Option *opt, *graph = (Option *) gdata;
+    PointerCallback *userHandler = graph->target;
+    GtkAllocation a;
+    
+    gtk_widget_get_allocation(widget, &a);
+	w = a.width; h = a.height;
+	
+	if(w < graph->max || w > graph->max + 1 || h != graph->value) {
+		// use width fudge of 1 pixel
+		graph->max = w; graph->value = h; // note: old values are kept if we we don't exceed width fudge
+		if(graph->choice) cairo_surface_destroy((cairo_surface_t *) graph->choice);
+		graph->choice = (char**) cairo_image_surface_create (CAIRO_FORMAT_ARGB32, w, h);
+		opt = userHandler(button, w, h);
+	}else
+	{
+		cairo_set_source_surface(cr, (cairo_surface_t *) graph->choice, 0, 0);
+		cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
+		cairo_rectangle(cr, 0, 0, w, h);
+		cairo_fill(cr);
+	}	
+}
+
 void
 GraphExpose (Option *opt, int x, int y, int w, int h)
-{
+{	
 #if 0
   GdkRectangle r;
   r.x = x; r.y = y; r.width = w; r.height = h;
   gdk_window_invalidate_rect(((GtkWidget *)(opt->handle))->window, &r, FALSE);
 #endif
-  GdkEventExpose e;
   if(!opt->handle) return;
-  e.area.x = x; e.area.y = y; e.area.width = w; e.area.height = h; e.count = -1; e.type = GDK_EXPOSE; // count = -1: kludge to suppress sizing
-  GraphEventProc(opt->handle, (GdkEvent *) &e, (gpointer) opt); // fake expose event
+  gtk_widget_queue_draw_area(opt->handle,x,y,w,h);
 }
 
 void GenericCallback(GtkWidget *widget, gpointer gdata)
@@ -1031,8 +1006,8 @@ void BrowseGTK(GtkWidget *widget, gpointer gdata)
     dialog = gtk_file_chooser_dialog_new ("Open File",
                       NULL,
                       fc_action,
-                      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+                      _("_Cancel"), GTK_RESPONSE_CANCEL,
+                      _("_Open"), GTK_RESPONSE_ACCEPT,
                       NULL);
 
     /* one filter to show everything */
@@ -1170,11 +1145,17 @@ SameRow (Option *opt)
 }
 
 static void
-Pack (GtkWidget *hbox, GtkWidget *table, GtkWidget *entry, int left, int right, int top, GtkAttachOptions vExpand)
+Pack (GtkWidget *hbox, GtkWidget *grid, GtkWidget *entry, int left, int right, int top, int vExpand)
 {
     if(hbox) gtk_box_pack_start(GTK_BOX (hbox), entry, TRUE, TRUE, 0);
-    else     gtk_table_attach(GTK_TABLE(table), entry, left, right, top, top+1,
-				GTK_FILL | GTK_EXPAND, GTK_FILL | vExpand, 2, 1);
+    else 
+    //gtk_table_attach(GTK_TABLE(table), entry, left, right, top, top+1,
+	//			GTK_FILL | GTK_EXPAND, GTK_FILL | vExpand, 2, 1);
+	gtk_widget_set_hexpand (entry, TRUE);
+	gtk_widget_set_halign (entry, GTK_ALIGN_FILL);
+	gtk_widget_set_vexpand (entry, vExpand);
+				
+	gtk_grid_attach(GTK_GRID(grid), entry, left, top, 1, 1);
 }
 
 int
@@ -1189,10 +1170,13 @@ GenericPopUp (Option *option, char *title, DialogClass dlgNr, DialogClass parent
     GtkWidget *oldHbox = NULL, *hbox = NULL;
     GtkWidget *pane = NULL;
     GtkWidget *button;
-    GtkWidget *table;
+    GtkWidget *grid;
     GtkWidget *spinner;
     GtkAdjustment *spinner_adj;
     GtkWidget *combobox;
+    GtkListStore *list_store;
+    GtkTreeIter    iter;
+    GtkCellRenderer *combocell;    
     GtkWidget *textview;
     GtkTextBuffer *textbuffer;
     GdkColor color;
@@ -1247,17 +1231,17 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
       {
 	dialog = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(dialog), title);
-	box = gtk_vbox_new(FALSE,0);
+	box = gtk_box_new(GTK_ORIENTATION_VERTICAL,0);
 	gtk_container_add (GTK_CONTAINER (dialog), box);
       }
     else
       {
 	dialog = gtk_dialog_new_with_buttons( title,
 					      GTK_WINDOW(shells[parent]),
-					      GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR |
+					      GTK_DIALOG_DESTROY_WITH_PARENT |
 					      (modal ? GTK_DIALOG_MODAL : 0),
-					      GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
-					      GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
+					      _("_OK"), GTK_RESPONSE_ACCEPT,
+					      _("_Cancel"), GTK_RESPONSE_REJECT,
 					      NULL );
 	box = gtk_dialog_get_content_area( GTK_DIALOG( dialog ) );
       }
@@ -1270,7 +1254,8 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
         arraysize++;
     }
 
-    table = gtk_table_new(arraysize, r=TableWidth(option), FALSE);
+    //table = gtk_table_new(arraysize, r=TableWidth(option), FALSE);
+    grid = gtk_grid_new();
     left = 0;
     top = -1;
 
@@ -1279,30 +1264,35 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
         top++;
 //printf("option =%2d, top =%2d\n", i, top);
         if (top >= height || breakType) {
-            gtk_table_resize(GTK_TABLE(table), top - (breakType != 0), r);
+        //    gtk_table_resize(GTK_TABLE(table), top - (breakType != 0), r);
 	    if(!pane) { // multi-column: put tables in intermediate hbox
 		if(breakType & SAME_ROW || engineDlg)
-		    pane =  gtk_hbox_new (FALSE, 0);
+		    pane =  gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 		else
-		    pane =  gtk_vbox_new (FALSE, 0);
+		    pane =  gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 		gtk_box_set_spacing(GTK_BOX(pane), 5 + 5*breakType);
 		gtk_box_pack_start (GTK_BOX (/*GTK_DIALOG (dialog)->vbox*/box), pane, TRUE, TRUE, 0);
 	    }
-	    gtk_box_pack_start (GTK_BOX (pane), table, expandable, TRUE, 0);
-	    table = gtk_table_new(arraysize - i, r=TableWidth(option + i), FALSE);
+	    gtk_box_pack_start (GTK_BOX (pane), grid, expandable, TRUE, 0);
+	    //table = gtk_table_new(arraysize - i, r=TableWidth(option + i), FALSE);
+	    grid = gtk_grid_new();
             top = breakType = 0; expandable = FALSE;
         }
         if(!SameRow(&option[i])) {
 	    if(SameRow(&option[i+1])) {
 		GtkAttachOptions x = GTK_FILL;
 		// make sure hbox is always available when we have more options on same row
-                hbox = gtk_hbox_new (option[i].type == Button && option[i].textValue || option[i].type == Graph, 0);
+                hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+                gtk_box_set_homogeneous (GTK_BOX(hbox),option[i].type == Button && option[i].textValue || option[i].type == Graph);
 		if(!currentCps && option[i].value > 80) x |= GTK_EXPAND; // only vertically extended widgets should size vertically
                 if (strcmp(option[i].name, "") == 0 || option[i].type == Label || option[i].type == Button)
                     // for Label and Button name is contained inside option
-                    gtk_table_attach(GTK_TABLE(table), hbox, left, left+r, top, top+1, GTK_FILL | GTK_EXPAND, x, 2, 1);
+                    //gtk_table_attach(GTK_TABLE(table), hbox, left, left+r, top, top+1, GTK_FILL | GTK_EXPAND, x, 2, 1);
+                    //gtk_grid_attach(GTK_GRID(grid), hbox, left, top, r, 1);
+                    gtk_grid_attach(GTK_GRID(grid), hbox, left, top, 1, 1);
                 else
-                    gtk_table_attach(GTK_TABLE(table), hbox, left+1, left+r, top, top+1, GTK_FILL | GTK_EXPAND, x, 2, 1);
+                    //gtk_table_attach(GTK_TABLE(table), hbox, left+1, left+r, top, top+1, GTK_FILL | GTK_EXPAND, x, 2, 1);
+                    gtk_grid_attach(GTK_GRID(grid), hbox, left+1, top, r-1, 1);
 	    } else hbox = NULL; //and also make sure no hbox exists if only singl option on row
         } else top--;
         switch(option[i].type) {
@@ -1346,12 +1336,13 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                 textbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview));
                 /* check if label is empty */
                 if (strcmp(option[i].name,"") != 0) {
-                    gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
-                    Pack(hbox, table, sw, left+1, left+r, top, 0);
+                    //gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
+                    gtk_grid_attach(GTK_GRID(grid), label, left, top, 1, 1);
+                    Pack(hbox, grid, sw, left+1, left+r, top, 0);
                 }
                 else {
                     /* no label so let textview occupy all columns */
-                    Pack(hbox, table, sw, left, left+r, top, GTK_EXPAND);
+                    Pack(hbox, grid, sw, left, left+r, top, 1);
                 }
                 SetWidgetFont(textview, option[i].font);
                 if ( *(char**)option[i].target != NULL )
@@ -1384,23 +1375,27 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 
             // left, right, top, bottom
             if (strcmp(option[i].name, "") != 0)
-                gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1); // leading names do not expand
+                //gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1); // leading names do not expand
+                gtk_grid_attach(GTK_GRID(grid), label, left, top, 1, 1); // leading names do not expand
 
             if (option[i].type == Spin) {
                 spinner_adj = (GtkAdjustment *) gtk_adjustment_new (option[i].value, option[i].min, option[i].max, 1.0, 0.0, 0.0);
                 spinner = gtk_spin_button_new (spinner_adj, 1.0, 0);
-                gtk_table_attach(GTK_TABLE(table), spinner, left+1, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
+                //gtk_table_attach(GTK_TABLE(table), spinner, left+1, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
+                gtk_grid_attach(GTK_GRID(grid), spinner, left+1, top, r-1, 1);
                 option[i].handle = (void*)spinner;
             }
             else if (option[i].type == FileName || option[i].type == PathName) {
-                gtk_table_attach(GTK_TABLE(table), entry, left+1, left+2, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
+                //gtk_table_attach(GTK_TABLE(table), entry, left+1, left+2, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
+                gtk_grid_attach(GTK_GRID(grid), entry, left+1, top, 1, 1);
                 button = gtk_button_new_with_label ("Browse");
-                gtk_table_attach(GTK_TABLE(table), button, left+2, left+r, top, top+1, GTK_FILL, GTK_FILL, 2, 1); // Browse button does not expand
+                //gtk_table_attach(GTK_TABLE(table), button, left+2, left+r, top, top+1, GTK_FILL, GTK_FILL, 2, 1); // Browse button does not expand
+                gtk_grid_attach(GTK_GRID(grid), button, left+2, top, r-2, 1); // Browse button does not expand
                 g_signal_connect (button, "clicked", G_CALLBACK (BrowseGTK), (gpointer)(intptr_t) i);
                 option[i].handle = (void*)entry;
             }
             else {
-                Pack(hbox, table, entry, left + (strcmp(option[i].name, "") != 0), left+r, top, 0);
+                Pack(hbox, grid, entry, left + (strcmp(option[i].name, "") != 0), left+r, top, 0);
                 option[i].handle = (void*)entry;
             }
             break;
@@ -1408,13 +1403,14 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             checkbutton = gtk_check_button_new_with_label(option[i].name);
             if(!currentCps) option[i].value = *(Boolean*)option[i].target;
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbutton), option[i].value);
-            gtk_table_attach(GTK_TABLE(table), checkbutton, left, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 0);
+            //gtk_table_attach(GTK_TABLE(table), checkbutton, left, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 0);
+            gtk_grid_attach(GTK_GRID(grid), checkbutton, left, top, r, 1);
             option[i].handle = (void *)checkbutton;
             break;
 	  case Icon:
             option[i].handle = (void *) (label = gtk_image_new_from_pixbuf(NULL));
             gtk_widget_set_size_request(label, option[i].max ? option[i].max : -1, -1);
-            Pack(hbox, table, label, left, left+2, top, 0);
+            Pack(hbox, grid, label, left, left+2, top, 0);
             break;
 	  case Label:
             option[i].handle = (void *) (label = gtk_label_new(option[i].name));
@@ -1435,7 +1431,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 		g_signal_connect(label, "button-press-event", G_CALLBACK(MemoEvent), (gpointer) &option[i]);
 		gtk_widget_set_sensitive(label, TRUE);
 	    }
-            Pack(hbox, table, label, left, left+r, top, 0);
+            Pack(hbox, grid, label, left, left+r, top, 0);
 	    break;
           case SaveButton:
           case Button:
@@ -1459,8 +1455,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                    gameInfo.variant ? option[i].value == gameInfo.variant : !strcmp(option[i].name, "Normal"))
                     SetWidgetFont(gtk_bin_get_child(GTK_BIN(button)), &b);
             }
-
-            Pack(hbox, table, button, left, left+1, top, 0);
+            Pack(hbox, grid, button, left, left+1, top, 0);
             g_signal_connect (button, "clicked", G_CALLBACK (GenericCallback), (gpointer)(intptr_t) i + (dlgNr<<16));
             option[i].handle = (void*)button;
             break;
@@ -1468,14 +1463,20 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             label = gtk_label_new(option[i].name);
             /* Left Justify */
             gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
-            gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
+            //gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
+            gtk_grid_attach(GTK_GRID(grid), label, left, top, 1, 1);
 
-            combobox = gtk_combo_box_new_text();
-
+            list_store = gtk_list_store_new (1, G_TYPE_STRING);
             for(j=0;;j++) {
-               if (  ((char **) option[i].textValue)[j] == NULL) break;
-               gtk_combo_box_append_text(GTK_COMBO_BOX(combobox), ((char **) option[i].choice)[j]);
+               if (  ((char **) option[i].textValue)[j] == NULL) break;               
+               gtk_list_store_append(list_store, &iter);
+               gtk_list_store_set(list_store, &iter, 0, ((char **) option[i].choice)[j], -1); // 0 = first column
             }
+            
+            combocell = gtk_cell_renderer_text_new ();
+            gtk_cell_layout_pack_start( GTK_CELL_LAYOUT(combobox), combocell, TRUE );
+            gtk_cell_layout_set_attributes( GTK_CELL_LAYOUT(combobox), combocell, "text", 0, NULL );            
+            combobox = gtk_combo_box_new_with_model(GTK_TREE_MODEL(list_store));
 
             if(currentCps)
                 option[i].choice = (char**) option[i].textValue;
@@ -1493,7 +1494,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             //option[i].value = j + (option[i].choice[j] == NULL);
             gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), option[i].value);
 
-            Pack(hbox, table, combobox, left+1, left+r, top, 0);
+            Pack(hbox, grid, combobox, left+1, left+r, top, 0);
             g_signal_connect(G_OBJECT(combobox), "changed", G_CALLBACK(ComboSelect), (gpointer) (intptr_t) (i + 256*dlgNr));
 
             option[i].handle = (void*)combobox;
@@ -1528,7 +1529,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                     g_signal_connect(list, "button-press-event", G_CALLBACK(ListCallback), (gpointer) (intptr_t) (dlgNr<<16 | i) );
 
                 /* never has label, so let listbox occupy all columns */
-                Pack(hbox, table, sw, left, left+r, top, GTK_EXPAND);
+                Pack(hbox, grid, sw, left, left+r, top, 1);
                 expandable = TRUE;
             }
 	    break;
@@ -1539,7 +1540,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 		a.x = 0; a.y = 0; a.width = option[i].max, a.height = option[i].value;
 		gtk_widget_set_allocation(graph, &a);
 	    }
-            g_signal_connect (graph, "expose-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
+            g_signal_connect (graph, "draw", G_CALLBACK (GraphDrawEventProc), (gpointer) &option[i]);
 	    gtk_widget_add_events(GTK_WIDGET(graph), GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK);
             g_signal_connect (graph, "button-press-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
             g_signal_connect (graph, "button-release-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
@@ -1551,7 +1552,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                 gtk_container_add(GTK_CONTAINER(frame), graph);
 		graph = frame;
 	    }
-            Pack(hbox, table, graph, left, left+r, top, GTK_EXPAND);
+            Pack(hbox, grid, graph, left, left+r, top, 1);
             expandable = TRUE;
 
 #ifdef TODO_GTK
@@ -1581,7 +1582,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	    gtk_widget_show(menuButton);
 	    option[i].textValue = (char*) (menu = CreateMenuPopup(option + i, i + 256*dlgNr, -1));
 	    gtk_menu_item_set_submenu(GTK_MENU_ITEM (menuButton), menu);
-	    gtk_menu_bar_append (GTK_MENU_BAR (menuBar), menuButton);
+	    gtk_menu_shell_append (GTK_MENU_SHELL (menuBar), menuButton);
 
 	    break;
 	  case BarBegin:
@@ -1592,7 +1593,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	  case BoxBegin:
 	    option[i+1].min |= SAME_ROW; // kludge to suppress allocation of new hbox
 	    oldHbox = hbox;
-	    option[i].handle = (void*) (hbox = gtk_hbox_new(FALSE, 0)); // hbox to collect buttons
+	    option[i].handle = (void*) (hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0)); // hbox to collect buttons
 	    gtk_box_pack_start(GTK_BOX (oldHbox), hbox, FALSE, TRUE, 0); // *** Beware! Assumes button bar always on same row with other! ***
 //            gtk_table_attach(GTK_TABLE(table), hbox, left+2, left+3, top, top+1, GTK_FILL | GTK_SHRINK, GTK_FILL, 2, 1);
 	    boxStart = i;
@@ -1600,7 +1601,8 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	  case BarEnd:
 	    top--;
 #ifndef OSXAPP
-            gtk_table_attach(GTK_TABLE(table), menuBar, left, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
+            //gtk_table_attach(GTK_TABLE(table), menuBar, left, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
+            gtk_grid_attach(GTK_GRID(grid), menuBar, left, top, 1, 1);
 
 	    if(option[i].target) ((ButtonCallback*)option[i].target)(boxStart); // callback that can make sizing decisions
 #else
@@ -1623,7 +1625,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	    break;
 	  case Break:
             breakType = option[i].min & SAME_ROW | BORDER; // kludge to flag we must break
-	    option[i].handle = table;
+	    option[i].handle = grid;
             break;
 
 	  case PopUp:
@@ -1635,18 +1637,18 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	}
     }
 
-    gtk_table_resize(GTK_TABLE(table), top+1, r);
+    //gtk_table_resize(GTK_TABLE(table), top+1, r);
     if(dlgNr == BoardWindow && appData.fixedSize) { // inhibit sizing
-	GtkWidget *h = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (h), table, TRUE, FALSE, 2);
-	table = h;
+	GtkWidget *h = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start (GTK_BOX (h), grid, TRUE, FALSE, 2);
+	grid = h;
     }
     if(pane)
-	gtk_box_pack_start (GTK_BOX (pane), table, expandable, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (pane), grid, expandable, TRUE, 0);
     else
-	gtk_box_pack_start (GTK_BOX (/*GTK_DIALOG (dialog)->vbox*/box), table, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (/*GTK_DIALOG (dialog)->vbox*/box), grid, TRUE, TRUE, 0);
 
-    option[i].handle = (void *) table; // remember last table in EndMark handle (for hiding Engine-Output pane).
+    option[i].handle = (void *) grid; // remember last table in EndMark handle (for hiding Engine-Output pane).
 
     gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_NONE);
 

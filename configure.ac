@@ -224,7 +224,7 @@ AC_SUBST(GAMEDATADIR)
 
 dnl | check for libraries
 if test x"$with_GTK" = x"yes" ; then
-  PKG_CHECK_MODULES([GTK], [ gtk+-2.0 >= 2.16.0 gmodule-2.0 ])
+  PKG_CHECK_MODULES([GTK], [ gtk+-3.0 >= 3.0 ])
   FRONTEND_CFLAGS=$GTK_CFLAGS
   FRONTEND_LIBS=$GTK_LIBS
   with_Xaw="no"
