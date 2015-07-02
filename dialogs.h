@@ -84,17 +84,17 @@
 
 #define W_MENU   0  // main menu bar
 #define W_ENGIN  6  // engine menu
-#define W_TITLE 10
-#define W_WHITE 12
-#define W_BLACK 13
-#define W_SMALL 15  // title in small layout
-#define W_MESSG 16
-#define W_BUTTON 17 // button bar
-#define W_PAUSE 20
-#define W_BOARD 24
-#define W_MENUW 25
-#define W_MENUB 26
-#define W_DROP  27  // drop (popup) menu
+#define W_TITLE 11
+#define W_WHITE 13
+#define W_BLACK 14
+#define W_SMALL 16  // title in small layout
+#define W_MESSG 17
+#define W_BUTTON 18 // button bar
+#define W_PAUSE 21
+#define W_BOARD 25
+#define W_MENUW 26
+#define W_MENUB 27
+#define W_DROP  28  // drop (popup) menu
 
 typedef enum {  // identifier of dialogs done by GenericPopup
 TransientDlg=0, // transient: grabs mouse events and is destroyed at pop-down (so other dialog can use this ID next time)

@@ -338,6 +338,7 @@ int border;       /* [HGM] width of board rim, needed to size seek graph  */
 #define TN_SGA  0003
 #define TN_PORT 23
 
+int oldFromX, oldFromY;
 char*
 safeStrCpy (char *dst, const char *src, size_t count)
 { // [HGM] made safe
@@ -5027,7 +5028,10 @@ ParseBoard12 (char *string)
       if (appData.ringBellAfterMoves && /*!ics_user_moved*/ // [HGM] use absolute method to recognize own move
 	    !((gameMode == IcsPlayingWhite) && (!WhiteOnMove(moveNum)) ||
 	      (gameMode == IcsPlayingBlack) &&  (WhiteOnMove(moveNum))   ) ) {
-	if(newMove) RingBell(); else PlayIcsUnfinishedSound();
+	if(newMove){
+		RingBell();
+		SayMachineMove(TRUE); }
+		else PlayIcsUnfinishedSound();
       }
     }
 
@@ -7412,6 +7416,108 @@ void ReportClick(char *action, int x, int y)
 
 Boolean right; // instructs front-end to use button-1 events as if they were button 3
 
+void 
+KeyNavigation(int key)
+{
+	static int lock = 0;
+	static int x = 0;
+	static int y = 0;
+	int mouse_from_x,mouse_to_x,mouse_from_y,mouse_to_y;
+	ChessSquare currentpiece;
+	char speak[200];
+
+	
+	if (key == 16){
+		SayCurrentPos();
+	}
+	else if (key == 15){ //Enter Key Pressed
+		if (lock == 0){
+			if (OKToStartUserMove(fromX, fromY)) {
+			SayString("Start square! Locked!",TRUE);
+			MarkTargetSquares(1);			
+			MarkTargetSquares(0);
+			lock = 1;
+			}
+			else{
+			lock = 0;
+			SayString("Cannot lock at here!",TRUE);
+			}
+		}
+		else{
+			if (fromX == x && fromY == y){
+				lock = 0;
+				MarkTargetSquares(1);
+				printf("\nSame Square");
+			}
+			else{
+			if (!flipView){
+				mouse_from_x = (fromX+0.5)*(squareSize+lineGap);
+				mouse_to_x = (x+0.5)*(squareSize+lineGap);
+				mouse_from_y = ((BOARD_HEIGHT - 1 - fromY)+0.5)*(squareSize+lineGap);
+				mouse_to_y = ((BOARD_HEIGHT - 1 - y)+0.5)*(squareSize+lineGap);
+			}
+			else{
+				mouse_from_x = ((BOARD_WIDTH - 1 - fromX)+0.5)*(squareSize+lineGap);
+				mouse_to_x = ((BOARD_WIDTH - 1 - x)+0.5)*(squareSize+lineGap);
+				mouse_from_y = (fromY+0.5)*(squareSize+lineGap);
+				mouse_to_y = (y+0.5)*(squareSize+lineGap);
+			}			
+			LeftClick(Press, mouse_from_x, mouse_from_y);		
+			LeftClick(Release, mouse_to_x, mouse_to_y);
+			printf("\n %s",lastMsg);
+			lock = 0;
+		    }
+		}
+	}
+	else{ //Arrow Key Pressed
+		if ( fromX != -1 && fromY != -1 && (fromX != x || fromY != y) && lock != 1){
+			x = fromX;
+			y = fromY;
+		}
+		
+		if(((key==11 && !flipView) || (key==12 && flipView)) && y<7 )
+			y++;
+			
+		if(((key==12 && !flipView) || (key==11 && flipView)) && y>0 )
+			y--;
+
+		if(((key==13 && !flipView) || (key==14 && flipView)) && x>0 ) 
+			x--;
+
+		if(((key==14 && !flipView) || (key==13 && flipView)) && x<7 )
+			x++;
+		
+		//Not Locked
+		if (lock == 0){	
+			oldFromX = fromX;
+			oldFromY = fromY;
+			
+			fromX = x;
+			fromY = y;
+			
+			
+		}
+		SetHighlights(x, y, -1, -1);
+		printf("\nArrow keys pressed : x=%d y=%d fromX=%d fromY=%d",x,y,fromX,fromY);
+
+		currentpiece = boards[currentMove][y][x];
+		if (currentpiece != EmptySquare)
+			sprintf(speak,"%s-%d %s.",SquareToChar(x),y+1,PieceToName(currentpiece,1));
+		else
+			sprintf(speak,"%s-%d Empty.",SquareToChar(x),y+1);
+		SayString(speak,TRUE);
+				
+		
+	}
+    
+    
+    //int side = (gameMode == IcsPlayingWhite || gameMode == MachinePlaysBlack ||
+	//	    gameMode != MachinePlaysWhite && gameMode != IcsPlayingBlack && WhiteOnMove(currentMove));
+    
+    //Print the current pece
+
+}
+
 void
 LeftClick (ClickType clickType, int xPix, int yPix)
 {
@@ -8885,7 +8991,10 @@ FakeBookMove: // [HGM] book: we jump here to simulate machine moves after book h
 	ShowMove(fromX, fromY, toX, toY); /*updates currentMove*/
 
         if (!pausing && appData.ringBellAfterMoves) {
-	    if(!roar) RingBell();
+	    if(!roar){
+			RingBell();
+			SayMachineMove(TRUE);
+			}
 	}
 
 	/*

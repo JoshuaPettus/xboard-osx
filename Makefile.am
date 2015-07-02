@@ -47,6 +47,7 @@ xboard_SOURCES = backend.c backend.h backendz.h \
 	 	 board.c board.h \
 	 	 draw.c draw.h \
 		 dialogs.c dialogs.h \
+		 accessibility.c accessibility.h \
 		 engineoutput.c nengineoutput.c engineoutput.h \
 		 evalgraph.c nevalgraph.c evalgraph.h \
 		 history.c nhistory.c \

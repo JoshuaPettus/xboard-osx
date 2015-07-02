@@ -89,6 +89,7 @@ extern char *getenv();
 #include "backend.h"
 #include "menus.h"
 #include "gettext.h"
+#include "accessibility.h"
 
 #ifdef ENABLE_NLS
 # define  _(s) gettext (s)
@@ -583,6 +584,12 @@ SaveSelectedProc ()
 		  SaveSelected, "a");
 }
 
+void 
+sayMachineMove()
+{
+	SayMachineMove(TRUE);
+}
+
 /*
  *  Menu definition tables
  */
@@ -750,6 +757,27 @@ MenuItem optionsMenu[] = {
   {NULL,                          NULL,              NULL,                 NULL}
 };
 
+MenuItem accessibilityMenu[] = {
+  {N_("SayClockTime"),		 "<Alt>t",   "SayClockTime",          SayClockTime},
+  {"----",                   NULL,       NULL,                    NothingProc},
+  {N_("SayWhosTurn"),		 "<Alt>m",   "SayWhosTurn",           SayWhosTurn},
+  {N_("SayMachineMove"),	 "<Alt>x",   "SayMachineMove",        sayMachineMove},
+  {"----",                   NULL,       NULL,                    NothingProc},
+  {N_("SayAllBoard"),		 "<Alt>p",   "SayAllBoard",           SayAllBoard},
+  {N_("SayWhitePieces"),	 "<Alt>w",   "SayWhitePieces",        SayWhitePieces},
+  {N_("SayBlackPieces"),	 "<Alt>b",   "SayBlackPieces",        SayBlackPieces},
+  {N_("ReadRow"),		     "<Alt>r",   "ReadRow",               ReadRow},
+  {N_("ReadColumn"),		 "<Alt>f",   "ReadColumn",            ReadColumn},
+  {"----",                   NULL,       NULL,                    NothingProc},
+  {N_("SayUpperDiagnols"),		 "<Alt>u",   "SayUpperDiagnols",  SayUpperDiagnols},
+  {N_("SayLowerDiagnols"),		 "<Alt>l",   "SayLowerDiagnols",  SayLowerDiagnols},
+  {N_("SayKnightMoves"),		 "<Alt>n",   "SayKnightMoves",    SayKnightMoves},
+  {N_("SayCurrentPos"),		     "<Alt>s",   "SayCurrentPos",     SayCurrentPos},
+  {N_("PossibleAttackMove"),	 "<Alt>a",   "PossibleAttackMove",PossibleAttackMove},
+  {N_("PossibleAttacked"),		 "<Alt>d",   "PossibleAttacked",  PossibleAttacked},
+  {NULL,			 NULL,    NULL,			 NULL}
+};
+
 MenuItem helpMenu[] = {
   {N_("Info XBoard"),		 NULL,	 "InfoXBoard",	         InfoProc},
   {N_("Man XBoard"),		"F1",	 "ManXBoard",		 ManProc},
@@ -803,6 +831,7 @@ Menu menuBar[] = {
     {N_("Action"),  "Action", actionMenu},
     {N_("Engine"),  "Engine", engineMenu},
     {N_("Options"), "Options", optionsMenu},
+    {N_("Accessibility"),   "Accessibility", accessibilityMenu},
     {N_("Help"),    "Help", helpMenu},
     {NULL, NULL, NULL},
     {   "",         "None", noMenu}

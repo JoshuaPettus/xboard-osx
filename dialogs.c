@@ -2496,6 +2496,7 @@ Option mainOptions[] = { // description of main window in terms of generic dialo
   { 0, COMBO_CALLBACK, 0, NULL, (void*)&MenuCallback, NULL, NULL, DropDown, N_("_Action") },
   { 0, COMBO_CALLBACK, 0, NULL, (void*)&MenuCallback, NULL, NULL, DropDown, N_("E_ngine") },
   { 0, COMBO_CALLBACK, 0, NULL, (void*)&MenuCallback, NULL, NULL, DropDown, N_("_Options") },
+  { 0, COMBO_CALLBACK, 0, NULL, (void*)&MenuCallback, NULL, NULL, DropDown, N_("Accessibility") },
   { 0, COMBO_CALLBACK, 0, NULL, (void*)&MenuCallback, NULL, NULL, DropDown, N_("_Help") },
 { 0, 0, 0, NULL, (void*)&SizeKludge, "", NULL, BarEnd, "" },
 { 0, LR|T2T|BORDER|SAME_ROW, 0, NULL, NULL, NULL, NULL, Label, "1" }, // optional title in window
@@ -2595,6 +2596,15 @@ Exp (int n, int x, int y)
 	    InitDrawingHandle(mainOptions + W_BOARD);
 	    if(sizing && SubtractTimeMarks(&now, &programStartTime) > 10000) return NULL; // don't redraw while sizing (except at startup)
 	    DrawPosition(True, NULL);
+		break;
+	case 11:
+	case 12:
+	case 13:
+	case 14:
+	case 15:
+	case 16:
+	KeyNavigation(n);
+	break;
 	default:
 	    return NULL;
     }
@@ -2633,7 +2643,7 @@ BoardPopUp (int squareSize, int lineGap, void *clockFontThingy)
 	mainOptions[W_WHITE].name = mainOptions[W_BLACK].name = "Double\nHeight";
     }
     if(!appData.showButtonBar) for(i=W_BUTTON; i<W_BOARD; i++) mainOptions[i].type = Skip;
-    for(i=0; i<8; i++) mainOptions[i+1].choice = (char**) menuBar[i].mi;
+    for(i=0; i<9; i++) mainOptions[i+1].choice = (char**) menuBar[i].mi;
     AppendEnginesToMenu(appData.recentEngineList);
     GenericPopUp(mainOptions, "XBoard", BoardWindow, BoardWindow, NONMODAL, 1); // allways top-level
     return mainOptions;

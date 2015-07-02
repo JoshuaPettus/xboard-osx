@@ -871,6 +871,7 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
     GdkEventButton *bevent = (GdkEventButton *) event;
     GdkEventMotion *mevent = (GdkEventMotion *) event;
     GdkEventScroll *sevent = (GdkEventScroll *) event;
+    GdkEventKey *kevent = (GdkEventKey *) event;    
     GtkAllocation a;
     
 //    if (!XtIsRealized(widget)) return;
@@ -893,6 +894,30 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
 	    button = bevent->button;
 	    shiftState = bevent->state & GDK_SHIFT_MASK;
 	    controlState = bevent->state & GDK_CONTROL_MASK;
+	    break;
+	case GDK_KEY_PRESS:
+		switch(kevent->keyval)
+		{
+			case GDK_KEY_Up:
+				button = 11;
+				break;
+			case GDK_KEY_Down:
+				button = 12;
+				break;
+			case GDK_KEY_Left:
+				button = 13;
+				break;
+			case GDK_KEY_Right:
+				button = 14;
+				break;
+			case GDK_KEY_Return:
+				button = 15;
+				break;
+			case GDK_KEY_space:
+				button = 16;
+				break;
+		}
+		break;
     }
     button *= f;
 
@@ -905,6 +930,14 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
     }
     XSync(xDisplay, False);
 #endif
+	//Prevent keyboard focus out from graph
+	if (event->type == GDK_KEY_PRESS &&
+	     (kevent->keyval == GDK_KEY_Up ||
+	      kevent->keyval == GDK_KEY_Down ||
+	      kevent->keyval == GDK_KEY_Left ||
+	      kevent->keyval == GDK_KEY_Right))
+		return FALSE;
+
 }
 
 static void
@@ -1417,6 +1450,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             /* Left Justify */
             gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
             SetWidgetFont(label, option[i].font);
+            gtk_label_set_ellipsize(label,PANGO_ELLIPSIZE_END);            
 	    if(option[i].min & BORDER) {
 		GtkWidget *frame = gtk_frame_new(NULL);
                 gtk_container_add(GTK_CONTAINER(frame), label);
@@ -1546,6 +1580,8 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             g_signal_connect (graph, "button-release-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
             g_signal_connect (graph, "motion-notify-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
             g_signal_connect (graph, "scroll-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
+            gtk_widget_set_can_focus(graph,TRUE);
+            g_signal_connect (graph, "key-press-event", G_CALLBACK (GraphEventProc), (gpointer) &option[i]);
 	    if(option[i].min & FIX_H) { // logo
 		GtkWidget *frame = gtk_aspect_frame_new(NULL, 0.5, 0.5, option[i].max/(float)option[i].value, FALSE);
 		gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_NONE);
