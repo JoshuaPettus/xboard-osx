@@ -132,22 +132,22 @@ extern char lastMsg[MSG_SIZ];
 
 
 char *pieceToName[] = {
-    "WhitePawn", "WhiteKnight", "WhiteBishop", "WhiteRook", "WhiteQueen",
-    "WhiteFerz", "WhiteAlfil", "WhiteAngel", "WhiteMarshall", "WhiteWazir", "WhiteMan",
-    "WhiteCannon", "WhiteNightrider", "WhiteCardinal", "WhiteDragon", "WhiteGrasshopper",
-    "WhiteSilver", "WhiteFalcon", "WhiteLance", "WhiteCobra", "WhiteUnicorn", "WhiteLion",
-    "WhiteTokin", "WhiteClaw", "WhitePCardinal", "WhitePDragon", "WhiteCat",
-    "WhitePSword", "WhiteMonarch", "WhiteMother", "WhiteNothing", "WhitePRook", "WhitePDagger",
-    "WhiteDolphin", "WhiteStag", "WhiteHorned", "WhiteEagle", "WhiteSword",
-    "WhiteCrown", "WhiteHCrown", "WhiteHorse", "WhiteDrunk", "WhitePBishop", "WhiteKing",
-    "BlackPawn", "BlackKnight", "BlackBishop", "BlackRook", "BlackQueen",
-    "BlackFerz", "BlackAlfil", "BlackAngel", "BlackMarshall", "BlackWazir", "BlackMan",
-    "BlackCannon", "BlackNightrider", "BlackCardinal", "BlackDragon", "BlackGrasshopper",
-    "BlackSilver", "BlackFalcon", "BlackLance", "BlackCobra", "BlackUnicorn", "BlackLion",
-    "BlackTokin", "BlackClaw", "BlackPCardinal", "BlackPDragon", "BlackCat",
-    "BlackPSword", "BlackMonarch", "BlackMother", "BlackNothing", "BlackPRook", "BlackPDagger",
-    "BlackDolphin", "BlackStag", "BlackHorned", "BlackEagle", "BlackSword",
-    "BlackCrown", "BlackHCrown", "BlackHorse", "BlackDrunk", "BlackPBishop", "BlackKing",
+    "White Pawn", "White Knight", "White Bishop", "White Rook", "White Queen",
+    "White Ferz", "White Alfil", "White Angel", "White Marshall", "White Wazir", "White Man",
+    "White Cannon", "White Nightrider", "White Cardinal", "White Dragon", "White Grasshopper",
+    "White Silver", "White Falcon", "White Lance", "White Cobra", "White Unicorn", "White Lion",
+    "White Tokin", "White Claw", "White PCardinal", "White PDragon", "White Cat",
+    "White PSword", "White Monarch", "White Mother", "White Nothing", "White PRook", "White PDagger",
+    "White Dolphin", "White Stag", "White Horned", "White Eagle", "White Sword",
+    "White Crown", "White HCrown", "White Horse", "White Drunk", "White PBishop", "White King",
+    "Black Pawn", "Black Knight", "Black Bishop", "Black Rook", "Black Queen",
+    "Black Ferz", "Black Alfil", "Black Angel", "Black Marshall", "Black Wazir", "Black Man",
+    "Black Cannon", "Black Nightrider", "Black Cardinal", "Black Dragon", "Black Grasshopper",
+    "Black Silver", "Black Falcon", "Black Lance", "Black Cobra", "Black Unicorn", "Black Lion",
+    "Black Tokin", "Black Claw", "Black PCardinal", "Black PDragon", "Black Cat",
+    "Black PSword", "Black Monarch", "Black Mother", "Black Nothing", "Black PRook", "Black PDagger",
+    "Black Dolphin", "Black Stag", "Black Horned", "Black Eagle", "Black Sword",
+    "Black Crown", "Black HCrown", "Black Horse", "Black Drunk", "Black PBishop", "Black King",
     "EmptySquare", "DarkSquare",
     "NoRights", // [HGM] gamestate: for castling rights hidden in board[CASTLING]
     "ClearBoard", "WhitePlay", "BlackPlay", "PromotePiece", "DemotePiece" /*for use on EditPosition menus*/
@@ -888,7 +888,7 @@ SayMachineMove(int evenIfDuplicate)
 		if(previousMove != 2*moveNr + (dotCount > 1) || evenIfDuplicate) {
 		    char number[20];
 		    previousMove = 2*moveNr + (dotCount > 1); // remember move nr of move last spoken
-		    snprintf(number, sizeof(number)/sizeof(number[0]),"%d", moveNr);
+		    snprintf(number, sizeof(number)/sizeof(number[0]),"%d.", moveNr);
 
 		    yPos = CoordToNum(lastMsg[len-1]);  /* turn char coords to ints */
 		    xPos = CoordToNum(lastMsg[len-2]);
@@ -922,7 +922,7 @@ SayMachineMove(int evenIfDuplicate)
 			SayString(piece, FALSE);
 			if(c == '@') SayString("dropped on", FALSE); else
 			if(c) SayString(disambiguation, FALSE);
-			SayString("to", FALSE);
+			//SayString("to", FALSE);
 			SayString(xchar, FALSE);
 			SayString(ynum, FALSE);
 			if(lastMsg[len-3] == 'x') {
