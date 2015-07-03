@@ -2460,8 +2460,8 @@ void SayString(char *mess, int flag)
 	
 	printf("\nSpeak : %s",buf);
 	char espeak_buf[8000];
-	system("pkill espeak");
-	sprintf(espeak_buf,"espeak '%s'&",buf);
+	system("pkill paplay");
+	sprintf(espeak_buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",buf);
 	system(espeak_buf);
 	buf[0] = NULLCHAR;
 }
