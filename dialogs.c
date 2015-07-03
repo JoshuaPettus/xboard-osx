@@ -2302,6 +2302,7 @@ DisplayMoveError (String message)
     } else {
 	DisplayMessage(message, "");
     }
+    SayString(message,TRUE);
 }
 
 
