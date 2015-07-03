@@ -7074,6 +7074,8 @@ UserMoveEvent(int fromX, int fromY, int toX, int toY, int promoChar)
     }
 
     FinishMove(moveType, fromX, fromY, toX, toY, promoChar);
+    SayString(moveList[currentMove-1],TRUE);
+
 }
 
 /* Common tail of UserMoveEvent and DropMenuEvent */
@@ -7433,7 +7435,10 @@ KeyNavigation(int key)
 	else if (key == 15){ //Enter Key Pressed
 		if (lock == 0){
 			if (OKToStartUserMove(fromX, fromY)) {
-			SayString("Start square! Locked!",TRUE);
+			currentpiece = boards[currentMove][y][x];
+			sprintf(speak,"%s selected at %s-%d ",PieceToName(currentpiece,1),SquareToChar(x),y+1);
+			SayString(speak,TRUE);
+
 			MarkTargetSquares(1);			
 			MarkTargetSquares(0);
 			lock = 1;
