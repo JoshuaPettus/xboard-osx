@@ -762,6 +762,8 @@ MenuItem accessibilityMenu[] = {
   {"----",                   NULL,       NULL,                    NothingProc},
   {N_("SayWhosTurn"),		 "<Alt><Shift>m",   "SayWhosTurn",    SayWhosTurn},
   {N_("SayMachineMove"),	 "<Alt>x",   "SayMachineMove",        sayMachineMove},
+  {N_("SayNextMove"),	     "Next",   "SayNextMove",             SayNextMove},
+  {N_("SayPreviousMove"),	 "Prior",   "SayPreviousMove",        SayPreviousMove},  
   {"----",                   NULL,       NULL,                    NothingProc},
   {N_("SayAllBoard"),		 "<Alt>p",   "SayAllBoard",           SayAllBoard},
   {N_("SayWhitePieces"),	 "<Alt>w",   "SayWhitePieces",        SayWhitePieces},

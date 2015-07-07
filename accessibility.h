@@ -73,3 +73,5 @@ void PossibleAttackMove();
 void SayWhitePieces();
 void SayBlackPieces();
 void SayMachineMove(int evenIfDuplicate);
+void SayPreviousMove();
+void SayNextMove();

@@ -127,7 +127,7 @@
 extern long whiteTimeRemaining, blackTimeRemaining, timeControl, timeIncrement, lastWhite, lastBlack, activePartnerTime;
 extern char *commentList[];
 extern char lastMsg[MSG_SIZ];
-
+extern char moveList[MAX_MOVES][MOVE_LEN];
 
 
 
@@ -967,5 +967,31 @@ SayMachineMove(int evenIfDuplicate)
 	    }
 
 	SayString("", TRUE); // flush
+}
+
+void
+SayMove(int b)
+{
+	static int move_cursor = -1000;
+	if( move_cursor == -1000)
+		move_cursor = currentMove-1;
+
+	if (move_cursor+b >= 0 && move_cursor+b < currentMove )
+	{
+		move_cursor += b;
+		SayString(moveList[move_cursor],TRUE);
+	}
+}
+
+void
+SayNextMove()
+{
+	SayMove(+1);
+}
+
+void
+SayPreviousMove()
+{
+	SayMove(-1);
 }
 
