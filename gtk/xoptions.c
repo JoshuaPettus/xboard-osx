@@ -1207,9 +1207,7 @@ GenericPopUp (Option *option, char *title, DialogClass dlgNr, DialogClass parent
     GtkWidget *spinner;
     GtkAdjustment *spinner_adj;
     GtkWidget *combobox;
-    GtkListStore *list_store;
     GtkTreeIter    iter;
-    GtkCellRenderer *combocell;    
     GtkWidget *textview;
     GtkTextBuffer *textbuffer;
     GdkColor color;
@@ -1500,18 +1498,11 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             //gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
             gtk_grid_attach(GTK_GRID(grid), label, left, top, 1, 1);
 
-            list_store = gtk_list_store_new (1, G_TYPE_STRING);
+            combobox = gtk_combo_box_text_new();
             for(j=0;;j++) {
                if (  ((char **) option[i].textValue)[j] == NULL) break;               
-               gtk_list_store_append(list_store, &iter);
-               gtk_list_store_set(list_store, &iter, 0, ((char **) option[i].choice)[j], -1); // 0 = first column
+               gtk_combo_box_text_append(combobox,NULL,((char **) option[i].choice)[j]);
             }
-            
-            combocell = gtk_cell_renderer_text_new ();
-            gtk_cell_layout_pack_start( GTK_CELL_LAYOUT(combobox), combocell, TRUE );
-            gtk_cell_layout_set_attributes( GTK_CELL_LAYOUT(combobox), combocell, "text", 0, NULL );            
-            combobox = gtk_combo_box_new_with_model(GTK_TREE_MODEL(list_store));
-
             if(currentCps)
                 option[i].choice = (char**) option[i].textValue;
             else {
