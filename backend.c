@@ -7074,7 +7074,7 @@ UserMoveEvent(int fromX, int fromY, int toX, int toY, int promoChar)
     }
 
     FinishMove(moveType, fromX, fromY, toX, toY, promoChar);
-    SayString(moveList[currentMove-1],TRUE);
+    SayMoveDetailed(currentMove-1);
 
 }
 
@@ -15813,6 +15813,7 @@ ForwardInner (int target)
 	DisplayComment(currentMove - 1, commentList[currentMove]);
     }
     ClearMap(); // [HGM] exclude: invalidate map
+    SayMoveDetailed(currentMove - 1);
 }
 
 
@@ -15932,6 +15933,7 @@ BackwardInner (int target)
     // [HGM] PV info: routine tests if comment empty
     DisplayComment(currentMove - 1, commentList[currentMove]);
     ClearMap(); // [HGM] exclude: invalidate map
+    SayMoveDetailed(currentMove);
 }
 
 void
