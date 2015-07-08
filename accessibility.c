@@ -127,7 +127,7 @@
 extern long whiteTimeRemaining, blackTimeRemaining, timeControl, timeIncrement, lastWhite, lastBlack, activePartnerTime;
 extern char *commentList[];
 extern char lastMsg[MSG_SIZ];
-extern char moveList[MAX_MOVES][MOVE_LEN];
+extern char parseList[MAX_MOVES][MOVE_LEN*2];
 
 
 
@@ -873,80 +873,13 @@ SayMachineMove(int evenIfDuplicate)
 		    }
 		    len++;
 		}
-		if(secondSpace) len = secondSpace; // position behind move
-		if(lastMsg[len-1] == '+' || lastMsg[len-1] == '#') {  /* you are in checkmate */
-			len--; // strip off check or mate indicator
-		      checkMark = lastMsg[len]; // make sure still seen after we stip off promo piece
-		}
-		if(lastMsg[len-2] == '=') {  /* promotion */
-			len-=2; // strip off promotion piece
-			SayString("promotion", FALSE);
-		}
-
-		n = 2*moveNr - (dotCount < 2);
-
-		if(previousMove != 2*moveNr + (dotCount > 1) || evenIfDuplicate) {
-		    char number[20];
-		    previousMove = 2*moveNr + (dotCount > 1); // remember move nr of move last spoken
-		    snprintf(number, sizeof(number)/sizeof(number[0]),"%d.", moveNr);
-
-		    yPos = CoordToNum(lastMsg[len-1]);  /* turn char coords to ints */
-		    xPos = CoordToNum(lastMsg[len-2]);
-		    if(xPos < 0 || xPos > 11) return; // prevent crashes if no coord string available to speak
-		    if(yPos < 0 || yPos > 9)  return;
-		    currentpiece = boards[n][yPos][xPos];
-		    piece = PieceToName(currentpiece,0);
-		    ynum = SquareToNum(yPos);
-		    xchar = SquareToChar(xPos);
-		    c = lastMsg[len-3];
-		    if(c == 'x') c = lastMsg[len-4];
-		    if(!isdigit(c) && c < 'a' && c != '@') c = 0;
-		    disambiguation[0] = c;
-		    SayString(WhiteOnMove(n) ? "Black" : "White", FALSE);
-		    SayString("move", FALSE);
-		    SayString(number, FALSE);
-//		    if(c==0 || c=='@') SayString("a", FALSE);
-		    // intercept castling moves
-		    p = StrStr(lastMsg, "O-O-O");
-		    if(p && p-lastMsg < len) {
-			SayString("queen side castling",FALSE);
-			castle = 1;
-		    } else {
-			p = StrStr(lastMsg, "O-O");
-			if(p && p-lastMsg < len) {
-			    SayString("king side castling",FALSE);
-			    castle = 1;
-			}
-		    }
-		    if(!castle) {
-			SayString(piece, FALSE);
-			if(c == '@') SayString("dropped on", FALSE); else
-			if(c) SayString(disambiguation, FALSE);
-			//SayString("to", FALSE);
-			SayString(xchar, FALSE);
-			SayString(ynum, FALSE);
-			if(lastMsg[len-3] == 'x') {
-				currentpiece = boards[n-1][yPos][xPos];
-				if(currentpiece != EmptySquare) {
-					piece = PieceToName(currentpiece,0);
-					SayString("Capturing a",FALSE);
-					SayString(piece, FALSE);
-				} else SayString("Capturing onn passann",FALSE);
-			}
-		    }
-		    if(checkMark == '+') SayString("check", FALSE); else
-		    if(checkMark == '#') {
-				SayString("finishing off", FALSE);
-				SayString(WhiteOnMove(n) ? "White" : "Black", FALSE);
-		    }
-		}
-
-	        /* say comment after move, possibly with result */
+		
 		p = NULL;
-	        if(StrStr(lastMsg, " 1-0")) p = "white wins"; else
-	        if(StrStr(lastMsg, " 0-1")) p = "black wins"; else
-	        if(StrStr(lastMsg, " 1/2-1/2")) p = "game ends in a draw";
-	        if(comment[0]) {
+		if(StrStr(lastMsg, " 1-0")) p = "white wins"; else
+	    if(StrStr(lastMsg, " 0-1")) p = "black wins"; else
+	    if(StrStr(lastMsg, " 1/2-1/2")) p = "game ends in a draw";
+		
+		if(comment[0]) {
 		    if(p) {
 			if(!StrCaseStr(comment, "draw") &&
 			   !StrCaseStr(comment, "white") &&
@@ -956,15 +889,95 @@ SayMachineMove(int evenIfDuplicate)
 			}
 		    }
 		    SayString(comment, FALSE); // alphabetic comment (usually game end)
-	        } else if(p) SayString(p, FALSE);
-
-		//if(commentDialog && commentList[currentMove]) SetFocus(commentDialog);
-
+	    } 
+		
+		n = 2*moveNr - (dotCount < 2);
+		SayMoveDetailed(n-1);
+		
 	    } else {
 		/* starts not with digit */
 		if(StrCaseStr(lastMsg, "illegal")) PlayIcsUnfinishedSound();
-		SayString(lastMsg, FALSE);
+		SayString(lastMsg, TRUE);
 	    }
+}
+
+void 
+SayMoveDetailed(int move_number)
+{
+	int len, xPos, yPos, castle = 0;
+	ChessSquare currentpiece;
+	char *piece, *xchar, *ynum, *p, checkMark = 0;
+	char c, buf[MSG_SIZ], comment[MSG_SIZ];
+	len = strlen(parseList[move_number]);
+	comment[0]= 0;	
+	if(parseList[move_number][len-1] == '+' || parseList[move_number][len-1] == '#') {
+		/* you are in checkmate */
+		len--; // strip off check or mate indicator
+		checkMark = parseList[move_number][len]; // make sure still seen after we stip off promo piece 
+	}
+	
+	if(parseList[move_number][len-2] == '=') {  /* promotion */
+			len-=2; // strip off promotion piece
+			SayString("promotion", FALSE);	}
+		
+	
+	yPos = CoordToNum(parseList[move_number][len-1]);  /* turn char coords to ints */
+	xPos = CoordToNum(parseList[move_number][len-2]);
+	if(xPos < 0 || xPos > 11) return; // prevent crashes if no coord string available to speak
+	if(yPos < 0 || yPos > 9)  return;	
+	currentpiece = boards[move_number+1][yPos][xPos];
+	piece = PieceToName(currentpiece,0);
+	ynum = SquareToNum(yPos);
+	xchar = SquareToChar(xPos);
+
+	c = parseList[move_number][len-3];
+	if(c == 'x') c = parseList[move_number][len-4];
+	if(!isdigit(c) && c < 'a' && c != '@') c = 0;
+
+	SayString(WhiteOnMove(move_number+1) ? "Black" : "White", FALSE);	
+	sprintf(buf,"Move %d.",(move_number+1)/2+((move_number+1)%2));
+	SayString(buf, FALSE);
+		    
+	p = StrStr(parseList[move_number], "O-O-O");
+	if(p && p-parseList[move_number] < len) {
+		SayString("queen side castling",FALSE);
+		castle = 1;
+	}
+	else
+	{
+		p = StrStr(parseList[move_number], "O-O");
+		if(p && p-parseList[move_number] < len) {
+			SayString("king side castling",FALSE);
+			castle = 1;
+		}
+	}
+	if(!castle) {
+		SayString(piece, FALSE);
+		if(c == '@') SayString("dropped on", FALSE); else
+		//if(c) SayString(disambiguation, FALSE);
+		//SayString("to", FALSE);
+		SayString(xchar, FALSE);
+		SayString(ynum, FALSE);
+		if(parseList[move_number][len-3] == 'x') {
+				currentpiece = boards[move_number][yPos][xPos];
+				if(currentpiece != EmptySquare) {
+					piece = PieceToName(currentpiece,0);
+					SayString("Capturing a",FALSE);
+					SayString(piece, FALSE);
+				} else SayString("Capturing onn passann",FALSE);
+			}
+	}
+
+	if(checkMark == '+') SayString("check", FALSE); else
+	if(checkMark == '#') {
+		SayString("finishing off", FALSE);
+		SayString(WhiteOnMove(move_number+1) ? "White." : "Black.", FALSE);
+	}
+	
+	/* say comment after move, possibly with result */
+	if(StrStr(parseList[move_number], " 1-0")) SayString("white wins", FALSE); else
+	if(StrStr(parseList[move_number], " 0-1")) SayString("black wins", FALSE); else
+	if(StrStr(parseList[move_number], " 1/2-1/2")) SayString("game ends in a draw", FALSE);
 
 	SayString("", TRUE); // flush
 }
@@ -979,7 +992,7 @@ SayMove(int b)
 	if (move_cursor+b >= 0 && move_cursor+b < currentMove )
 	{
 		move_cursor += b;
-		SayString(moveList[move_cursor],TRUE);
+		SayMoveDetailed(move_cursor);
 	}
 }
 
