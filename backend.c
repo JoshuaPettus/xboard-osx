@@ -7426,7 +7426,7 @@ KeyNavigation(int key)
 	static int y = 0;
 	int mouse_from_x,mouse_to_x,mouse_from_y,mouse_to_y;
 	ChessSquare currentpiece;
-	char speak[200];
+	char info[200];
 
 	
 	if (key == 16){
@@ -7436,8 +7436,8 @@ KeyNavigation(int key)
 		if (lock == 0){
 			if (OKToStartUserMove(fromX, fromY)) {
 			currentpiece = boards[currentMove][y][x];
-			sprintf(speak,"%s selected at %s-%d ",PieceToName(currentpiece,1),SquareToChar(x),y+1);
-			SayString(speak,TRUE);
+			sprintf(info,"%s selected at %s-%d ",PieceToName(currentpiece,1),SquareToChar(x),y+1);
+			set_accessible_description(info,TRUE);
 
 			MarkTargetSquares(1);			
 			MarkTargetSquares(0);
@@ -7445,7 +7445,7 @@ KeyNavigation(int key)
 			}
 			else{
 			lock = 0;
-			SayString("Cannot lock at here!",TRUE);
+			set_accessible_description("Cannot lock at here!",TRUE);
 			}
 		}
 		else{
@@ -7507,10 +7507,10 @@ KeyNavigation(int key)
 
 		currentpiece = boards[currentMove][y][x];
 		if (currentpiece != EmptySquare)
-			sprintf(speak,"%s-%d %s.",SquareToChar(x),y+1,PieceToName(currentpiece,1));
+			sprintf(info,"%s-%d %s.",SquareToChar(x),y+1,PieceToName(currentpiece,1));
 		else
-			sprintf(speak,"%s-%d Empty.",SquareToChar(x),y+1);
-		SayString(speak,TRUE);
+			sprintf(info,"%s-%d Empty.",SquareToChar(x),y+1);
+		set_accessible_description(info,TRUE);
 				
 		
 	}

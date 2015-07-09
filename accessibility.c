@@ -212,18 +212,18 @@ SayWhosTurn()
 {
 	if(gameMode == MachinePlaysBlack || gameMode == IcsPlayingWhite) {
 		if(WhiteOnMove(currentMove))
-			SayString("It is your turn", FALSE);
-		else	SayString("It is your opponents turn", FALSE);
+			set_accessible_description("It is your turn", FALSE);
+		else	set_accessible_description("It is your opponents turn", FALSE);
 	} else if(gameMode == MachinePlaysWhite || gameMode == IcsPlayingBlack) {
 		if(WhiteOnMove(currentMove))
-			SayString("It is your opponents turn", FALSE);
-		else	SayString("It is your turn", FALSE);
+			set_accessible_description("It is your opponents turn", FALSE);
+		else	set_accessible_description("It is your turn", FALSE);
 	} else {
 		if(WhiteOnMove(currentMove))
-			SayString("White is on move here", FALSE);
-		else	SayString("Black is on move here", FALSE);
+			set_accessible_description("White is on move here", FALSE);
+		else	set_accessible_description("Black is on move here", FALSE);
 	}
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 
@@ -242,18 +242,18 @@ ReadRow()
 		if(currentpiece != EmptySquare) {
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(xPos);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 			count++;
 		}
 	}
 	if(count == 0) {
-		SayString("rank", FALSE);
-		SayString(ynum, FALSE);
-		SayString("empty", FALSE);
+		set_accessible_description("rank", FALSE);
+		set_accessible_description(ynum, FALSE);
+		set_accessible_description("empty", FALSE);
 	}
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 void 
@@ -271,17 +271,17 @@ ReadColumn()
 		if(currentpiece != EmptySquare) {
 			piece = PieceToName(currentpiece,1);
 			ynum = SquareToNum(yPos);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 			count++;
 		}
 	}
 	if(count == 0) {
-		SayString(xchar, FALSE);
-		SayString("file empty", FALSE);
+		set_accessible_description(xchar, FALSE);
+		set_accessible_description("file empty", FALSE);
 	}
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 void 
@@ -294,7 +294,7 @@ SayUpperDiagnols()
 	if(fromX < 0 || fromY < 0) return;
 
 	if(fromX < BOARD_RGHT-1 && fromY < BOARD_HEIGHT-1) {
-		SayString("The diagnol squares to your upper right contain", FALSE);
+		set_accessible_description("The diagnol squares to your upper right contain", FALSE);
 		yPos = fromY+1;
 		xPos = fromX+1;
 		while(yPos<BOARD_HEIGHT && xPos<BOARD_RGHT) {
@@ -302,17 +302,17 @@ SayUpperDiagnols()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(xPos);
 			ynum = SquareToNum(yPos);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 			yPos++;
 			xPos++;
 		}
 	}
-	else SayString("There is no squares to your upper right", FALSE);
+	else set_accessible_description("There is no squares to your upper right", FALSE);
 
 	if(fromX > BOARD_LEFT && fromY < BOARD_HEIGHT-1) {
-		SayString("The diagnol squares to your upper left contain", FALSE);
+		set_accessible_description("The diagnol squares to your upper left contain", FALSE);
 		yPos = fromY+1;
 		xPos = fromX-1;
 		while(yPos<BOARD_HEIGHT && xPos>=BOARD_LEFT) {
@@ -320,15 +320,15 @@ SayUpperDiagnols()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(xPos);
 			ynum = SquareToNum(yPos);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 			yPos++;
 			xPos--;
 		}
 	}
-	else SayString("There is no squares to your upper left", FALSE);
-	SayString("", TRUE); // flush
+	else set_accessible_description("There is no squares to your upper left", FALSE);
+	set_accessible_description("", TRUE); // flush
 }
 
 void
@@ -341,7 +341,7 @@ SayLowerDiagnols()
 	if(fromX < 0 || fromY < 0) return;
 
 	if(fromX < BOARD_RGHT-1 && fromY > 0) {
-		SayString("The diagnol squares to your lower right contain", FALSE);
+		set_accessible_description("The diagnol squares to your lower right contain", FALSE);
 		yPos = fromY-1;
 		xPos = fromX+1;
 		while(yPos>=0 && xPos<BOARD_RGHT) {
@@ -349,17 +349,17 @@ SayLowerDiagnols()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(xPos);
 			ynum = SquareToNum(yPos);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 			yPos--;
 			xPos++;
 		}
 	}
-	else SayString("There is no squares to your lower right", FALSE);
+	else set_accessible_description("There is no squares to your lower right", FALSE);
 
 	if(fromX > BOARD_LEFT && fromY > 0) {
-		SayString("The diagnol squares to your lower left contain", FALSE);
+		set_accessible_description("The diagnol squares to your lower left contain", FALSE);
 		yPos = fromY-1;
 		xPos = fromX-1;
 		while(yPos>=0 && xPos>=BOARD_LEFT) {
@@ -367,15 +367,15 @@ SayLowerDiagnols()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(xPos);
 			ynum = SquareToNum(yPos);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 			yPos--;
 			xPos--;
 		}
 	}
-	else SayString("There is no squares to your lower left", FALSE);
-	SayString("", TRUE); // flush
+	else set_accessible_description("There is no squares to your lower left", FALSE);
+	set_accessible_description("", TRUE); // flush
 }
 
 
@@ -391,15 +391,15 @@ SayClockTime()
 	//	suppressClocks = 0; // back on after two requests in rapid succession
 	snprintf(buf1, sizeof(buf1)/sizeof(buf1[0]),"%s", TimeString(whiteTimeRemaining));
 	str1 = buf1;
-	SayString("White clock", FALSE);
-	SayString(str1, FALSE);
+	set_accessible_description("White clock", FALSE);
+	set_accessible_description(str1, FALSE);
 	snprintf(buf2, sizeof(buf2)/sizeof(buf2[0]), "%s", TimeString(blackTimeRemaining));
 	str2 = buf2;
-	SayString("Black clock", FALSE);
-	SayString(str2, FALSE);
+	set_accessible_description("Black clock", FALSE);
+	set_accessible_description(str2, FALSE);
 	lastWhiteTime = whiteTimeRemaining;
 	lastBlackTime = blackTimeRemaining;
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 int CoordToNum(c)
@@ -424,11 +424,11 @@ SayAllBoard()
 			if(n) {
 			  char buf[MSG_SIZ];
 			  if(!first++)
-			    SayString("white holds", FALSE);
+			    set_accessible_description("white holds", FALSE);
 			  currentpiece = boards[currentMove][Ypos][BOARD_WIDTH-1];
 			  piece = PieceToName(currentpiece,0);
 			  snprintf(buf, MSG_SIZ,"%d %s%s", n, piece, (n==1 ? "" : "s") );
-			  SayString(buf, FALSE);
+			  set_accessible_description(buf, FALSE);
 			}
 		}
 		first = 0;
@@ -437,19 +437,19 @@ SayAllBoard()
 			if(n) {
 			  char buf[MSG_SIZ];
 			  if(!first++)
-			    SayString("black holds", FALSE);
+			    set_accessible_description("black holds", FALSE);
 			  currentpiece = boards[currentMove][Ypos][0];
 			  piece = PieceToName(currentpiece,0);
 			  snprintf(buf, MSG_SIZ, "%d %s%s", n, piece, (n==1 ? "" : "s") );
-			  SayString(buf, FALSE);
+			  set_accessible_description(buf, FALSE);
 			}
 		}
 	}
 
 	for(Ypos=BOARD_HEIGHT-1; Ypos>=0; Ypos--) {
 		ynum = ordinals[Ypos + (gameInfo.boardHeight < 10)];
-		SayString(ynum, FALSE);
-		SayString("rank", FALSE);
+		set_accessible_description(ynum, FALSE);
+		set_accessible_description("rank", FALSE);
 		for(Xpos=BOARD_LEFT; Xpos<BOARD_RGHT; Xpos++) {
 			currentpiece = boards[currentMove][Ypos][Xpos];
 			if(currentpiece != EmptySquare) {
@@ -463,26 +463,26 @@ SayAllBoard()
 				else
 				  snprintf(buf, sizeof(buf)/sizeof(buf[0]), "%s", piece);
 				Xpos--;
-				SayString(buf, FALSE);
+				set_accessible_description(buf, FALSE);
 			} else {
 				int count = 0, oldX = Xpos;
 				while(Xpos < BOARD_RGHT && boards[currentMove][Ypos][Xpos] == EmptySquare)
 					Xpos++, count++;
 				if(Xpos == BOARD_RGHT && oldX == BOARD_LEFT)
-					SayString("all", FALSE);
+					set_accessible_description("all", FALSE);
 				else{
 				    if(count > 1) {
 					char buf[10];
 					snprintf(buf, sizeof(buf)/sizeof(buf[0]),"%d", count);
-					SayString(buf, FALSE);
+					set_accessible_description(buf, FALSE);
 				    }
 				    Xpos--;
 				}
-				SayString("empty", FALSE);
+				set_accessible_description("empty", FALSE);
 			}
 		}
 	}
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 
@@ -495,13 +495,13 @@ SayPieces(ChessSquare p)
 	int yPos, xPos, count = 0;
 	char buf[50];
 
-	if(p == WhitePlay)   SayString("White pieces", FALSE); else
-	if(p == BlackPlay)   SayString("Black pieces", FALSE); else
-	if(p == EmptySquare) SayString("Pieces", FALSE); else {
+	if(p == WhitePlay)   set_accessible_description("White pieces", FALSE); else
+	if(p == BlackPlay)   set_accessible_description("Black pieces", FALSE); else
+	if(p == EmptySquare) set_accessible_description("Pieces", FALSE); else {
 	  snprintf(buf, sizeof(buf)/sizeof(buf[0]),"%ss", PieceToName(p,1));
-		SayString(buf, FALSE);
+		set_accessible_description(buf, FALSE);
 	}
-	SayString("are located", FALSE);
+	set_accessible_description("are located", FALSE);
 	for(yPos=0; yPos<BOARD_HEIGHT; yPos++) {
 		for(xPos=BOARD_LEFT; xPos<BOARD_RGHT; xPos++) {
 			currentpiece = boards[currentMove][yPos][xPos];
@@ -514,17 +514,17 @@ SayPieces(ChessSquare p)
 				piece = NULL;
 			else continue;
 
-				if(count == 0) SayString("at", FALSE);
+				if(count == 0) set_accessible_description("at", FALSE);
 				xchar = SquareToChar(xPos);
 				ynum = SquareToNum(yPos);
-				SayString(xchar , FALSE);
-				SayString(ynum, FALSE);
-				if(piece) SayString(piece, FALSE);
+				set_accessible_description(xchar , FALSE);
+				set_accessible_description(ynum, FALSE);
+				if(piece) set_accessible_description(piece, FALSE);
 				count++;
 		}
 	}
-	if(count == 0) SayString("nowhere", FALSE);
-	SayString("", TRUE); // flush
+	if(count == 0) set_accessible_description("nowhere", FALSE);
+	set_accessible_description("", TRUE); // flush
 }
 
 void SayWhitePieces()
@@ -545,9 +545,9 @@ SayKnightMoves()
 
 	oldpiece = boards[currentMove][fromY][fromX];
 	if(oldpiece == WhiteKnight || oldpiece == BlackKnight)
-		SayString("The possible squares a Knight could move to are", FALSE);
+		set_accessible_description("The possible squares a Knight could move to are", FALSE);
 	else
-		SayString("The squares a Knight could possibly attack from are", FALSE);
+		set_accessible_description("The squares a Knight could possibly attack from are", FALSE);
 
 	if (fromY+2 < BOARD_HEIGHT && fromX-1 >= BOARD_LEFT) {
 		currentpiece = boards[currentMove][fromY+2][fromX-1];
@@ -558,9 +558,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX-1);
 			ynum = SquareToNum(fromY+2);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -573,9 +573,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX+1);
 			ynum = SquareToNum(fromY+2);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -588,9 +588,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX+2);
 			ynum = SquareToNum(fromY+1);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -603,9 +603,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX+2);
 			ynum = SquareToNum(fromY-1);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -618,9 +618,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX+1);
 			ynum = SquareToNum(fromY-2);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -633,9 +633,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX-1);
 			ynum = SquareToNum(fromY-2);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -648,9 +648,9 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX-2);
 			ynum = SquareToNum(fromY-1);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
 
@@ -663,12 +663,12 @@ SayKnightMoves()
 			piece = PieceToName(currentpiece,1);
 			xchar = SquareToChar(fromX-2);
 			ynum = SquareToNum(fromY+1);
-			SayString(xchar , FALSE);
-			SayString(ynum, FALSE);
-			SayString(piece, FALSE);
+			set_accessible_description(xchar , FALSE);
+			set_accessible_description(ynum, FALSE);
+			set_accessible_description(piece, FALSE);
 		}
 	}
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 void 
@@ -676,23 +676,23 @@ SayCurrentPos()
 {
 	ChessSquare currentpiece;
 	char *piece, *xchar, *ynum ;
-	if(fromX <  BOARD_LEFT) { SayString("You strayed into the white holdings", FALSE); return; }
-	if(fromX >= BOARD_RGHT) { SayString("You strayed into the black holdings", FALSE); return; }
+	if(fromX <  BOARD_LEFT) { set_accessible_description("You strayed into the white holdings", FALSE); return; }
+	if(fromX >= BOARD_RGHT) { set_accessible_description("You strayed into the black holdings", FALSE); return; }
 	currentpiece = boards[currentMove][fromY][fromX];
 	piece = PieceToName(currentpiece,1);
 	ynum = SquareToNum(fromY);
 	xchar = SquareToChar(fromX);
-	SayString("Your current position is", FALSE);
-	SayString(xchar, FALSE);
-	SayString(ynum, FALSE);
-	SayString(piece, FALSE);
+	set_accessible_description("Your current position is", FALSE);
+	set_accessible_description(xchar, FALSE);
+	set_accessible_description(ynum, FALSE);
+	set_accessible_description(piece, FALSE);
 	if(((fromX-BOARD_LEFT) ^ fromY)&1)
-		SayString("on a light square",FALSE);
+		set_accessible_description("on a light square",FALSE);
 	else
-		SayString("on a dark square",FALSE);
+		set_accessible_description("on a dark square",FALSE);
 
 	//PossibleAttacked();
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 extern void ReadCallback P((Board board, int flags, ChessMove kind,
@@ -718,9 +718,9 @@ void ReadCallback(board, flags, kind, rf, ff, rt, ft, closure)
 		piece = PieceToName(possiblepiece,1);
 		xchar = SquareToChar(ft);
 		ynum  = SquareToNum(rt);
-		SayString(xchar , FALSE);
-		SayString(ynum, FALSE);
-		SayString(piece, FALSE);
+		set_accessible_description(xchar , FALSE);
+		set_accessible_description(ynum, FALSE);
+		set_accessible_description(piece, FALSE);
 		cl->count++;
 	}
     }
@@ -729,9 +729,9 @@ void ReadCallback(board, flags, kind, rf, ff, rt, ft, closure)
 		piece = PieceToName(possiblepiece,1);
 		xchar = SquareToChar(ff);
 		ynum  = SquareToNum(rf);
-		SayString(xchar , FALSE);
-		SayString(ynum, FALSE);
-		SayString(piece, FALSE);
+		set_accessible_description(xchar , FALSE);
+		set_accessible_description(ynum, FALSE);
+		set_accessible_description(piece, FALSE);
 		cl->count++;
     }
 }
@@ -746,14 +746,14 @@ PossibleAttacked()
 	ChessSquare piece = EmptySquare, victim;
 
 	if(fromY < 0 || fromY >= BOARD_HEIGHT) return;
-	if(fromX < BOARD_LEFT || fromX >= BOARD_RGHT) { SayString("holdings",TRUE); return; }
+	if(fromX < BOARD_LEFT || fromX >= BOARD_RGHT) { set_accessible_description("holdings",TRUE); return; }
 
 	if(oldFromX >= 0 && oldFromY >= 0) { // if piece is selected, remove it
 		piece = boards[currentMove][oldFromY][oldFromX];
 		boards[currentMove][oldFromY][oldFromX] = EmptySquare;
 	}
 
-	SayString("Pieces that can capture you are", FALSE);
+	set_accessible_description("Pieces that can capture you are", FALSE);
 
 	victim = boards[currentMove][fromY][fromX]; // put dummy piece on target square, to activate Pawn captures
 	boards[currentMove][fromY][fromX] = WhiteOnMove(currentMove) ? WhiteQueen : BlackQueen;
@@ -761,15 +761,15 @@ PossibleAttacked()
 	
 	//GenLegal(boards[currentMove], PosFlags(currentMove), Mark, (void*) marker, EmptySquare);
 	GenLegal(boards[currentMove], PosFlags(currentMove+1), ReadCallback, (VOIDSTAR) &cl,EmptySquare);
-	if(cl.count == 0) SayString("None", FALSE);
+	if(cl.count == 0) set_accessible_description("None", FALSE);
 
-	SayString("You are defended by", FALSE);
+	set_accessible_description("You are defended by", FALSE);
 
 	boards[currentMove][fromY][fromX] = WhiteOnMove(currentMove) ? BlackQueen : WhiteQueen;
 	cl.count = 0; cl.rt = fromY; cl.ft = fromX; cl.rf = cl.ff = -1;
 	GenLegal(boards[currentMove], PosFlags(currentMove), ReadCallback, (VOIDSTAR) &cl,EmptySquare);
-	if(cl.count == 0) SayString("None", FALSE);
-	SayString("", TRUE); // flush
+	if(cl.count == 0) set_accessible_description("None", FALSE);
+	set_accessible_description("", TRUE); // flush
 	boards[currentMove][fromY][fromX] = victim; // put back original occupant
 
 	if(oldFromX >= 0 && oldFromY >= 0) { // put back possibl selected piece
@@ -786,7 +786,7 @@ PossibleAttackMove()
 
 //if(appData.debugMode) fprintf(debugFP, "PossibleAttackMove %d %d %d %d\n", fromX, fromY, oldFromX, oldFromY);
 	if(fromY < 0 || fromY >= BOARD_HEIGHT) return;
-	if(fromX < BOARD_LEFT || fromX >= BOARD_RGHT) { SayString("holdings",TRUE); return; }
+	if(fromX < BOARD_LEFT || fromX >= BOARD_RGHT) { set_accessible_description("holdings",TRUE); return; }
 
 	piece = boards[currentMove][fromY][fromX];
 	if(piece == EmptySquare) { // if square is empty, try to substitute selected piece
@@ -794,22 +794,22 @@ PossibleAttackMove()
 		piece = boards[currentMove][oldFromY][oldFromX];
 		boards[currentMove][oldFromY][oldFromX] = EmptySquare;
 		removedSelectedPiece = 1;
-		SayString("Your", FALSE);
-		SayString(PieceToName(piece, 0), FALSE);
-		SayString("would have", FALSE);
-	    } else { SayString("You must select a piece first", TRUE); return; }
+		set_accessible_description("Your", FALSE);
+		set_accessible_description(PieceToName(piece, 0), FALSE);
+		set_accessible_description("would have", FALSE);
+	    } else { set_accessible_description("You must select a piece first", TRUE); return; }
 	}
 
 	victim = boards[currentMove][fromY][fromX];
 	boards[currentMove][fromY][fromX] = piece; // make sure piece is actally there
-	SayString("possible captures from here are", FALSE);
+	set_accessible_description("possible captures from here are", FALSE);
 
 	swapColor = piece <  (int)BlackPawn && !WhiteOnMove(currentMove) ||
 		    piece >= (int)BlackPawn &&  WhiteOnMove(currentMove);
 	cl.count = 0; cl.rf = fromY; cl.ff = fromX; cl.rt = cl.ft = -1;
 	GenLegal(boards[currentMove], PosFlags(currentMove + swapColor), ReadCallback, (VOIDSTAR) &cl,EmptySquare);
-	if(cl.count == 0) SayString("None", FALSE);
-	SayString("", TRUE); // flush
+	if(cl.count == 0) set_accessible_description("None", FALSE);
+	set_accessible_description("", TRUE); // flush
 	boards[currentMove][fromY][fromX] = victim; // repair
 
 	if( removedSelectedPiece ) boards[currentMove][oldFromY][oldFromX] = piece;
@@ -863,7 +863,7 @@ SayMachineMove(int evenIfDuplicate)
 					score > 0 ? "plus" : score < 0 ? "minus" : "",
 					(int) (fabs(score)*100+0.5),
 					depth );
-			    SayString(buf, FALSE); // move + thinking output describing it; say it.
+			    set_accessible_description(buf, FALSE); // move + thinking output describing it; say it.
 			}
 			while(lastMsg[len-1] == ' ') len--; // position just behind move;
 			break;
@@ -884,11 +884,11 @@ SayMachineMove(int evenIfDuplicate)
 			if(!StrCaseStr(comment, "draw") &&
 			   !StrCaseStr(comment, "white") &&
 			   !StrCaseStr(comment, "black") ) {
-				SayString(p, FALSE);
-				SayString("due to", FALSE);
+				set_accessible_description(p, FALSE);
+				set_accessible_description("due to", FALSE);
 			}
 		    }
-		    SayString(comment, FALSE); // alphabetic comment (usually game end)
+		    set_accessible_description(comment, FALSE); // alphabetic comment (usually game end)
 	    } 
 		
 		n = 2*moveNr - (dotCount < 2);
@@ -897,7 +897,7 @@ SayMachineMove(int evenIfDuplicate)
 	    } else {
 		/* starts not with digit */
 		if(StrCaseStr(lastMsg, "illegal")) PlayIcsUnfinishedSound();
-		SayString(lastMsg, TRUE);
+		set_accessible_description(lastMsg, TRUE);
 	    }
 }
 
@@ -918,7 +918,7 @@ SayMoveDetailed(int move_number)
 	
 	if(parseList[move_number][len-2] == '=') {  /* promotion */
 			len-=2; // strip off promotion piece
-			SayString("promotion", FALSE);	}
+			set_accessible_description("promotion", FALSE);	}
 		
 	
 	yPos = CoordToNum(parseList[move_number][len-1]);  /* turn char coords to ints */
@@ -934,52 +934,52 @@ SayMoveDetailed(int move_number)
 	if(c == 'x') c = parseList[move_number][len-4];
 	if(!isdigit(c) && c < 'a' && c != '@') c = 0;
 
-	SayString(WhiteOnMove(move_number+1) ? "Black" : "White", FALSE);	
+	set_accessible_description(WhiteOnMove(move_number+1) ? "Black" : "White", FALSE);	
 	sprintf(buf,"Move %d.",(move_number+1)/2+((move_number+1)%2));
-	SayString(buf, FALSE);
+	set_accessible_description(buf, FALSE);
 		    
 	p = StrStr(parseList[move_number], "O-O-O");
 	if(p && p-parseList[move_number] < len) {
-		SayString("queen side castling",FALSE);
+		set_accessible_description("queen side castling",FALSE);
 		castle = 1;
 	}
 	else
 	{
 		p = StrStr(parseList[move_number], "O-O");
 		if(p && p-parseList[move_number] < len) {
-			SayString("king side castling",FALSE);
+			set_accessible_description("king side castling",FALSE);
 			castle = 1;
 		}
 	}
 	if(!castle) {
-		SayString(piece, FALSE);
-		if(c == '@') SayString("dropped on", FALSE); else
-		//if(c) SayString(disambiguation, FALSE);
-		//SayString("to", FALSE);
-		SayString(xchar, FALSE);
-		SayString(ynum, FALSE);
+		set_accessible_description(piece, FALSE);
+		if(c == '@') set_accessible_description("dropped on", FALSE); else
+		//if(c) set_accessible_description(disambiguation, FALSE);
+		//set_accessible_description("to", FALSE);
+		set_accessible_description(xchar, FALSE);
+		set_accessible_description(ynum, FALSE);
 		if(parseList[move_number][len-3] == 'x') {
 				currentpiece = boards[move_number][yPos][xPos];
 				if(currentpiece != EmptySquare) {
 					piece = PieceToName(currentpiece,0);
-					SayString("Capturing a",FALSE);
-					SayString(piece, FALSE);
-				} else SayString("Capturing onn passann",FALSE);
+					set_accessible_description("Capturing a",FALSE);
+					set_accessible_description(piece, FALSE);
+				} else set_accessible_description("Capturing onn passann",FALSE);
 			}
 	}
 
-	if(checkMark == '+') SayString("check", FALSE); else
+	if(checkMark == '+') set_accessible_description("check", FALSE); else
 	if(checkMark == '#') {
-		SayString("finishing off", FALSE);
-		SayString(WhiteOnMove(move_number+1) ? "White." : "Black.", FALSE);
+		set_accessible_description("finishing off", FALSE);
+		set_accessible_description(WhiteOnMove(move_number+1) ? "White." : "Black.", FALSE);
 	}
 	
 	/* say comment after move, possibly with result */
-	if(StrStr(parseList[move_number], " 1-0")) SayString("white wins", FALSE); else
-	if(StrStr(parseList[move_number], " 0-1")) SayString("black wins", FALSE); else
-	if(StrStr(parseList[move_number], " 1/2-1/2")) SayString("game ends in a draw", FALSE);
+	if(StrStr(parseList[move_number], " 1-0")) set_accessible_description("white wins", FALSE); else
+	if(StrStr(parseList[move_number], " 0-1")) set_accessible_description("black wins", FALSE); else
+	if(StrStr(parseList[move_number], " 1/2-1/2")) set_accessible_description("game ends in a draw", FALSE);
 
-	SayString("", TRUE); // flush
+	set_accessible_description("", TRUE); // flush
 }
 
 void

@@ -202,3 +202,6 @@ void SendString P((char *p));
 // in ngamelist.c
 int GameListClicks P((int direction));
 void SetFilter P((void));
+
+void set_accessible_description(char *mess, int flag);
+void set_graph_accessible_description P((Option *opt, char *val));

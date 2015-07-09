@@ -240,8 +240,6 @@ void SlavePopUp P((void));
 void ActivateTheme P((int new));
 char *Col2Text P((int n));
 
-void SayString P((char *mess, int flag));
-
 /* these are in xhistory.c  */
 Boolean MoveHistoryIsUp P((void));
 void HistoryPopUp P((void));

@@ -2438,30 +2438,3 @@ void FileNamePopUpWrapper(label, def, filter, proc, pathFlag, openMode, name, fp
 
 }
 
-void SayString(char *mess, int flag)
-{ // for debug file
-	static char buf[8000], *p;
-    int l = strlen(buf);
-    
-	if(appData.debugMode) fprintf(debugFP, "SAY '%s'\n", mess);
-    
-    if(l) buf[l++] = ' '; // separate by space from previous
-	
-	safeStrCpy(buf+l, _(mess), 8000-1-l); // buffer
-    if(!flag) return; // wait for flush
-	
-	if(p = StrCaseStr(buf, "Xboard adjudication:")) {
-		int i;
-		for(i=19; i>1; i--) p[i] = p[i-1];
-		p[1] = ' ';
-	}
-	//RealSayString(buf, !strcmp(mess, " ")); // kludge to indicate flushing of interruptable speach
-	if(appData.debugMode) fprintf(debugFP, "SPEAK '%s'\n", buf);
-	
-	printf("\nSpeak : %s",buf);
-	char espeak_buf[8000];
-	system("pkill paplay");
-	sprintf(espeak_buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",buf);
-	system(espeak_buf);
-	buf[0] = NULLCHAR;
-}

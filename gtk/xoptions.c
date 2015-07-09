@@ -979,6 +979,19 @@ GraphExpose (Option *opt, int x, int y, int w, int h)
   gtk_widget_queue_draw_area(opt->handle,x,y,w,h);
 }
 
+void set_graph_accessible_description(Option *opt, char *val)
+{
+	AtkObject *atk_ob;
+	printf("\nRecived %s",val);
+	atk_ob = gtk_widget_get_accessible (GTK_WIDGET(opt->handle));
+	atk_object_set_description(atk_ob,val);
+	
+	//char buf[8000];
+	//system("pkill paplay");
+	//sprintf(buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
+	//system(buf);
+}
+
 void GenericCallback(GtkWidget *widget, gpointer gdata)
 {
     const gchar *name;

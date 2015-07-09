@@ -2302,7 +2302,7 @@ DisplayMoveError (String message)
     } else {
 	DisplayMessage(message, "");
     }
-    SayString(message,TRUE);
+    set_accessible_description(message,TRUE);
 }
 
 
@@ -3064,3 +3064,24 @@ ActivateTheme (int col)
     DrawPosition(True, NULL);
 }
 
+void set_accessible_description(char *mess, int flag)
+{ // for debug file
+	static char buf[8000], *p;
+    int l = strlen(buf);
+    
+	if(appData.debugMode) fprintf(debugFP, "Info '%s'\n", mess);
+    
+    if(l) buf[l++] = ' '; // separate by space from previous
+	
+	safeStrCpy(buf+l, _(mess), 8000-1-l); // buffer
+    if(!flag) return; // wait for flush
+	
+	if(p = StrCaseStr(buf, "Xboard adjudication:")) {
+		int i;
+		for(i=19; i>1; i--) p[i] = p[i-1];
+		p[1] = ' ';
+	}
+		
+	set_graph_accessible_description(&mainOptions[W_BOARD],buf);
+	buf[0] = NULLCHAR;	
+}

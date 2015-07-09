@@ -830,6 +830,19 @@ GenericCallback (Widget w, XtPointer client_data, XtPointer call_data)
     shells[dlg] = oldSh; // in case of multiple instances, restore previous (as this one could be popped down now)
 }
 
+void set_graph_accessible_description(Option *opt, char *val)
+{
+	//AtkObject *atk_ob;
+	printf("\nRecived %s",val);
+	//atk_ob = gtk_widget_get_accessible (GTK_WIDGET(opt->handle));
+	//atk_object_set_description(atk_ob,val);
+	
+	char buf[8000];
+	system("pkill paplay");
+	sprintf(buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
+	system(buf);	
+}
+
 void
 TabProc (Widget w, XEvent *event, String *prms, Cardinal *nprms)
 {   // for transfering focus to the next text-edit
