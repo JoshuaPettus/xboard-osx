@@ -2518,6 +2518,7 @@ Option mainOptions[] = { // description of main window in terms of generic dialo
   { 2, COMBO_CALLBACK, 0, NULL, (void*) &PMSelect, NULL, pieceMenuStrings[0], PopUp, "menuW" },
   { 2, COMBO_CALLBACK, 0, NULL, (void*) &PMSelect, NULL, pieceMenuStrings[1], PopUp, "menuB" },
   { -1, COMBO_CALLBACK, 0, NULL, (void*) &PMSelect, NULL, dropMenuStrings, PopUp, "menuD" },
+  { 0, BORDER, 0, NULL, NULL, NULL, NULL, NotificationLabel, "Graph Notification" },
 { 0,  NO_OK, 0, NULL, NULL, "", NULL, EndMark , "" }
 };
 
@@ -3082,6 +3083,6 @@ void set_accessible_description(char *mess, int flag)
 		p[1] = ' ';
 	}
 		
-	set_graph_accessible_description(&mainOptions[W_BOARD],buf);
+	notify_accessible_description(&mainOptions[W_ACC_TITLE],buf);
 	buf[0] = NULLCHAR;	
 }

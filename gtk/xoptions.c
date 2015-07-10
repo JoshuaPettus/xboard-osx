@@ -979,13 +979,16 @@ GraphExpose (Option *opt, int x, int y, int w, int h)
   gtk_widget_queue_draw_area(opt->handle,x,y,w,h);
 }
 
-void set_graph_accessible_description(Option *opt, char *val)
+void notify_accessible_description(Option *opt, char *val)
 {
+	printf("\nRecived %s",val);	
 	AtkObject *atk_ob;
-	printf("\nRecived %s",val);
-	atk_ob = gtk_widget_get_accessible (GTK_WIDGET(opt->handle));
-	atk_object_set_description(atk_ob,val);
-	
+	GtkWidget *frame;
+	frame = gtk_widget_get_parent(GTK_WIDGET(opt->handle));
+	atk_ob = gtk_widget_get_accessible (GTK_WIDGET(frame));
+	gtk_label_set_text(GTK_LABEL(opt->handle),val);
+	atk_object_notify_state_change(atk_ob,ATK_STATE_SHOWING,TRUE);
+
 	//char buf[8000];
 	//system("pkill paplay");
 	//sprintf(buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
@@ -1456,6 +1459,26 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             gtk_widget_set_size_request(label, option[i].max ? option[i].max : -1, -1);
             Pack(hbox, grid, label, left, left+2, top, 0);
             break;
+
+	  case NotificationLabel:
+            option[i].handle = (void *) (label = gtk_label_new(option[i].name));
+            /* Left Justify */
+            gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+            SetWidgetFont(label, option[i].font);
+            gtk_label_set_ellipsize(label,PANGO_ELLIPSIZE_END);  
+            
+            GtkWidget *frame = gtk_frame_new(NULL);
+			gtk_container_add(GTK_CONTAINER(frame), label);
+			gtk_widget_show_all(frame);
+			label = frame;				
+			AtkObject *atk_ob;
+			atk_ob = gtk_widget_get_accessible (GTK_WIDGET(frame));				
+			atk_object_set_role(atk_ob,ATK_ROLE_NOTIFICATION);
+	    
+            gtk_widget_set_size_request(label, option[i].max ? option[i].max : -1, -1);
+            Pack(hbox, grid, label, left, left+r, top, 0);
+	    break;
+
 	  case Label:
             option[i].handle = (void *) (label = gtk_label_new(option[i].name));
             /* Left Justify */

@@ -95,6 +95,7 @@
 #define W_MENUW 26
 #define W_MENUB 27
 #define W_DROP  28  // drop (popup) menu
+#define W_ACC_TITLE 29 //notification label for screen reader
 
 typedef enum {  // identifier of dialogs done by GenericPopup
 TransientDlg=0, // transient: grabs mouse events and is destroyed at pop-down (so other dialog can use this ID next time)
@@ -204,4 +205,4 @@ int GameListClicks P((int direction));
 void SetFilter P((void));
 
 void set_accessible_description(char *mess, int flag);
-void set_graph_accessible_description P((Option *opt, char *val));
+void notify_accessible_description P((Option *opt, char *val));
