@@ -1471,13 +1471,22 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             SetWidgetFont(label, option[i].font);
             gtk_label_set_ellipsize(label,PANGO_ELLIPSIZE_END);  
             
-            GtkWidget *frame = gtk_frame_new(NULL);
-			gtk_container_add(GTK_CONTAINER(frame), label);
-			gtk_widget_show_all(frame);
-			label = frame;				
-			AtkObject *atk_ob;
-			atk_ob = gtk_widget_get_accessible (GTK_WIDGET(frame));				
-			atk_object_set_role(atk_ob,ATK_ROLE_NOTIFICATION);
+            GtkWidget *frame_inner = gtk_frame_new(NULL);
+			gtk_container_add(GTK_CONTAINER(frame_inner), label);
+
+
+            GtkWidget *frame_outer = gtk_frame_new(NULL);
+			gtk_container_add(GTK_CONTAINER(frame_outer), frame_inner);
+
+			AtkObject *atk_ob1;
+			atk_ob1 = gtk_widget_get_accessible (GTK_WIDGET(frame_inner));				
+			atk_object_set_role(atk_ob1,ATK_ROLE_NOTIFICATION);
+			
+			AtkObject *atk_ob2;
+			atk_ob2 = gtk_widget_get_accessible (GTK_WIDGET(frame_outer));				
+			atk_object_set_role(atk_ob2,ATK_ROLE_STATUSBAR);
+			
+			label = frame_outer;
 	    
             gtk_widget_set_size_request(label, option[i].max ? option[i].max : -1, -1);
             Pack(hbox, grid, label, left, left+r, top, 0);
