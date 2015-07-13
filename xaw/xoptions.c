@@ -830,17 +830,18 @@ GenericCallback (Widget w, XtPointer client_data, XtPointer call_data)
     shells[dlg] = oldSh; // in case of multiple instances, restore previous (as this one could be popped down now)
 }
 
-void set_graph_accessible_description(Option *opt, char *val)
+void notify_accessible_description(Option *opt, char *val)
 {
-	//AtkObject *atk_ob;
-	printf("\nRecived %s",val);
-	//atk_ob = gtk_widget_get_accessible (GTK_WIDGET(opt->handle));
-	//atk_object_set_description(atk_ob,val);
-	
+	printf("\nRecived %s",val);	
+
+    Arg arg;
+    XtSetArg(arg, XtNlabel, (XtArgVal) val);
+    XtSetValues(opt->handle, &arg, 1);
+
 	char buf[8000];
 	system("pkill paplay");
 	sprintf(buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
-	system(buf);	
+	system(buf);
 }
 
 void
@@ -1115,6 +1116,7 @@ GenericPopUp (Option *option, char *title, DialogClass dlgNr, DialogClass parent
 	    break;
 	  case Icon:
 	  case Label:
+	  case NotificationLabel:
 	    msg = option[i].name;
 	    if(!msg) break;
 	    chain = option[i].min;
