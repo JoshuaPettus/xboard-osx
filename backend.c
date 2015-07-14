@@ -7484,8 +7484,9 @@ KeyNavigation(int key)
 				MarkTargetSquares(1);
 				printf("\nSame Square");
 			}
-			else{
-				LeftClick(Press, mouse_from_x, mouse_from_y);		
+			else{					
+				if (gameMode != EditPosition) //Kludge - otherwise pece will be deleted
+						LeftClick(Press, mouse_from_x, mouse_from_y); 
 				LeftClick(Release, mouse_to_x, mouse_to_y);
 				printf("\n %s",lastMsg);
 				lock = 0;
