@@ -2605,6 +2605,7 @@ Exp (int n, int x, int y)
 	case 14:
 	case 15:
 	case 16:
+	case 17:
 	KeyNavigation(n);
 	break;
 	default:

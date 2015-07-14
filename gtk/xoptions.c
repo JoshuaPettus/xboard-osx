@@ -896,26 +896,14 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
 	    controlState = bevent->state & GDK_CONTROL_MASK;
 	    break;
 	case GDK_KEY_PRESS:
-		switch(kevent->keyval)
-		{
-			case GDK_KEY_Up:
-				button = 11;
-				break;
-			case GDK_KEY_Down:
-				button = 12;
-				break;
-			case GDK_KEY_Left:
-				button = 13;
-				break;
-			case GDK_KEY_Right:
-				button = 14;
-				break;
-			case GDK_KEY_Return:
-				button = 15;
-				break;
-			case GDK_KEY_space:
-				button = 16;
-				break;
+		switch(kevent->keyval){
+			case GDK_KEY_Up: button = 11; break;
+			case GDK_KEY_Down: button = 12; break;
+			case GDK_KEY_Left: button = 13; break;
+			case GDK_KEY_Right: button = 14; break;
+			case GDK_KEY_Return: button = 15; break;
+			case GDK_KEY_space: button = 16; break;
+			case GDK_KEY_Delete: button = 17; break;
 		}
 		break;
     }

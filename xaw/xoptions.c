@@ -790,6 +790,7 @@ GraphEventProc(Widget widget, caddr_t client_data, XEvent *event)
 		case 116: button = 12; break;
 		case 65: button = 15; break;
 		case 35: button = 16; break;
+		case 119: button = 17; break;
 	    }
 	    break;
     }

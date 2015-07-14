@@ -7428,9 +7428,39 @@ KeyNavigation(int key)
 	ChessSquare currentpiece;
 	char info[200];
 
+	if (!flipView){
+		mouse_from_x = (fromX+0.5)*(squareSize+lineGap);
+		mouse_to_x = (x+0.5)*(squareSize+lineGap);
+		mouse_from_y = ((BOARD_HEIGHT - 1 - fromY)+0.5)*(squareSize+lineGap);
+		mouse_to_y = ((BOARD_HEIGHT - 1 - y)+0.5)*(squareSize+lineGap);
+	}
+	else{
+		mouse_from_x = ((BOARD_WIDTH - 1 - fromX)+0.5)*(squareSize+lineGap);
+		mouse_to_x = ((BOARD_WIDTH - 1 - x)+0.5)*(squareSize+lineGap);
+		mouse_from_y = (fromY+0.5)*(squareSize+lineGap);
+		mouse_to_y = (y+0.5)*(squareSize+lineGap);
+	}
+
 	
-	if (key == 16){
+	if (key == 16){ //Space
 		SayCurrentPos();
+	}
+	else if(key == 17) //Delete Key
+	{
+		if (gameMode == EditPosition){
+			currentpiece = boards[currentMove][y][x];
+			if (currentpiece != EmptySquare){
+				sprintf(info,"%s-%d %s. Deleted!",SquareToChar(x),y+1,PieceToName(currentpiece,1));
+				LeftClick(Press, mouse_from_x, mouse_from_y);		
+				LeftClick(Release, -1, -1);
+			}
+			else{
+				sprintf(info,"%s-%d. No element to delete!",SquareToChar(x),y+1);
+			}
+		}else{
+			sprintf(info,"Not in Edit-position mode!");
+		}	
+		set_accessible_description(info,TRUE);
 	}
 	else if (key == 15){ //Enter Key Pressed
 		if (lock == 0){
@@ -7455,22 +7485,10 @@ KeyNavigation(int key)
 				printf("\nSame Square");
 			}
 			else{
-			if (!flipView){
-				mouse_from_x = (fromX+0.5)*(squareSize+lineGap);
-				mouse_to_x = (x+0.5)*(squareSize+lineGap);
-				mouse_from_y = ((BOARD_HEIGHT - 1 - fromY)+0.5)*(squareSize+lineGap);
-				mouse_to_y = ((BOARD_HEIGHT - 1 - y)+0.5)*(squareSize+lineGap);
-			}
-			else{
-				mouse_from_x = ((BOARD_WIDTH - 1 - fromX)+0.5)*(squareSize+lineGap);
-				mouse_to_x = ((BOARD_WIDTH - 1 - x)+0.5)*(squareSize+lineGap);
-				mouse_from_y = (fromY+0.5)*(squareSize+lineGap);
-				mouse_to_y = (y+0.5)*(squareSize+lineGap);
-			}			
-			LeftClick(Press, mouse_from_x, mouse_from_y);		
-			LeftClick(Release, mouse_to_x, mouse_to_y);
-			printf("\n %s",lastMsg);
-			lock = 0;
+				LeftClick(Press, mouse_from_x, mouse_from_y);		
+				LeftClick(Release, mouse_to_x, mouse_to_y);
+				printf("\n %s",lastMsg);
+				lock = 0;
 		    }
 		}
 	}
