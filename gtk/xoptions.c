@@ -865,14 +865,13 @@ static void
 GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
 {   // handle expose and mouse events on Graph widget
     int w, h;
-    int button=10, f=1, sizing=0;
+    int button=10, f=1;
     Option *opt, *graph = (Option *) gdata;
     PointerCallback *userHandler = graph->target;
     GdkEventButton *bevent = (GdkEventButton *) event;
     GdkEventMotion *mevent = (GdkEventMotion *) event;
     GdkEventScroll *sevent = (GdkEventScroll *) event;
     GdkEventKey *kevent = (GdkEventKey *) event;    
-    GtkAllocation a;
     
 //    if (!XtIsRealized(widget)) return;
 
@@ -924,7 +923,7 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
 	      kevent->keyval == GDK_KEY_Down ||
 	      kevent->keyval == GDK_KEY_Left ||
 	      kevent->keyval == GDK_KEY_Right))
-		return FALSE;
+		return;
 
 }
 
@@ -1211,11 +1210,9 @@ GenericPopUp (Option *option, char *title, DialogClass dlgNr, DialogClass parent
     GtkWidget *spinner;
     GtkAdjustment *spinner_adj;
     GtkWidget *combobox;
-    GtkTreeIter    iter;
     GtkWidget *textview;
     GtkTextBuffer *textbuffer;
     GdkColor color;
-    GtkWidget *actionarea;
     GtkWidget *sw;
     GtkWidget *list;
     GtkWidget *graph;
@@ -1346,7 +1343,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
           tBox:
             label = gtk_label_new(option[i].name);
             /* Left Justify */
-            gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+            gtk_widget_set_halign(GTK_WIDGET(label), GTK_ALIGN_START);
 
             /* width */
             w = option[i].type == Spin || option[i].type == Fractional ? 70 : option[i].max ? option[i].max : 205;
@@ -1374,7 +1371,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                 /* check if label is empty */
                 if (strcmp(option[i].name,"") != 0) {
                     //gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
-                    gtk_label_set_mnemonic_widget(label,sw);
+                    gtk_label_set_mnemonic_widget(GTK_LABEL(label),sw);
                     gtk_grid_attach(GTK_GRID(grid), label, left, top, 1, 1);
                     Pack(hbox, grid, sw, left+1, left+r, top, 0);
                 }
@@ -1420,13 +1417,13 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                 spinner_adj = (GtkAdjustment *) gtk_adjustment_new (option[i].value, option[i].min, option[i].max, 1.0, 0.0, 0.0);
                 spinner = gtk_spin_button_new (spinner_adj, 1.0, 0);
                 //gtk_table_attach(GTK_TABLE(table), spinner, left+1, left+r, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
-                gtk_label_set_mnemonic_widget(label,spinner);
+                gtk_label_set_mnemonic_widget(GTK_LABEL(label),spinner);
                 gtk_grid_attach(GTK_GRID(grid), spinner, left+1, top, r-1, 1);
                 option[i].handle = (void*)spinner;
             }
             else if (option[i].type == FileName || option[i].type == PathName) {
                 //gtk_table_attach(GTK_TABLE(table), entry, left+1, left+2, top, top+1, GTK_FILL | GTK_EXPAND, GTK_FILL, 2, 1);
-                gtk_label_set_mnemonic_widget(label,entry);
+                gtk_label_set_mnemonic_widget(GTK_LABEL(label),entry);
                 gtk_grid_attach(GTK_GRID(grid), entry, left+1, top, 1, 1);
                 button = gtk_button_new_with_label ("Browse");
                 //gtk_table_attach(GTK_TABLE(table), button, left+2, left+r, top, top+1, GTK_FILL, GTK_FILL, 2, 1); // Browse button does not expand
@@ -1435,7 +1432,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
                 option[i].handle = (void*)entry;
             }
             else {
-				gtk_label_set_mnemonic_widget(label,entry);
+				gtk_label_set_mnemonic_widget(GTK_LABEL(label),entry);
                 Pack(hbox, grid, entry, left + (strcmp(option[i].name, "") != 0), left+r, top, 0);
                 option[i].handle = (void*)entry;
             }
@@ -1457,9 +1454,9 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	  case NotificationLabel:
             option[i].handle = (void *) (label = gtk_label_new(option[i].name));
             /* Left Justify */
-            gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+            gtk_widget_set_halign(GTK_WIDGET(label),GTK_ALIGN_START);
             SetWidgetFont(label, option[i].font);
-            gtk_label_set_ellipsize(label,PANGO_ELLIPSIZE_END);  
+            gtk_label_set_ellipsize(GTK_LABEL(label),PANGO_ELLIPSIZE_END);  
             
             GtkWidget *frame_inner = gtk_frame_new(NULL);
 			gtk_container_add(GTK_CONTAINER(frame_inner), label);
@@ -1485,9 +1482,9 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	  case Label:
             option[i].handle = (void *) (label = gtk_label_new(option[i].name));
             /* Left Justify */
-            gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+            gtk_widget_set_halign(GTK_WIDGET(label), GTK_ALIGN_START);
             SetWidgetFont(label, option[i].font);
-            gtk_label_set_ellipsize(label,PANGO_ELLIPSIZE_END);            
+            gtk_label_set_ellipsize(GTK_LABEL(label),PANGO_ELLIPSIZE_END);            
 	    if(option[i].min & BORDER) {
 		GtkWidget *frame = gtk_frame_new(NULL);
                 gtk_container_add(GTK_CONTAINER(frame), label);
@@ -1533,14 +1530,14 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	  case ComboBox:
             label = gtk_label_new(option[i].name);
             /* Left Justify */
-            gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+            gtk_widget_set_halign(GTK_WIDGET(label), GTK_ALIGN_START);
             //gtk_table_attach(GTK_TABLE(table), label, left, left+1, top, top+1, GTK_FILL, GTK_FILL, 2, 1);
             gtk_grid_attach(GTK_GRID(grid), label, left, top, 1, 1);
 
             combobox = gtk_combo_box_text_new();
             for(j=0;;j++) {
                if (  ((char **) option[i].textValue)[j] == NULL) break;               
-               gtk_combo_box_text_append(combobox,NULL,((char **) option[i].choice)[j]);
+               gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combobox),NULL,((char **) option[i].choice)[j]);
             }
             if(currentCps)
                 option[i].choice = (char**) option[i].textValue;
@@ -1558,7 +1555,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
             //option[i].value = j + (option[i].choice[j] == NULL);
             gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), option[i].value);
             
-            gtk_label_set_mnemonic_widget(label,combobox);
+            gtk_label_set_mnemonic_widget(GTK_LABEL(label),combobox);
 
             Pack(hbox, grid, combobox, left+1, left+r, top, 0);
             g_signal_connect(G_OBJECT(combobox), "changed", G_CALLBACK(ComboSelect), (gpointer) (intptr_t) (i + 256*dlgNr));
@@ -1727,8 +1724,12 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
     if(!topLevel)
       {
 	if((option[i].min & NO_OK)) {
-	  actionarea = gtk_dialog_get_action_area(GTK_DIALOG(dialog));
-	  gtk_widget_hide(actionarea);
+		 button = gtk_dialog_get_widget_for_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
+		 gtk_widget_hide(button);
+	     button = gtk_dialog_get_widget_for_response(GTK_DIALOG(dialog), GTK_RESPONSE_REJECT);
+	     gtk_widget_hide(button);
+	  //actionarea = gtk_dialog_get_action_area(GTK_DIALOG(dialog));
+	 // gtk_widget_hide(actionarea);
 	} else if((option[i].min & NO_CANCEL)) {
 	  button = gtk_dialog_get_widget_for_response(GTK_DIALOG(dialog), GTK_RESPONSE_REJECT);
 	  gtk_widget_hide(button);
