@@ -1290,6 +1290,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
     }
 
     //table = gtk_table_new(arraysize, r=TableWidth(option), FALSE);
+    r=TableWidth(option);
     grid = gtk_grid_new();
     left = 0;
     top = -1;
@@ -1310,6 +1311,7 @@ if(appData.debugMode) printf("n=%d, h=%d, w=%d\n",n,height,width);
 	    }
 	    gtk_box_pack_start (GTK_BOX (pane), grid, expandable, TRUE, 0);
 	    //table = gtk_table_new(arraysize - i, r=TableWidth(option + i), FALSE);
+	    r=TableWidth(option + i);
 	    grid = gtk_grid_new();
             top = breakType = 0; expandable = FALSE;
         }
