@@ -124,9 +124,12 @@
 # endif
 #endif
 
+#include <math.h>
+
 extern long whiteTimeRemaining, blackTimeRemaining, timeControl, timeIncrement, lastWhite, lastBlack, activePartnerTime;
 extern char *commentList[];
 extern char lastMsg[MSG_SIZ];
+extern char moveList[MAX_MOVES][MOVE_LEN];
 extern char parseList[MAX_MOVES][MOVE_LEN*2];
 
 
@@ -384,7 +387,7 @@ SayClockTime()
 {
 	char buf1[50], buf2[50];
 	char *str1, *str2;
-	static long int lastWhiteTime, lastBlackTime;
+	//static long int lastWhiteTime, lastBlackTime;
 
 	//suppressClocks = 1; // if user is using alt+T command, no reason to display them
 	//if(abs(lastWhiteTime - whiteTimeRemaining) < 1000 && abs(lastBlackTime - blackTimeRemaining) < 1000)
@@ -397,8 +400,8 @@ SayClockTime()
 	str2 = buf2;
 	set_accessible_description("Black clock", FALSE);
 	set_accessible_description(str2, FALSE);
-	lastWhiteTime = whiteTimeRemaining;
-	lastBlackTime = blackTimeRemaining;
+	//lastWhiteTime = whiteTimeRemaining;
+	//lastBlackTime = blackTimeRemaining;
 	set_accessible_description("", TRUE); // flush
 }
 
@@ -815,14 +818,15 @@ PossibleAttackMove()
 	if( removedSelectedPiece ) boards[currentMove][oldFromY][oldFromX] = piece;
 }
 
+
+void SayMoveDetailed(int move_number);
+
 void 
 SayMachineMove(int evenIfDuplicate)
 {
-	int len, xPos, yPos, moveNr, secondSpace = 0, castle = 0, n;
-	ChessSquare currentpiece;
-	char *piece, *xchar, *ynum, *p, checkMark = 0;
-	char c, buf[MSG_SIZ], comment[MSG_SIZ];
-	static char disambiguation[2];
+	int len, moveNr, secondSpace = 0, n;
+	char *p;
+	char buf[MSG_SIZ], comment[MSG_SIZ];
 	static int previousMove = 0;
 
 	if(appData.debugMode) fprintf(debugFP, "Message = '%s'\n", lastMsg);
@@ -935,7 +939,7 @@ SayMoveDetailed(int move_number)
 	if(!isdigit(c) && c < 'a' && c != '@') c = 0;
 
 	set_accessible_description(WhiteOnMove(move_number+1) ? "Black" : "White", FALSE);	
-	sprintf(buf,"Move %d.",(move_number+1)/2+((move_number+1)%2));
+	sprintf(buf,"%d.",(move_number+1)/2+((move_number+1)%2));
 	set_accessible_description(buf, FALSE);
 		    
 	p = StrStr(parseList[move_number], "O-O-O");
@@ -953,9 +957,18 @@ SayMoveDetailed(int move_number)
 	}
 	if(!castle) {
 		set_accessible_description(piece, FALSE);
-		if(c == '@') set_accessible_description("dropped on", FALSE); else
-		//if(c) set_accessible_description(disambiguation, FALSE);
-		//set_accessible_description("to", FALSE);
+		if(c == '@') set_accessible_description("dropped on", FALSE);
+		else
+		{
+			int ayPos = CoordToNum(moveList[move_number][1]);
+			int axPos = CoordToNum(moveList[move_number][0]);
+			char *aynum = SquareToNum(ayPos);
+			char *axchar = SquareToChar(axPos);		
+			set_accessible_description(axchar, FALSE);
+			set_accessible_description(aynum, FALSE);
+			set_accessible_description("-", FALSE);
+		}
+		
 		set_accessible_description(xchar, FALSE);
 		set_accessible_description(ynum, FALSE);
 		if(parseList[move_number][len-3] == 'x') {
