@@ -7482,6 +7482,9 @@ KeyNavigation(int key)
 			if (fromX == x && fromY == y){
 				lock = 0;
 				MarkTargetSquares(1);
+				currentpiece = boards[currentMove][y][x];
+				sprintf(info,"%s-%d %s Unselected!",SquareToChar(x),y+1,PieceToName(currentpiece,1));
+				set_accessible_description(info,TRUE);
 				printf("\nSame Square");
 			}
 			else{					
