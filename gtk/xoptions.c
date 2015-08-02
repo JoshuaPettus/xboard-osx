@@ -923,7 +923,7 @@ GraphEventProc(GtkWidget *widget, GdkEvent *event, gpointer gdata)
 	      kevent->keyval == GDK_KEY_Down ||
 	      kevent->keyval == GDK_KEY_Left ||
 	      kevent->keyval == GDK_KEY_Right))
-		return;
+		return FALSE;
 
 }
 
