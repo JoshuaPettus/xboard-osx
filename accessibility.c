@@ -901,7 +901,8 @@ SayMachineMove(int evenIfDuplicate)
 	    } else {
 		/* starts not with digit */
 		if(StrCaseStr(lastMsg, "illegal")) PlayIcsUnfinishedSound();
-		set_accessible_description(lastMsg, TRUE);
+		SayMoveDetailed(currentMove-1);
+		//set_accessible_description(lastMsg, TRUE);
 	    }
 }
 
