@@ -401,6 +401,22 @@ NothingProc ()
 #   define MARK_MENU_ITEM(X,Y) MarkMenuItem(X, Y)
 #endif
 
+
+void
+ShowAccessibilityStatusbarProc ()
+{
+  appData.showAccessibilityStatusbar = !appData.showAccessibilityStatusbar;
+  ShowAccessibilityStatusbarEvent();
+  MARK_MENU_ITEM("Accessibility.ShowAccessibilityStatusbar", appData.showAccessibilityStatusbar);
+}
+
+void
+AnnounceMoveProc ()
+{
+  appData.announceMove = !appData.announceMove;
+  MARK_MENU_ITEM("Options.AnnounceMove", appData.announceMove);
+}
+
 void
 PonderNextMoveProc ()
 {
@@ -752,12 +768,15 @@ MenuItem optionsMenu[] = {
   {N_("Test Legality"),          "<Ctrl><Shift>l",  "TestLegality",        TestLegalityProc},
   {"----",                        NULL,              NULL,                 NothingProc},
 #endif
+  {N_("Announce Move"),       	  NULL,             "AnnounceMove",        AnnounceMoveProc,        CHECK },
   {N_("Save Settings Now"),       NULL,             "SaveSettingsNow",     SaveSettingsProc},
   {N_("Save Settings on Exit"),   NULL,             "SaveSettingsonExit",  SaveOnExitProc,         CHECK },
   {NULL,                          NULL,              NULL,                 NULL}
 };
 
 MenuItem accessibilityMenu[] = {
+  {N_("Show Status Bar"),	 NULL,   "ShowAccessibilityStatusbar", ShowAccessibilityStatusbarProc,			CHECK},
+  {"----",                   NULL,       NULL,                    NothingProc},	
   {N_("SayClockTime"),		 "<Alt>t",   "SayClockTime",          SayClockTime},
   {"----",                   NULL,       NULL,                    NothingProc},
   {N_("SayWhosTurn"),		 "<Alt><Shift>m",   "SayWhosTurn",    SayWhosTurn},
@@ -1341,6 +1360,15 @@ InitMenuMarkers()
     if (saveSettingsOnExit) {
 	MarkMenuItem("Options.SaveSettingsonExit", True);
     }
+    
+    if (appData.announceMove) {
+	MarkMenuItem("Options.AnnounceMove", True);
+	}
+	
+    if (appData.showAccessibilityStatusbar) {
+	MarkMenuItem("Accessibility.ShowAccessibilityStatusbar", True);
+	}
+    ShowAccessibilityStatusbarEvent();
     EnableNamedMenuItem("File.SaveSelected", False);
 
     // all XBoard builds get here, but not WinBoard...

@@ -851,11 +851,23 @@ void notify_accessible_description(Option *opt, char *val)
     XtSetArg(arg, XtNlabel, (XtArgVal) val);
     XtSetValues(opt->handle, &arg, 1);
 
-	char buf[8000];
-	system("pkill paplay");
-	sprintf(buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
-	system(buf);
+	//char buf[8000];
+	//system("pkill paplay");
+	//sprintf(buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
+	//system(buf);
 }
+
+void 
+show_hide_accessibility_status_bar(Option *opt,int val)
+{
+	//if (val){
+	//	gtk_widget_show(GTK_WIDGET(opt->handle));
+	//}
+	//else{
+	//	gtk_widget_hide(GTK_WIDGET(opt->handle));
+	//}
+}
+
 
 void
 TabProc (Widget w, XEvent *event, String *prms, Cardinal *nprms)

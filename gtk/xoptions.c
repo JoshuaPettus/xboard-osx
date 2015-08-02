@@ -982,6 +982,17 @@ void notify_accessible_description(Option *opt, char *val)
 	//system(buf);
 }
 
+void 
+show_hide_accessibility_status_bar(Option *opt,int val)
+{	
+	if (val){
+		gtk_widget_show(GTK_WIDGET(opt->handle));
+	}
+	else{
+		gtk_widget_hide(GTK_WIDGET(opt->handle));
+	}
+}
+
 void GenericCallback(GtkWidget *widget, gpointer gdata)
 {
     const gchar *name;

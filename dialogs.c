@@ -3085,5 +3085,24 @@ void set_accessible_description(char *mess, int flag)
 	}
 		
 	notify_accessible_description(&mainOptions[W_ACC_TITLE],buf);
+	
+	
+	char tts_buf[8000];
+	if(appData.announceMove)
+	{
+		system("pkill paplay");
+		//sprintf(tts_buf,"pico2wave -l en-GB -w info.wav '%s' && paplay info.wav &",val);
+		sprintf(tts_buf,"espeak '%s' --stdout | paplay &",buf);
+		system(tts_buf);
+	}
+	
 	buf[0] = NULLCHAR;	
+}
+
+
+void
+ShowAccessibilityStatusbarEvent ()
+{
+	printf("\nAccessibilityStatusbar = %d", appData.showAccessibilityStatusbar);
+	show_hide_accessibility_status_bar(&mainOptions[W_ACC_TITLE],appData.showAccessibilityStatusbar);
 }

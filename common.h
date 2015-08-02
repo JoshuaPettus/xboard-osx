@@ -552,6 +552,8 @@ typedef struct {
     Boolean oneClick;
     Boolean quietPlay;
     Boolean showThinking;
+    Boolean showAccessibilityStatusbar;
+    Boolean announceMove; //text to speech
     Boolean ponderNextMove;
     Boolean periodicUpdates;
     Boolean autoObserve;
